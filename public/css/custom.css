@@ -1,0 +1,44 @@
+/* Galeria */
+.portfolio .galeria-item {
+  margin-bottom: 30px;
+}
+
+.portfolio .galeria-item .portfolio-img {
+  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio .galeria-item .portfolio-img img {
+  transition: all 0.6s;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio .galeria-item:hover .portfolio-img img {
+  transform: scale(1.10);
+
+
+}
+
+/* feedback */
+.testimony-wrap{
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  width: 300px;
+  height: 390px;
+}
+.depoimento-info{
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+.depoimento-nome{
+  font-size: 20px;
+  font-weight: bold;
+}
