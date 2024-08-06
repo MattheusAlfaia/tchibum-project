@@ -328,7 +328,7 @@
                         <div class="text" style="border-radius: 50px;">
                             <h3 class="heading"><a>{{ $comunidade->nome }}</a></h3>
                             <p>{{ $comunidade->titulo }}</p>
-                            <p><a href="/comunidade-1" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
+                            <p><a href="/comunidade-{{ $comunidade->id }}" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
                         </div>
                     </div>
                 </div>
