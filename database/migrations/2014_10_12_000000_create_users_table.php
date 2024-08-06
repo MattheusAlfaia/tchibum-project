@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('identificacao')->nullable()->unique();
             $table->string('proficao')->nullable();
             $table->string('nacionalidade')->nullable();
-            $table->string('estado');
+            $table->string('estado')->nullable();
             $table->string("role")->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
