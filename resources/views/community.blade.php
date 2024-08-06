@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ secure_asset('/storage/' . $comunidade->imagem_principal) }}');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('/storage/' . $comunidade->imagem_principal) }}');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -36,7 +36,7 @@
                         <!-- Primeira imagem maior -->
                         <div class="col-md-12">
                             @if ($image1 != NULL)
-                                <img id="image" src="{{ secure_asset('/storage/' . $image1 ) }}" alt="Imagem 1" class="img-fluid first-image">
+                                <img id="image" src="{{ asset('/storage/' . $image1 ) }}" alt="Imagem 1" class="img-fluid first-image">
                             @endif
                         </div>
                     </div>
@@ -45,12 +45,12 @@
                         <!-- Duas imagens em cima -->
                         <div class="col-md-6">
                             @if ($image2 != NULL)
-                                <img  id="image" src="{{ secure_asset('/storage/' . $image2 ) }}" alt="Imagem 2" class="img-fluid other-images">
+                                <img  id="image" src="{{ asset('/storage/' . $image2 ) }}" alt="Imagem 2" class="img-fluid other-images">
                             @endif
                         </div>
                         <div class="col-md-6">
                             @if ($image3 != NULL)
-                                <img id="image" src="{{ secure_asset('/storage/' . $image3 ) }}" alt="Imagem 3" class="img-fluid other-images">
+                                <img id="image" src="{{ asset('/storage/' . $image3 ) }}" alt="Imagem 3" class="img-fluid other-images">
                             @endif
                         </div>
                     </div>
@@ -59,12 +59,12 @@
                         <!-- Duas imagens embaixo -->
                         <div class="col-md-6">
                             @if ($image4 != NULL)
-                                <img id="image" src="{{ secure_asset('/storage/' . $image4 ) }}" alt="Imagem 4" class="img-fluid other-images">
+                                <img id="image" src="{{ asset('/storage/' . $image4 ) }}" alt="Imagem 4" class="img-fluid other-images">
                             @endif
                         </div>
                         <div class="col-md-6">
                             @if ($image5 != NULL)
-                                <img id="image" src="{{ secure_asset('/storage/' . $image5 ) }}" alt="Imagem 5" class="img-fluid other-images">
+                                <img id="image" src="{{ asset('/storage/' . $image5 ) }}" alt="Imagem 5" class="img-fluid other-images">
                             @endif
                         </div>
                     </div>

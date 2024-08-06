@@ -19,6 +19,7 @@ class CommunityController extends Controller
 
         $imagedefault = 'default.png';
 
+
         $image1 = isset($comunidade->imagens_secundarias[0]) ? $comunidade->imagens_secundarias[0] : NULL;
         $image2 = isset($comunidade->imagens_secundarias[1]) ? $comunidade->imagens_secundarias[1] : NULL;
         $image3 = isset($comunidade->imagens_secundarias[2]) ? $comunidade->imagens_secundarias[2] : NULL;

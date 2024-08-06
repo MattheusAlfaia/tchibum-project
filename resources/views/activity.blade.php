@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ secure_asset('/storage/55.webp') }}');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('/storage/39.jpg') }}');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -36,7 +36,7 @@
                         <!-- Primeira imagem maior -->
                         <div class="col-md-12">
 
-                            <img id="image" src="{{ secure_asset('/storage/' . $opcoe->imagem) }}" alt="Imagem 1" class="img-fluid first-image">
+                            <img id="image" src="{{ asset('/storage/' . $opcoe->imagem) }}" alt="Imagem 1" class="img-fluid first-image">
 
                         </div>
                     </div>

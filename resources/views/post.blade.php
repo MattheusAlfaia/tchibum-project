@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section class="hero-wrap hero-wrap-1 js-fullheight" style="background-image: url('{{ secure_asset('/storage/13.jpg') }}');">
+<section class="hero-wrap hero-wrap-1 js-fullheight" style="background-image: url('{{ asset('/storage/13.jpg') }}');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -37,7 +37,7 @@
             <div class="col-md-6 d-flex">
                 <div id="img-post" class="col-md-12 d-flex align-items-stretch">
                     <div class="img w-100 align-items-center justify-content-center"
-                        style="background-image:url('{{ secure_asset('/storage/' . $post->imagem_principal) }}');">
+                        style="background-image:url('{{ asset('/storage/' . $post->imagem_principal) }}');">
                     </div>
                 </div>
             </div>
