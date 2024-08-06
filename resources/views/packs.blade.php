@@ -2,7 +2,7 @@
 @section('title','posts')
 @section('content')
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ secure_asset('/storage/47.jpg') }}');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('/storage/47.jpg') }}');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -25,7 +25,7 @@
 
             <div  class="col-md-4 d-flex ftco-animate" >
                     <div class="blog-entry justify-content-end">
-                      <img class="block-20" src="{{secure_asset('/storage/'. $pacote->imagem_principal)}}">
+                      <img class="block-20" src="{{asset('/storage/'. $pacote->imagem_principal)}}">
 
                     <div class="text">
                       <div class="d-flex align-items-center mb-4 topp">
