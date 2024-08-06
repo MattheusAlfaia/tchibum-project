@@ -42,17 +42,17 @@ return [
     // sobre
     
     'sobre_nos' => 'About us', PHP_EOL,
-    // 'sobre_titulo' => $sobre->titulo_principal, PHP_EOL,
-    // 'sobre_texto' => $sobre->sobre, PHP_EOL,
-    // 'sobre' => 'About us', PHP_EOL,
-    // 'sobre_descricao_atividade_comunidade1' => $sobre->descricao_atividade_comunidade1, PHP_EOL,
-    // 'sobre_descricao_atividade_comunidade2' => $sobre->descricao_atividade_comunidade2, PHP_EOL,
-    // 'sobre_nome_atividade_comunidade1'=> $sobre->nome_atividade_comunidade1, PHP_EOL,
-    // 'sobre_nome_atividade_comunidade2'=> $sobre->nome_atividade_comunidade2, PHP_EOL,
-    // 'sobre_nome_atividade_comunidade3'=> $sobre->nome_atividade_comunidade3, PHP_EOL,
-    // 'sobre_nome_atividade_comunidade4'=> $sobre->nome_atividade_comunidade4, PHP_EOL,
-    // 'sobre_descricao_atividade_comunidade3' => $sobre->descricao_atividade_comunidade3, PHP_EOL,
-    // 'sobre_descricao_atividade_comunidade4' => $sobre->descricao_atividade_comunidade4, PHP_EOL,
+    'sobre_titulo' => $sobre->titulo_principal, PHP_EOL,
+    'sobre_texto' => $sobre->sobre, PHP_EOL,
+    'sobre' => 'About us', PHP_EOL,
+    'sobre_descricao_atividade_comunidade1' => $sobre->descricao_atividade_comunidade1, PHP_EOL,
+    'sobre_descricao_atividade_comunidade2' => $sobre->descricao_atividade_comunidade2, PHP_EOL,
+    'sobre_nome_atividade_comunidade1'=> $sobre->nome_atividade_comunidade1, PHP_EOL,
+    'sobre_nome_atividade_comunidade2'=> $sobre->nome_atividade_comunidade2, PHP_EOL,
+    'sobre_nome_atividade_comunidade3'=> $sobre->nome_atividade_comunidade3, PHP_EOL,
+    'sobre_nome_atividade_comunidade4'=> $sobre->nome_atividade_comunidade4, PHP_EOL,
+    'sobre_descricao_atividade_comunidade3' => $sobre->descricao_atividade_comunidade3, PHP_EOL,
+    'sobre_descricao_atividade_comunidade4' => $sobre->descricao_atividade_comunidade4, PHP_EOL,
 
     //fale conosco 
 
