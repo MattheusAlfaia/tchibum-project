@@ -24,20 +24,22 @@ class DepoimentosResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nome')
-                ->required()
-                ->maxLength(15),
+                    ->required()
+                    ->maxLength(15),
                 Forms\Components\TextInput::make('avaliação')
-                ->default(0)
-                ->required()
-                ->numeric(),
+                    ->default(0)
+                    ->required()
+                    ->numeric(),
                 Forms\Components\MarkdownEditor::make('depoimento')
-                ->required()
-                ->maxLength(165),
+                    ->required()
+                    ->maxLength(165),
                 Forms\Components\FileUpload::make('foto')
-                ->required(),
+                    ->directory('depoimento')
+                    ->disk('public')
+                    ->required(),
                 Forms\Components\TextInput::make('ocupação')
-                ->required()
-                ->maxLength(25),
+                    ->required()
+                    ->maxLength(25),
 
             ]);
     }

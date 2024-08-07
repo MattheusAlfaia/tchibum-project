@@ -34,6 +34,7 @@ class AdminPanelProvider extends PanelProvider
                 ->editable(true)
                 ->timezone('America/Manaus')
             ])
+            ->spa()
             ->brandName('Tchibum')
             ->profile()
             ->colors([
