@@ -4,7 +4,7 @@
 @section('content')
 
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{asset('/storage/'. $contato->imagem_principal)}}');">
+<section class="hero-wrap hero-wrap-2 js-fullheight"  >
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -40,7 +40,7 @@
      <div id="whatsapp" class="col-md-6 d-flex">
        <div  id="block" class="align-self-stretch box p-4 text-center">
         <div id="gerarLink" class="icon d-flex align-items-center justify-content-center">
-         <span class="fa fa-whatsapp"></span>
+         <span class="fa-brands fa-whatsapp"></span>
        </div>
        <h3 class="mb-2"><a id="gerarLink"> {{ trans('messages.whatsapp') }}</a></h3>
      </div>

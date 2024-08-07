@@ -362,7 +362,7 @@
                                 <div class="project-destination">
                                     <a href="/atividade-{{ $opcoe->id }}" class="img"
                                         style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}');">
-                                        <div class="text text-sm">
+                                        <div class="text">
                                             <h3>{{ $opcoe->nome }}</h3>
                                         </div>
                                     </a>
