@@ -49,7 +49,6 @@ class PacoteResource extends Resource
                     ->label('Imagem Principal')
                     ->directory('pacote')
                     ->disk('public')
-                    ->maxSize(50000)
                     ->required(),
                 Forms\Components\FileUpload::make('imagens_secundarias')
                     ->label('Imagens Secundarias')
@@ -59,7 +58,7 @@ class PacoteResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('preco')
                     ->required()
-                    ->numeric(10,2)
+                    ->numeric(10.2)
                     ->extraAttributes(['data-inputmask' => "'alias': 'currency', 'prefix': '', 'rightAlign': false, 'digits': 2, 'digitsOptional': false, 'radixPoint': ',', 'groupSeparator': '.', 'autoGroup': true"]),
                 Forms\Components\DatePicker::make('data')
                     ->date()
@@ -88,8 +87,7 @@ class PacoteResource extends Resource
                     ->required()
                     ->maxLength(1000),
                 Forms\Components\FileUpload::make('video')
-                    ->maxSize(50000)
-                    ->required(),
+                    ->maxSize(50000),
                 Forms\Components\TextInput::make('pessoas')
                     // ->required()
                     ->numeric(),

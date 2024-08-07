@@ -23,7 +23,7 @@ return new class extends Migration
             $table->datetime('data_final')->nullable();
             $table->string('infos',1000);
             $table->string('video',50);
-            $table->integer('pessoas');
+            $table->integer('pessoas')->nullable();
             $table->integer('dias')->nullable();
 
             $table->unsignedBigInteger('comunidade_id')->unsigned();
