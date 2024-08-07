@@ -64,7 +64,7 @@
 
                     <li class="nav-item"><a href="/sobre" class="nav-link">{{ trans('messages.quem_somos') }}</a></li>
 
-                    <li class="nav-item"><a href="/posts" class="nav-link">{{ trans('messages.noticias') }}</a></li>
+                    {{-- <li class="nav-item"><a href="/posts" class="nav-link">{{ trans('messages.noticias') }}</a></li> --}}
 
                     <li class="nav-item">
                         <div class="nav-link dropdown">

@@ -4,7 +4,7 @@
 
 
 
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ secure_asset('/storage/27.jpg') }});
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/storage/27.jpg') }});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,7 +34,7 @@
      <div class="col-md-6">
       <div class="row">
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-         <div class="services services-1 color-1 d-block img" style="background-image: url('{{ secure_asset('/storage/' . $sobre->imagem_atividade_comunidade1) }}');">
+         <div class="services services-1 color-1 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade1) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade1') }}</h3>
@@ -43,7 +43,7 @@
          </div>
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-         <div class="services services-1 color-2 d-block img" style="background-image: url('{{ secure_asset('/storage/' . $sobre->imagem_atividade_comunidade2) }}');">
+         <div class="services services-1 color-2 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade2) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade2') }}</h3>
@@ -52,7 +52,7 @@
          </div>
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-         <div class="services services-1 color-3 d-block img" style="background-image: url('{{ secure_asset('/storage/' . $sobre->imagem_atividade_comunidade3) }}');">
+         <div class="services services-1 color-3 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade3) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade3') }}</h3>
@@ -61,7 +61,7 @@
          </div>
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-         <div class="services services-1 color-4 d-block img" style="background-image: url('{{ secure_asset('/storage/' . $sobre->imagem_atividade_comunidade4) }}');">
+         <div class="services services-1 color-4 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade4) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade4') }}</h3>
@@ -78,7 +78,7 @@
 
 
 
- <section id="video" class="container ftco-section ftco-about img" style="background-image: url('{{ secure_asset('/storage/' . $sobre->capa_video_principal) }}');
+ <section id="video" class="container ftco-section ftco-about img" style="background-image: url('{{ asset('/storage/' . $sobre->capa_video_principal) }}');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -87,7 +87,7 @@
   <div class="container py-md-5">
     <div class="row py-md-5">
       <div class="col-md d-flex align-items-center justify-content-center">
-        <a href="{{secure_asset('/storage/'. $sobre->video_principal)}}"
+        <a href="{{asset('/storage/'. $sobre->video_principal)}}"
           class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
           <span class="fa fa-play"></span>
         </a>
