@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-cTf9aImi42Xrq1zL5IU3yERgF/ZGJ8jFf0Y5SGgkPl5FtM2j4af0/TzX5lX0L/wJSsZ8trHfjW9CZGmH8ekyeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-cTf9aImi42Xrq1zL5IU3yERgF/ZGJ8jFf0Y5SGgkPl5FtM2j4af0/TzX5lX0L/wJSsZ8trHfjW9CZGmH8ekyeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -32,7 +33,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('/multiselect-05/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/multiselect-05/css/style.css') }}">
 
 
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
@@ -200,7 +201,7 @@
 
 
 
-    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url('{{ secure_asset('/storage/bg_footer.jpg') }}');">
+    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url('{{ asset('') }}');">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md pt-5">
@@ -210,9 +211,9 @@
                             {{ trans('messages.text2') }}
                             {{ trans('messages.text3') }}.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-                            <li class="ftco-animate"><a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"><span class="fa fa-whatsapp"></span></a></li>
-                            <li class="ftco-animate"><a href="https://www.instagram.com/tchibumnaamazonia/"><span class="fa fa-facebook"></span></a></li>
-                            <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"><span class="fa-brands fa-whatsapp"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/tchibumnaamazonia/"><span class="fa-brands fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="fa-brands fa-instagram"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -262,9 +263,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> Todos os direitos reservados | Software <i class="fa fa-heart"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DevMinds</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </script> Todos os direitos reservados 
                     </p>
                 </div>
             </div>
@@ -338,12 +337,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-    <script src="{{ asset('multiselect-05/js/main.js') }}"></script>
-    <script src="{{ asset('public/js/jquery-3.6.4.min.js') }}"></script>
+    <script src="{{ asset('js/multiselect-05/js/main.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('public/js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('public/js/jquery.easing.1.3.js')}}"></script>
+    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.easing.1.3.js')}}"></script>
     <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>

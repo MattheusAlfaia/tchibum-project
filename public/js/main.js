@@ -115,8 +115,6 @@
 					navbar = $('.ftco_navbar'),
 					btn = $('btn'),
 					sd = $('.js-scroll-wrap');
-
-					console.log(btn);
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
 					navbar.addClass('scrolled');
