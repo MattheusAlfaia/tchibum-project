@@ -14,6 +14,7 @@
         "illuminate/translation": "*",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.1",
+        "laravel/octane": "^2.4",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
