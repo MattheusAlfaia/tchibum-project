@@ -30,6 +30,8 @@ class HomeResource extends Resource
                     ->maxLength(40),
                 Forms\Components\FileUpload::make('video_principal')
                     ->maxSize(50000)
+                    ->directory('home')
+                    ->disk('public')
                     ->required(),
                 Forms\Components\TextInput::make('titulo_bem_vindo')
                     ->required()
@@ -55,6 +57,8 @@ class HomeResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade1')
                     ->label('Imagem Atividade/Comunidade 1')
+                    ->directory('home')
+                    ->disk('public')
                     ->required(),
                 Forms\Components\TextInput::make('nome_atividade_comunidade3')
                     ->required()
@@ -62,6 +66,8 @@ class HomeResource extends Resource
                     ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade2')
                     ->label('Imagem Atividade/Comunidade 2')
+                    ->directory('home')
+                    ->disk('public')
                     ->required(),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade3')
                     ->required()
@@ -69,6 +75,8 @@ class HomeResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade3')
                     ->label('Imagem Atividade/Comunidade 3')
+                    ->directory('home')
+                    ->disk('public')
                     ->required(),
                 Forms\Components\TextInput::make('nome_atividade_comunidade4')
                     ->required()
@@ -76,6 +84,8 @@ class HomeResource extends Resource
                     ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade4')
                     ->label('Imagem Atividade/Comunidade 4')
+                    ->directory('home')
+                    ->disk('public')
                     ->required(),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade4')
                     ->required()

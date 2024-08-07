@@ -27,6 +27,8 @@ class GaleriaResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('imagem')
                     ->maxSize(50000)
+                    ->directory('galeria')
+                    ->disk('public')
                     ->required(),
             ]);
     }
