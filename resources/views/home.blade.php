@@ -52,7 +52,7 @@
                                                 <a href="/pacotes">
                                                     <div id="pacotes">
                                                         <div id="pacote-fixo">
-                                                            <img id="pacote-fixo-img" src="{{ asset('/storage/pacote-fechado.png')}}">
+                                                            <img id="pacote-fixo-img" src="{{ asset('/images/pacote-fechado.png')}}">
                                                         </div>
                                                         <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p>
                                                     </div>
@@ -60,7 +60,7 @@
 
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
-                                                        <img id="pacote-comunidade-img" src="{{ asset('/storage/pacote-personalizado.png')}}">
+                                                        <img id="pacote-comunidade-img" src="{{ asset('/images/pacote-personalizado.png')}}">
                                                     </div>
                                                     <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p>
                                                 </div>
