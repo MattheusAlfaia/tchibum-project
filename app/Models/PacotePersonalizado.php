@@ -10,7 +10,7 @@ use App\Models\Opcoe;
 class PacotePersonalizado extends Model
 {
     protected $table = 'pacotes_personalizados';
-    protected $fillable = ['comunidade_id','user_id','preco','data','pessoas','dias','status'];
+    protected $fillable = ['comunidade_id','user_id','preco','data', 'data_final','pessoas','dias','status'];
 
 
     public function comunidade()
