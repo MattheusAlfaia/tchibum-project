@@ -20,7 +20,7 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
-              
+
                 <div class="col-md-7 ftco-animate">
 
                     <h1 class="mb-4">{{ trans('messages.titulo_principal') }}</h1>
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-   
+
 
     <section class="ftco-section ftco-no-pb ftco-no-pt">
         <div class="container">
@@ -57,14 +57,14 @@
                                                         <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p>
                                                     </div>
                                                 </a>
-                                            
+
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
                                                         <img id="pacote-comunidade-img" src="{{ asset('/storage/pacote-personalizado.png')}}">
                                                     </div>
                                                     <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p>
                                                 </div>
-                                          
+
                                             </div>
                                         </div>
                                     </form>
@@ -155,7 +155,8 @@
                 <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
                     <div class="w-100">
                         <h2 class="mb-4">{{ trans('messages.titulo_bem_vindo') }}</h2>
-                        <div class="paragrafo"> {!! nl2br(e(trans('messages.descricao_bem_vindo'))) !!}</div>
+                        {{-- <div class="paragrafo"> {!! nl2br(e(trans('messages.descricao_bem_vindo'))) !!}</div> --}}
+                        <div class="paragrafo"> {{ $home->descricao_bem_vindo }}</div>
                         <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p> -->
                     </div>
                 </div>
@@ -226,9 +227,9 @@
 
             <div class="row">
 
-               
+
                 @foreach ( $pacotes as $pacote)
-                    
+
 
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
@@ -242,7 +243,7 @@
                             <ul>
                                 <li><i class="fa fa-users"></i> 2</li>
                                 <li><span style="color: #999999" class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data))}}</li>
-                       
+
                             </ul>
                         </div>
                     </div>
@@ -566,7 +567,7 @@
             // Aplicar a máscara para o CPF
             $('#cpf').mask('000.000.000-00', { reverse: true });
         });
-  
+
 
         let avaliacoes = depoimentos.map((element) => {
             return element.avaliação
@@ -593,15 +594,15 @@
 
             }else{
 
-            
-           
+
+
                     if(user.endereco == null &&
                     user.cep == null &&
                     user.cidade == null &&
                     user.proficao == null &&
                     user.nacionalidade == null &&
                     user.estado == null ){
-                       
+
 
                         $("#meuModal").fadeIn();
 
@@ -643,7 +644,7 @@
    });
 
 
-        
+
     </script>
     <script>
         $(document).ready(function() {

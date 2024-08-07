@@ -21,3 +21,7 @@ yarn-error.log
 /.idea
 /.vscode
 /resources/views/vendor/
+
+/caddy
+frankenphp
+frankenphp-worker.php

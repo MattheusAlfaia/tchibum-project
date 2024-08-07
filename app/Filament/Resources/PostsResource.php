@@ -32,6 +32,8 @@ class PostsResource extends Resource
                     ->required()
                     ->maxLength(5000),
                 Forms\Components\FileUpload::make('imagem_principal')
+                    ->directory('post')
+                    ->disk('public')
                     ->required(),
             ]);
     }

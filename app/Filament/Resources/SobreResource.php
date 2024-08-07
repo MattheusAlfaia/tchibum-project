@@ -49,6 +49,8 @@ class SobreResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade1')
                     ->label('Imagem Atividade/Comunidade 1')
+                    ->directory('quem-somos')
+                    ->disk('public')
                     ->required(),
                 Forms\Components\TextInput::make('nome_atividade_comunidade3')
                     ->required()

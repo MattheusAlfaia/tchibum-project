@@ -47,10 +47,14 @@ class PacoteResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->label('Imagem Principal')
+                    ->directory('pacote')
+                    ->disk('public')
                     ->maxSize(50000)
                     ->required(),
                 Forms\Components\FileUpload::make('imagens_secundarias')
                     ->label('Imagens Secundarias')
+                    ->directory('pacote')
+                    ->disk('public')
                     ->multiple()
                     ->required(),
                 Forms\Components\TextInput::make('preco')
@@ -89,7 +93,7 @@ class PacoteResource extends Resource
                 Forms\Components\TextInput::make('pessoas')
                     // ->required()
                     ->numeric(),
-         
+
             ]);
 
 

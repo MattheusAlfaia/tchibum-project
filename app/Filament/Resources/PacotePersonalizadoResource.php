@@ -42,10 +42,10 @@ class PacotePersonalizadoResource extends Resource
                     ->required()
                     ->numeric(),
                 Forms\Components\DatePicker::make('data')
-                    ->date('d/m/Y')
+                    //->date('d/m/Y')
                     ->required(),
                 Forms\Components\DatePicker::make('data_final')
-                    ->date('d/m/Y')
+                    //->date('d-m-Y')
                     ->required(),
                 Forms\Components\TextInput::make('pessoas')
                     ->required()
@@ -55,9 +55,11 @@ class PacotePersonalizadoResource extends Resource
                 //     ->numeric(),
                 Forms\Components\Select::make('status')
                     ->required()
-                    ->options([ 'EM_ANALISE' => 'EM ANALISE',
-                            'APROVADO'=> 'APROVADO',
-                            'RECUSADO'=>'RECUSADO'])
+                    ->options([
+                        'EM_ANALISE' => 'EM ANALISE',
+                        'APROVADO'=> 'APROVADO',
+                        'RECUSADO'=>'RECUSADO'
+                        ])
                     ->default('EM_ANALISE'),
             ]);
     }

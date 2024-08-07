@@ -32,6 +32,8 @@ class TestResource extends Resource
                     ->required()
                     ->maxLength(5000),
                 Forms\Components\FileUpload::make('imagem_principal')
+                    ->directory('test')
+                    ->disk('public')
                     ->required(),
             ]);
     }

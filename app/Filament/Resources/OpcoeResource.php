@@ -37,10 +37,12 @@ class OpcoeResource extends Resource
                 ->maxLength(1200),
             Forms\Components\FileUpload::make('imagem')
                 ->maxSize(50000)
+                ->directory('opcoes')
+                    ->disk('public')
                 ->required(),
             Forms\Components\TextInput::make('preco')
                 ->required()
-                ->numeric(10,2),
+                ->numeric(10.2),
             Forms\Components\Toggle::make('por_pessoa')
                 ->required(),
             Forms\Components\Select::make('comunidade_id')
