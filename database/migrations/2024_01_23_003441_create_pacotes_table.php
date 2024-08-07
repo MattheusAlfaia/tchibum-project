@@ -20,10 +20,11 @@ return new class extends Migration
             $table->string('imagens_secundarias',500)->nullable();
             $table->float('preco',10,2);
             $table->datetime('data');
+            $table->datetime('data_final')->nullable();
             $table->string('infos',1000);
             $table->string('video',50);
             $table->integer('pessoas');
-            $table->integer('dias');
+            $table->integer('dias')->nullable();
 
             $table->unsignedBigInteger('comunidade_id')->unsigned();
 
