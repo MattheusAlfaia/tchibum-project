@@ -8956,6 +8956,10 @@ position: relative; }
   left: 150px;
 }
 
+#logout{
+  position: relative;
+  top: 1rem;
+}
 
 
 .project-destination .text {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <link rel="icon" href="{{secure_asset('/storage/logo.jpg')}}"/>
+    <link rel="icon" href="{{ asset('/storage/logo.jpg')}}"/>
 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -46,7 +46,7 @@
     @yield('content')
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">TCHIBUM<span>NA AMAZÔNIA</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,39 +86,38 @@
 
 
                     <li class="nav-item"><a href="/faleconosco" class="nav-link">{{ trans('messages.fale_conosco_layout') }}</a></li>
-
+                    
                     <li class="nav-item">
                         <div class="nav-link dropdown">
                             <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ trans('messages.idiomas') }}
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="{{ route('change.language', ['locale' => 'pt']) }}">{{ trans('messages.portugues') }}</a>
-                                <a class="dropdown-item"
-                                    href="{{ route('change.language', ['locale' => 'en']) }}">{{ trans('messages.ingles') }}</a>
-                                <a class="dropdown-item"
-                                    href="{{ route('change.language', ['locale' => 'es']) }}">{{ trans('messages.espanhol') }}</a>
-                            </div>
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ trans('messages.idiomas') }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"
+                            href="{{ route('change.language', ['locale' => 'pt']) }}">{{ trans('messages.portugues') }}</a>
+                            <a class="dropdown-item"
+                            href="{{ route('change.language', ['locale' => 'en']) }}">{{ trans('messages.ingles') }}</a>
+                            <a class="dropdown-item"
+                            href="{{ route('change.language', ['locale' => 'es']) }}">{{ trans('messages.espanhol') }}</a>
                         </div>
-                    </li> 
-
-
-
-                    @guest
-                        <li class="nav-item"><a href="/login" class="nav-link">{{ trans('messages.entrar') }}</a></li>
-                        <li class="nav-item"><a href="/register" class="nav-link">{{ trans('messages.cadastrar') }}</a></li>
-                    @endguest
-
-                    @auth
-
-
-                        <form action="/logout" method="POST">
-                            @csrf
-                            <li class="nav-item"><a id="login" href="/logout" class="nav-link"
-                                    onclick="event.preventDefault(); this.closest('form').submit();">
-                                    <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> </a></li>
+                    </div>
+                </li> 
+                
+                
+                @guest
+                <li class="nav-item"><a href="/login" class="nav-link">{{ trans('messages.entrar') }}</a></li>
+                <li class="nav-item"><a href="/register" class="nav-link">{{ trans('messages.cadastrar') }}</a></li>
+                @endguest
+                
+                @auth
+                
+                <form action="/logout" method="POST">
+                    @csrf
+                    <li class="nav-ite"><a id="logout" href="/logout"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
+                        <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> </a>
+                            </li>
                         </form>
 
                     @endauth
@@ -340,7 +339,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
     <script src="{{ asset('multiselect-05/js/main.js') }}"></script>
-    <script src="public/js/jquery-3.6.4.min.js"></script>
+    <script src="{{ asset('public/js/jquery-3.6.4.min.js') }}"></script>
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('public/js/bootstrap.min.js')}}"></script>
@@ -353,8 +352,8 @@
     <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('js/scrollax.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="{{ secure_asset('js/google-map.js') }}"></script>
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/google-map.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     
 
 </body>
