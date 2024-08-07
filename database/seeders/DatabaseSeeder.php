@@ -23,5 +23,9 @@ class DatabaseSeeder extends Seeder
             'info2'=>'0',
             'info3'=>'0',
          ]);
+
+
+        $this->call(HomeTableSeeder::class);
     }
+
 }
