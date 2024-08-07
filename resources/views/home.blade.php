@@ -155,8 +155,7 @@
                 <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
                     <div class="w-100">
                         <h2 class="mb-4">{{ trans('messages.titulo_bem_vindo') }}</h2>
-                        {{-- <div class="paragrafo"> {!! nl2br(e(trans('messages.descricao_bem_vindo'))) !!}</div> --}}
-                        <div class="paragrafo"> {{ $home->descricao_bem_vindo }}</div>
+                        <div class="paragrafo"> {!! markdown(nl2br(e(trans('messages.descricao_bem_vindo')))) !!}</div>
                         <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p> -->
                     </div>
                 </div>
