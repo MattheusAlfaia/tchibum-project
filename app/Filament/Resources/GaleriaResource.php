@@ -37,8 +37,8 @@ class GaleriaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('imagem')
-                ->label('Imagem'),
+                Tables\Columns\ImageColumn::make('imagem')
+                    ->label('Imagem'),
             ])
             ->filters([
                 //
