@@ -33,7 +33,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('/css/multiselect-05/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/multiselect-05/css/style.css') }}">
 
 
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
@@ -337,7 +337,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-    <script src="{{ asset('js/multiselect-05/js/main.js') }}"></script>
+    <script src="{{ asset('multiselect-05/js/main.js') }}"></script>
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
