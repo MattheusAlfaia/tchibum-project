@@ -72,4 +72,9 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminAccess::class,
         'client' => \App\Http\Middleware\ClientAccess::class
     ];
+
+    protected $routeMiddleware = [
+        // Outros middlewares
+        'responsecache' => \Spatie\ResponseCache\Middlewares\CacheResponse::class,
+    ];
 }

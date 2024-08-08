@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Depoimentos;
+use Illuminate\Support\Facades\Cache;
 
 class TestimonyController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $cacheKey = 'depoimentos_all';
 
-        $depoimentos = Depoimentos::latest()->paginate(6);
+        $depoimentos = Cache::remember($cacheKey, 60, function () {
+            return Depoimentos::latest()->get();
+        });
 
-        return view('testimony',compact('depoimentos'));
+        $currentPage = request('page', 1);
+        $perPage = 6;
+
+        $paginatedDepoimentos = $depoimentos->slice(($currentPage - 1) * $perPage, $perPage)->values();
+
+        return view('testimony', compact('paginatedDepoimentos', 'depoimentos'));
     }
 }
