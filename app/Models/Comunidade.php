@@ -15,4 +15,9 @@ class Comunidade extends Model
         'imagens_secundarias' => 'array',
     ];
 
+
+    public function pacotes(){
+        return $this->hasMany(Pacote::class);
+    }
+
 }

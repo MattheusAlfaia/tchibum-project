@@ -9,10 +9,41 @@ use App\Models\PacoteUsuario;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PacoteUsuarios;
 use App\Models\Contato;
+use App\Models\Comunidade;
+use App\Models\Opcoe;
 
 
 class PacksController extends Controller
 {
+    //////????? MATTHEUS CONTROLLER ?????////////
+    public function show(){
+
+        $comunidades = Comunidade::has('pacotes')->get();
+
+        return view('pacoteSteps/stepSelect', compact('comunidades'));
+    }
+
+    public function comunidadeInfo(Request $request){
+            
+        // dd($request->all());
+        $id_comunidade = $request->comunidade_id;
+        $comunidade = Comunidade::with('pacotes')->find($id_comunidade);
+        
+        return view('pacoteSteps/comunidadeInfo', compact('comunidade'));
+    }
+
+
+    public function pacoteSelect(Request $request){
+        $id_comunidade = $request->comunidade_id;
+
+        $comunidade = Comunidade::with('pacotes')->find($id_comunidade);
+        $atividades = Opcoe::where('comunidade_id', $id_comunidade)->get();
+
+        return view('pacoteSteps/stepFinal', compact('atividades', 'comunidade'));
+    }
+
+    // /// /// /// /// /// /// /// /// /// /// /// /// /// ///
+
     public function index(){
         $pacotes = Pacote::with('comunidade')->latest()->paginate(6);
 
