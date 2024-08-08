@@ -4,7 +4,7 @@
 
 
 
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/storage/27.jpg') }});
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/images/sobre.jpg') }});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
