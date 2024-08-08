@@ -203,7 +203,7 @@
         }
 
         function ativarBotao() {
-            console.log('ativar botão');
+            //console.log('ativar botão');
             localStorage.setItem('podeClicar', 'true');
         }
 
@@ -234,7 +234,48 @@
                 }
             });
 
+<<<<<<< Updated upstream
             localStorage.setItem('podeClicar', 'false');
+=======
+                dados.opcoes.map(function(opcoe){
+
+                    formData.opcoes.push({ atividade: opcoe.text , preco: opcoe.id});
+                });
+                  
+                  
+                $.ajax({
+                    type: 'POST',
+                    url: '/pacoteperso/criarpacotepersonalizado',
+                    data: { _token: '{{ csrf_token() }}', formData },
+                    success: function (response) {
+
+                        //console.log(response);
+                        window.location.href = response;
+
+                    },
+                    error: function (error) {
+                  
+                            console.log(error);
+                    }
+
+                });
+
+                // Desativa o botão
+                // podeClicar = false;
+                localStorage.setItem('podeClicar', 'false');
+
+                
+
+                // Configura um temporizador para reativar o botão após 1 hora
+                //3600000
+                
+            
+
+            // } else {
+            //    setTimeout(ativarBotao, 3600000); // reativar o botão de comprar
+            //    alert('Aguarde 1 hora antes de clicar novamente.');
+            // }
+>>>>>>> Stashed changes
         });
 
         if (podeClicar == 'false') {
@@ -269,6 +310,12 @@
             comunidades.map(function(comunidade) {
                 if (comunidade.nome == dados.comunidade) {
                     comunidade_escolhida = comunidade.id;
+<<<<<<< Updated upstream
+=======
+
+                    //console.log(comunidade);
+
+>>>>>>> Stashed changes
                     var imgSrc = "{{ secure_asset('/storage/') }}" + '/' + comunidade.imagem_principal;
                     $('#info-comunidade').html('<div style="background-color: white; padding: 10px; border-radius: 10px; margin-bottom: 10px;">' +
                         '<h4 class="text-center">' + comunidade.nome + '</h4>' +
