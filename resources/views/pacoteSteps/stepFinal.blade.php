@@ -8,7 +8,7 @@
                 <div id="container" class="container mt-5">
                     <div class="step step-3">
                         <h3>{{ trans('messages.pessoas_e_atividades') }}</h3>
-                        <form id="form" method="POST" action="">
+                        <form action="{{ route('pacoteSteps.save') }}" method="POST">
                             @csrf
                             <input type="hidden" name="comunidade_id" value="{{ $comunidade->id }}">
                             <div class="row">
@@ -65,8 +65,11 @@
 
                             {{-- <button type="button"
                                 class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button> --}}
-                            <button type="button" id="enviarDados"
-                                class="btn btn-success">{{ trans('messages.compra_com_tchibum') }}</button>
+                            {{-- <button type="button" id="enviarDados"
+                                class="btn btn-success">Finalizar Compra!
+                            </button> --}}
+                                <button type="submit" class="btn btn-success" id="enviarDados">Finalizar Compra!</button>
+                            </form>
                         </form>
                     </div>
                 </div>
@@ -87,7 +90,7 @@
 
             $('#data').attr('min', obterDataAtual());
             $('#data_final').attr('min', obterDataAtual());
-        
+
             $('#enviarDados').click(function() {
                 var pessoas = $('#pessoas').val();
                 var data = $('#data').val();

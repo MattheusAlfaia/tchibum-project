@@ -15,7 +15,7 @@
                                 <span>{{ $comunidade->descricao }}</span>
                             </div>
                         </div>
-                        <form id="form-comunidade" method="post" action="{{ route('pacoteSteps.create') }}">
+                        <form id="form-comunidade" method="POST" action="{{ route('pacoteSteps.create') }}">
                             @csrf
                             <input type="hidden" name="comunidade_id" id="comunidade_id" value="{{$comunidade->id}}">
                             {{-- <button type="submit" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button> --}}
