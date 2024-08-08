@@ -2,30 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Contato;
 use App\Models\Mensagem;
+use Illuminate\Support\Facades\Cache;
+use App\Http\Requests\MensagemRequest;
 
 class ContatusController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $contato = Cache::remember('contato', 60, function () {
+            return Contato::find(1);
+        });
 
-        $contato = Contato::find(1);
-
-
-        return view('contatus',compact('contato'));
+        return view('contatus', compact('contato'));
     }
 
+    public function mensagem(MensagemRequest $request)
+    {
+        Mensagem::create($request->validated());
 
-    public function mensagem(Request $request){
-
-       $response =  Mensagem::create([
-            'nome_cliente' => $request->nome_cliente,
-            'email_cliente' => $request->email_cliente,
-            'assunto_cliente' => $request->assunto_cliente,
-            'mensagem_cliente' => $request->mensagem_cliente,
-        ]);
-
-        return redirect()->back()->with('message',"Sua mensagem foi enviada com sucesso !!!");
+        return redirect()->back()->with('message', 'Sua mensagem foi enviada com sucesso!');
     }
 }

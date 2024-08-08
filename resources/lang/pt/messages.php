@@ -12,7 +12,7 @@ $sobre = Home::find(1);
 $depoimentos = Depoimentos::all();
 $posts = Posts::all();
 
-    
+
 return [
 
     // home
@@ -41,7 +41,7 @@ return [
 
 
     // sobre
-    
+
     'sobre_nos' => 'Sobre nós', PHP_EOL,
     'sobre_titulo' => $sobre->titulo_principal, PHP_EOL,
     'sobre_texto' => $sobre->sobre , PHP_EOL,
@@ -54,9 +54,9 @@ return [
     'sobre_nome_atividade_comunidade4'=> $sobre->nome_atividade_comunidade4, PHP_EOL,
     'sobre_descricao_atividade_comunidade3' => $sobre->descricao_atividade_comunidade3, PHP_EOL,
     'sobre_descricao_atividade_comunidade4' => $sobre->descricao_atividade_comunidade4, PHP_EOL,
-     
-   
-    //fale conosco 
+
+
+    //fale conosco
 
     'fale_conosco' => 'Fale Conosco', PHP_EOL,
     'orientacao1' => 'Precisa de alguma orientação ou', PHP_EOL,
@@ -79,7 +79,6 @@ return [
     'data' => 'Data', PHP_EOL,
     'data_final' => 'Data Final', PHP_EOL,
     'qauntidade_de_pessoas' => 'Quantidade de Pessoas', PHP_EOL,
-    'data_final' => 'Data Final', PHP_EOL,
     'comunidade' => 'Comunidade', PHP_EOL,
     'nome' => 'Nome', PHP_EOL,
     'preco' => 'Preço', PHP_EOL,
@@ -94,7 +93,7 @@ return [
     'nacionalidade' => 'Nacionalidade', PHP_EOL,
     'estado' => 'Estado', PHP_EOL,
     'enviar' => 'Enviar', PHP_EOL,
-    
+
 
     // pacote personalizado
 
@@ -121,7 +120,7 @@ return [
     'preencha_o_dados_complementares' => 'Preencha o dados complementares', PHP_EOL,
     'compra_com_tchibum' => 'Realizar a compra com o time da Tchibum', PHP_EOL,
 
-    // layout 
+    // layout
     'quem_somos' => 'QUEM SOMOS', PHP_EOL,
     'noticias' => 'NOTÍCIAS', PHP_EOL,
     'comunidades' => 'COMUNIDADES', PHP_EOL,
@@ -154,7 +153,7 @@ return [
     'festas_regionais' => 'Festas Regionais', PHP_EOL,
     'duvidas' => 'Dudas', PHP_EOL,
 
-    
+
 ];
 
 

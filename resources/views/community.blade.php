@@ -73,7 +73,7 @@
 
 
 
-                <p >{!!  nl2br(e($comunidade->descricao)) !!}</p>
+                <p >{!!  markdown(nl2br(e($comunidade->descricao))) !!}</p>
                 <!-- <p><a href="#" class="btn btn-primary">Book Your Destination</a></p> -->
               </div>
             </div>

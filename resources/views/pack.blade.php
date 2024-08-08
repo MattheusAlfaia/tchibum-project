@@ -50,18 +50,18 @@
                 <div class="product-details">
                     <div id="flex" class="col-md-12">
                         <div class="row">
-                        
+
                                 <h5><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('messages.data') }}: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
                                 <h5><i class="fa fa-users" aria-hidden="true"></i> {{ trans('messages.qauntidade_de_pessoas') }}: {{ $pacote->pessoas }} </h5>
-                                
-                        
+
+
                         </div>
 
                         <div class="row">
-            
+
                             <h5><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('messages.data_final') }}: {{ date('d/m/Y',strtotime($pacote->data_final)) }} </h5>
                             <h5><i class="fa fa-home" aria-hidden="true"></i> {{ trans('messages.comunidade') }}: {{ $pacote->comunidade->nome }} </h5>
-                      
+
                         </div>
                     </div>
                     <br>
@@ -91,7 +91,7 @@
                         <div class="col-md-12">
                             <h2>{{ trans('messages.informacao') }}</h2>
                             <p class="product-description">
-                                {{ $pacote->infos }}
+                                {!!  markdown(nl2br(e($pacote->infos))) !!}
                             </p>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
 
   <script>
 
-     
+
      let user = @json(auth()->user());
      let pacote = @json($pacote);
 
@@ -246,8 +246,8 @@
 
 
     $("#comprar").click(function () {
-        
-    
+
+
         if(user == null){
 
             window.location.href = '/register';
@@ -440,7 +440,7 @@
         }
 
     /* Media queries for responsive design */
-    
+
     /* Media queries for responsive design */
     @media (max-width: 768px) {
     .product-container {

@@ -29,7 +29,7 @@
               <div class="col-md-12 heading-section ftco-animate">
                 <!-- <span class="subheading">About Us</span> -->
                 <h2 class="mb-4">{{ $post->titulo }}</h2>
-                <p id="markdownText" class="paragrafo">{!!  nl2br(e($post->conteudo)) !!}</p>
+                <p class="paragrafo">{!!  markdown(nl2br(e($post->conteudo))) !!}</p>
                 <!-- <p><a href="#" class="btn btn-primary">Book Your Destination</a></p> -->
               </div>
             </div>
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-    
+
 
         </div>
       </div>

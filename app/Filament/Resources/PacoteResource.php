@@ -50,12 +50,12 @@ class PacoteResource extends Resource
                     ->directory('pacote')
                     ->disk('public')
                     ->required(),
-                /*Forms\Components\FileUpload::make('imagens_secundarias')
+                Forms\Components\FileUpload::make('imagens_secundarias')
                     ->label('Imagens Secundarias')
                     ->directory('pacote')
                     ->disk('public')
                     ->multiple()
-                    ->required(),*/
+                    ->required(),
                 Forms\Components\TextInput::make('preco')
                     ->required()
                     ->numeric(10.2)

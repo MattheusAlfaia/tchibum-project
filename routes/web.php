@@ -32,13 +32,13 @@ use App\Http\Controllers\PaymentController;
 
 //instutucional
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::middleware('responsecache:60')->get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/sobre', [AboutController::class, 'index']);
+Route::middleware('responsecache:60')->get('/sobre', [AboutController::class, 'index']);
 
-Route::get('/depoimentos', [TestimonyController::class, 'index']);
+Route::middleware('responsecache:60')->get('/depoimentos', [TestimonyController::class, 'index']);
 
-Route::get('/faleconosco', [ContatusController::class, 'index']);
+Route::middleware('responsecache:60')->get('/faleconosco', [ContatusController::class, 'index']);
 
 Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
 
@@ -106,7 +106,7 @@ Route::middleware([
     });
 
     // payment
-     
+
     Route::get('/payment', [PaymentController::class, 'index']);
 
     // Calendar
@@ -116,7 +116,7 @@ Route::middleware([
     Route::get('/pacoteperso/viewcalendar', [PacksCustomControllers::class, 'viewCalendar']);
 
     // Shopping
-   
+
     Route::get('/compras-{id}', [Shopping::class, 'index']);
 
 });
