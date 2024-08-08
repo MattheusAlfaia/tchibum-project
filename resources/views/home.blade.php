@@ -247,7 +247,9 @@
                 @foreach ( $pacotes as $pacote)
 
 
-                <div class="col-md-4 ftco-animate">
+                <div class="col-md-4 ftco-animate"
+                    style="margin-bottom: 20px; cursor: pointer;"
+                    onclick="window.location.href='/pacote-{{ $pacote->id }}'">
                     <div class="project-wrap">
                         <a class="img" style="background-image: url('{{ asset('/storage/'. $pacote->imagem_principal) }}')">
                             <span class="price">R$ {{ number_format($pacote->preco, 2, ',', '.') }} </span>
