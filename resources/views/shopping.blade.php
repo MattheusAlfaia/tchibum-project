@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section id="posts" class="ftco-section" style="background-image:url('{{ secure_asset('/storage/32.jpg') }}');">
+<section id="posts" class="ftco-section" style="background-image:url('{{ asset('/images/32.jpg') }}');">
     <div class="container">
         <div class="row d-flex">
  
