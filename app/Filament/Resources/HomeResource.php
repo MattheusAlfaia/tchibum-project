@@ -29,7 +29,7 @@ class HomeResource extends Resource
                     ->required()
                     ->maxLength(40),
                 Forms\Components\FileUpload::make('video_principal')
-                    ->maxSize(100000)
+                    ->maxSize(150000)
                     ->directory('home')
                     ->disk('public')
                     ->required(),
