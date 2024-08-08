@@ -2,7 +2,7 @@
 @section('title', 'Tchibum - Selecione o pacote')
 @section('content')
 
-    <section id="posts" class="ftco-section" style="background-image:url('{{ asset('/storage/18.jpg') }}');">
+    <section id="posts" class="ftco-section" style="background-image:url('{{ asset('/images/18.jpg') }}');">
         <div class="container">
             <div class="row d-flex">
                 <div id="container" class="container mt-5">
