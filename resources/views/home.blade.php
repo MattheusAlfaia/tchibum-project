@@ -23,7 +23,8 @@
 
                 <div class="col-md-7 ftco-animate">
 
-                    <h1 class="mb-4">{{ trans('messages.titulo_principal') }}</h1>
+                    {{-- <h1 class="mb-4">{{ trans('messages.titulo_principal') }}</h1> --}}
+                    <h1 class="mb-4">{{ $home->titulo_principal }}</h1>
 
                 </div>
 
@@ -54,7 +55,8 @@
                                                         <div id="pacote-fixo">
                                                             <img id="pacote-fixo-img" src="{{ asset('/images/pacote-fechado.png')}}">
                                                         </div>
-                                                        <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p>
+                                                        {{-- <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p> --}}
+                                                        <p id="pacote-fixo-nome">Pacotes Fechados</p>
                                                     </div>
                                                 </a>
 
@@ -62,7 +64,8 @@
                                                     <div id="pacote-comunidade">
                                                         <img id="pacote-comunidade-img" src="{{ asset('/images/pacote-personalizado.png')}}">
                                                     </div>
-                                                    <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p>
+                                                    {{-- <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p> --}}
+                                                    <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
                                                 </div>
 
                                             </div>
@@ -154,8 +157,10 @@
             <div class="row d-flex">
                 <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
                     <div class="w-100">
-                        <h2 class="mb-4">{{ trans('messages.titulo_bem_vindo') }}</h2>
-                        <div class="paragrafo"> {!! markdown(nl2br(e(trans('messages.descricao_bem_vindo')))) !!}</div>
+                        {{-- <h2 class="mb-4">{{ trans('messages.titulo_bem_vindo') }}</h2> --}}
+                        <h2 class="mb-4">{{ $home->titulo_bem_vindo }}</h2>
+                        <div class="paragrafo"> {!! markdown($home->descricao_bem_vindo) !!}</div>
+                        {{-- <div class="paragrafo"> {!! markdown(nl2br(e(trans('messages.descricao_bem_vindo')))) !!}</div> --}}
                         <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p> -->
                     </div>
                 </div>
@@ -167,9 +172,11 @@
                                 {{-- <div class="icon d-flex align-items-center justify-content-center">
                                     <span class="flaticon-paragliding"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade1') }}</h3>
-                                    <p class="descricao_atividade_comunidade">
-                                        {{ trans('messages.home_descricao_atividade_comunidade1') }}</p>
+                                    <h3 class="heading mb-3">{{$home->nome_atividade_comunidade1}}</h3>
+                                    {{-- <p class="descricao_atividade_comunidade">
+                                        {{ trans('messages.home_descricao_atividade_comunidade1') }}</p> --}}
+                                        <p class="descricao_atividade_comunidade">
+                                            {{ $home->descricao_atividade_comunidade1 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -179,9 +186,12 @@
                               {{--   <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-route"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade2') }}</h3>
+                                    {{-- <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade2') }}</h3> --}}
+                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade2 }}</h3>
+                                    {{-- <p class="descricao_atividade_comunidade">
+                                        {{ trans('messages.home_descricao_atividade_comunidade2') }}</p> --}}
                                     <p class="descricao_atividade_comunidade">
-                                        {{ trans('messages.home_descricao_atividade_comunidade2') }}</p>
+                                        {{ $home->descricao_atividade_comunidade2 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -191,9 +201,12 @@
                                {{--  <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-tour-guide"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade3') }}</h3>
+                                    {{-- <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade3') }}</h3> --}}
+                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade3 }}</h3>
+                                    {{-- <p class="descricao_atividade_comunidade">
+                                        {{ trans('messages.home_descricao_atividade_comunidade3') }}</p> --}}
                                     <p class="descricao_atividade_comunidade">
-                                        {{ trans('messages.home_descricao_atividade_comunidade3') }}</p>
+                                        {{ $home->descricao_atividade_comunidade3 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -203,9 +216,12 @@
                                 {{-- <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-map"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade4') }}</h3>
+                                    {{-- <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade4') }}</h3> --}}
+                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade4 }}</h3>
+                                    {{-- <p class="descricao_atividade_comunidade">
+                                        {{ trans('messages.home_descricao_atividade_comunidade4') }}</p> --}}
                                     <p class="descricao_atividade_comunidade">
-                                        {{ trans('messages.home_descricao_atividade_comunidade4') }}</p>
+                                        {{ $home->descricao_atividade_comunidade4 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +236,8 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">{{ trans('messages.pacotes') }}</h2>
+                    <h2 class="mb-4">Pacotes</h2>
+                    {{-- <h2 class="mb-4">{{ trans('messages.pacotes') }}</h2> --}}
                 </div>
             </div>
 
@@ -291,7 +308,9 @@
                                 <h3 class="heading"><a href="/post-{{ $datepost }}">{{ $post->titulo }}</a></h3>
                                 <p>{{ $post->descricao }}</p>
                                 <p><a href="/post-{{ $datepost }}"
-                                        class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
+                                        class="btn btn-primary">Ler mais</a></p>
+                                {{-- <p><a href="/post-{{ $datepost }}"
+                                    class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p> --}}
                             </div>
 
                         </div>
@@ -312,8 +331,8 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-
-                    <h2 class="mb-4">{{ trans('messages.comunidades_que_atuamos') }}</h2>
+                    <h2 class="mb-4">COMUNIDADE QUE TRABALHAMOS</h2>
+                    {{-- <h2 class="mb-4">{{ trans('messages.comunidades_que_atuamos') }}</h2> --}}
                 </div>
             </div>
 
@@ -343,8 +362,10 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
-                    <span class="subheading">{{ trans('messages.o_que_oferecemo_de_melhor') }}</span>
-                    <h2 class="mb-4">{{ trans('messages.nossas_atividades') }}</h2>
+                    <span class="subheading">O que oferecemos de melhor</span>
+                    {{-- <span class="subheading">{{ trans('messages.o_que_oferecemo_de_melhor') }}</span> --}}
+                    <h2 class="mb-4">Nossas Atividades</h2>
+                    {{-- <h2 class="mb-4">{{ trans('messages.nossas_atividades') }}</h2> --}}
                 </div>
             </div>
         </div>
@@ -384,8 +405,10 @@
     <div class="container">
         <div class="row justify-content-center pb-4">
             <div class="col-md-6 heading-section text-center ftco-animate">
-                <span class="subheading">{{ trans('messages.momentos') }}</span>
-                <h2 class="mb-4">{{ trans('messages.galeria') }}</h2>
+                {{-- <span class="subheading">{{ trans('messages.momentos') }}</span> --}}
+                <span class="subheading">Momentos</span>
+                {{-- <h2 class="mb-4">{{ trans('messages.galeria') }}</h2> --}}
+                <h2 class="mb-4">Galeria</h2>
             </div>
         </div>
     </div>
