@@ -74,7 +74,8 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/pacotes">{{ trans('messages.pacote_fechado') }}</a>
-                                <a class="dropdown-item" id="modalInfoComple" >{{ trans('messages.comunidade') }}</a>
+                                {{-- <a class="dropdown-item" id="modalInfoComple" >{{ trans('messages.comunidade') }}</a> --}}
+                                <a class="dropdown-item" href="{{ route('pacotes.custom') }}">Pacotes Personalizados</a>
                             </div>
                         </div>
                     </li>
@@ -88,7 +89,7 @@
 
                     <li class="nav-item"><a href="/faleconosco" class="nav-link">{{ trans('messages.fale_conosco_layout') }}</a></li>
                     
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <div class="nav-link dropdown">
                             <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,7 +104,7 @@
                             href="{{ route('change.language', ['locale' => 'es']) }}">{{ trans('messages.espanhol') }}</a>
                         </div>
                     </div>
-                </li> 
+                </li>  --}}
                 
                 
                 @guest
