@@ -43,7 +43,7 @@
                 </div>
 
 
-                <p >{!!  nl2br(e($opcoe->descricao)) !!}</p>
+                <p >{!!  markdown(nl2br(e($opcoe->descricao))) !!}</p>
 
 
                     <div class="row">

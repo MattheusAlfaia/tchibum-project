@@ -457,7 +457,7 @@
                                 <div class="testimony-wrap py-4">
                                     <div class="text">
                                         <p class="{{ $depoimento->id }}"></p>
-                                        <p class="mb-4">{{ $depoimento->depoimento }}</p>
+                                        <p class="mb-4">{{ markdown($depoimento->depoimento) }}</p>
                                         <div class="d-flex align-items-center">
                                             <div class="user-img"
                                                 style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">

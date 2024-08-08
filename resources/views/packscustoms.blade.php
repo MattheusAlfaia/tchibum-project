@@ -158,7 +158,8 @@
                          <br>
 
                         <button type="button" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button>
-                        <button type="button" id="enviarDados" class="btn btn-success">{{ trans('messages.compra_com_tchibum') }}</button>
+                        {{-- <button type="button" id="enviarDados" class="btn btn-success">{{ trans('messages.compra_com_tchibum') }}</button> --}}
+                        <button type="button" id="enviarDados" class="btn btn-success">Finalizar Pagamento!</button>
                     </div>
                 </form>
             </div>
@@ -265,7 +266,7 @@
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();
-            
+
             comunidades.map(function(comunidade) {
                 if (comunidade.nome == dados.comunidade) {
                     comunidade_escolhida = comunidade.id;

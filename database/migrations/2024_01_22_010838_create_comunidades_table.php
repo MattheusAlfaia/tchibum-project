@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('latitude',255)->nullable();
             $table->string('longitude',255)->nullable();
             $table->string('endereço',255);
-            $table->string('imagem_principal',255);
+            $table->string('imagem_principal',255)->nullable();
             $table->string('imagens_secundarias',1000)->nullable();
             $table->string('video',255)->nullable();
             $table->timestamps();

@@ -26,10 +26,10 @@ class PacksCustomControllers extends Controller
         $calendar = Calendar::all();
         $datas = [];
 
-        
+
          foreach ($calendar as $key => $value) {
 
-          
+
             $startDate = Carbon::parse( $value->start_date);
             $endDate = Carbon::parse($value->end_date);
 
@@ -41,8 +41,8 @@ class PacksCustomControllers extends Controller
 
             array_push($datas,$data);
 
-        
-         } 
+
+         }
 
 
         return view('packscustoms',compact('comunidades','opcoes','user','datas'));
@@ -52,19 +52,19 @@ class PacksCustomControllers extends Controller
     public function verificarData(Request $request){
 
          $calendar = Calendar::all();
-      
+
 
          $result = true;
 
-   
+
 
          foreach ($calendar as $key => $value) {
              if ($request->formData['comunidade'] == $value->title) {
                  $requestData = Carbon::parse($request->formData['data']);
                  $startDate = Carbon::parse($value->start_date);
                  $endDate = Carbon::parse($value->end_date);
-         
-               
+
+
                  // Verificar se a data é igual a start_date ou end_date
                  if ($requestData->eq($startDate) || $requestData->eq($endDate) || $requestData->between($startDate, $endDate)) {
                      $result = false;
@@ -72,7 +72,7 @@ class PacksCustomControllers extends Controller
                  }
              }
          }
-         
+
          return $result;
     }
 
@@ -82,7 +82,7 @@ class PacksCustomControllers extends Controller
 
         // Desmembrar a string em ano, mês e dia
         list($ano, $mes, $dia) = explode('-', $dataString);
-        
+
         // Converter para inteiros se necessário
         $ano = (int)$ano;
         $mes = (int)$mes;
@@ -102,24 +102,24 @@ class PacksCustomControllers extends Controller
 
         $result = true;
 
-  
+
 
         foreach ($calendar as $key => $value) {
             if ($request->formData['comunidade'] == $value->title) {
-             
+
                 $startDate = Carbon::parse($value->start_date);
                 $endDate = Carbon::parse($value->end_date);
-        
+
                 // Verificar se a data é igual a start_date ou end_date
                 if ($dataFinal->eq($startDate) || $dataFinal->eq($endDate) ||  $dataFinal->between($startDate, $endDate)) {
-                    
+
                     $result = false;
                     break; // Se uma correspondência for encontrada, podemos sair do loop imediatamente
                 }
             }
         }
 
-        
+
         return $result;
 
 
@@ -135,7 +135,7 @@ class PacksCustomControllers extends Controller
 
         $comunidade = Comunidade::where('nome',$response['comunidade'])->get();
 
-       
+
 
         foreach ($response['opcoes'] as $key => $value) {
             array_push($opcoes , Opcoe::where('nome',$value['atividade'])->get());
@@ -155,10 +155,10 @@ class PacksCustomControllers extends Controller
             'user_id' => $user->id,
         ]);
 
-        
+
 
         // Criar Atividades Inclusas
-    
+
 
         foreach ($opcoes as $key => $value) {
 
@@ -166,24 +166,24 @@ class PacksCustomControllers extends Controller
                 'pacoteperso_id' =>  $pacotepersonalizado->id,
                 'opcaoperso_id' =>  $value[0]->id,
             ]);
-        } 
+        }
 
 
         // Criar data do Calendário
-       
+
         $dataString = $response['data'];
         $dataFinalString = $response['data_final'];
 
         // Desmembrar a string em ano, mês e dia
         list($ano, $mes, $dia) = explode('-', $dataString);
         list($ano_final, $mes_final, $dia_final) = explode('-', $dataFinalString);
-        
+
         // Converter para inteiros se necessário
-        
+
         $ano = (int)$ano;
         $mes = (int)$mes;
         $dia = (int)$dia;
-        
+
         $ano_final = (int)$ano_final;
         $mes_final = (int)$mes_final;
         $dia_final = (int)$dia_final;
@@ -191,26 +191,26 @@ class PacksCustomControllers extends Controller
         // Data inicial
         $dataInicial = Carbon::create($ano, $mes, $dia);
 
-    
+
         // Data Final
-    
+
         $dataFinal = Carbon::create($ano_final, $mes_final, $dia_final);
 
 
-         
+
          $calendar = Calendar::create([
             'title' => $comunidade[0]->nome,
             'comunidade_id' => $comunidade[0]->id,
             'start_date' => $dataInicial,
             'end_date' =>  $dataFinal,
             'color' => '#7a7a7a'
-        ]); 
+        ]);
 
-      
+
 
         // $this->enviarSolicitacao($pacotepersonalizado->id);
 
-       
+
         $contato = Contato::find(1);
         $dataFormatada = date("d/m/y", strtotime($pacotepersonalizado->data));
         $dataFinalFormatada = date("d/m/y", strtotime($pacotepersonalizado->data_final));
@@ -244,7 +244,7 @@ class PacksCustomControllers extends Controller
 
 
        $pacote = PacotePersonalizado::with('comunidade','opcoes')->find($pacotepersonalizado);
- 
+
 
        $user = auth()->user();
 
