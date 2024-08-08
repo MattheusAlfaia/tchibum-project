@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
@@ -212,8 +212,8 @@
                             {{ trans('messages.text3') }}.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                             <li class="ftco-animate"><a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"><span class="fa-brands fa-whatsapp"></span></a></li>
-                            <li class="ftco-animate"><a href="https://www.instagram.com/tchibumnaamazonia/"><span class="fa-brands fa-facebook"></span></a></li>
-                            <li class="ftco-animate"><a href="#"><span class="fa-brands fa-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=100087119875074&mibextid=4MzKDw5ooBP2efJs"><span class="fa-brands fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/tchibumnaamazonia"><span class="fa-brands fa-instagram"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -249,8 +249,8 @@
                                 <li><span class="icon fa fa-map-marker"></span><span class="text">Rua Coronel Salgado, 529, Aparecida, 69010450, Manaus – AM.</span></li>
                                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+55 92 9219-7150</span></a></li>
                                 <li>
-                                    <a><span class="icon fa fa-paper-plane"></span><span
-                                    class="text" style="font-size: 14px;"> tchibumnamazonia@gmail.com</span></a></li>
+                                    <a href="mailto:tchibumnamazonia@gmail.com"><span class="icon fa fa-paper-plane"></span><span
+                                    class="text" style="font-size: 14px;">tchibumnamazonia@gmail.com</span></a></li>
                             </ul>
                         </div>
                     </div>
