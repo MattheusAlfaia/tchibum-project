@@ -97,8 +97,8 @@ class PacoteUsuarioResource extends Resource
     {
         return [
             'index' => Pages\ListPacoteUsuarios::route('/'),
-            'create' => Pages\CreatePacoteUsuario::route('/create'),
-            'edit' => Pages\EditPacoteUsuario::route('/{record}/edit'),
+            //'create' => Pages\CreatePacoteUsuario::route('/create'),
+            //'edit' => Pages\EditPacoteUsuario::route('/{record}/edit'),
         ];
     }
 }

@@ -43,13 +43,19 @@ class ComunidadeResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->maxSize(50000)
+                    ->directory('comunidades')
+                    ->disk('public')
                     ->required(),
                 Forms\Components\FileUpload::make('imagens_secundarias')
                     ->maxSize(50000)
+                    ->directory('comunidades')
+                    ->disk('public')
                     ->multiple()
                     ->required(),
                 Forms\Components\FileUpload::make('video')
-                    ->maxSize(50000)
+                    ->maxSize(100000)
+                    ->directory('comunidades')
+                    ->disk('public')
                     ->required(),
             ]);
     }
@@ -97,8 +103,8 @@ class ComunidadeResource extends Resource
     {
         return [
             'index' => Pages\ListComunidades::route('/'),
-            'create' => Pages\CreateComunidade::route('/create'),
-            'edit' => Pages\EditComunidade::route('/{record}/edit'),
+            //'create' => Pages\CreateComunidade::route('/create'),
+            //'edit' => Pages\EditComunidade::route('/{record}/edit'),
         ];
     }
 }

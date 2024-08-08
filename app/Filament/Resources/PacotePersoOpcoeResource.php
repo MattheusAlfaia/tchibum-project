@@ -84,8 +84,8 @@ class PacotePersoOpcoeResource extends Resource
     {
         return [
             'index' => Pages\ListPacotePersoOpcoes::route('/'),
-            'create' => Pages\CreatePacotePersoOpcoe::route('/create'),
-            'edit' => Pages\EditPacotePersoOpcoe::route('/{record}/edit'),
+            //'create' => Pages\CreatePacotePersoOpcoe::route('/create'),
+            //'edit' => Pages\EditPacotePersoOpcoe::route('/{record}/edit'),
         ];
     }
 }

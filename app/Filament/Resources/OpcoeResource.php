@@ -38,7 +38,7 @@ class OpcoeResource extends Resource
             Forms\Components\FileUpload::make('imagem')
                 ->maxSize(50000)
                 ->directory('opcoes')
-                    ->disk('public')
+                ->disk('public')
                 ->required(),
             Forms\Components\TextInput::make('preco')
                 ->required()
@@ -98,8 +98,8 @@ class OpcoeResource extends Resource
     {
         return [
             'index' => Pages\ListOpcoes::route('/'),
-            'create' => Pages\CreateOpcoe::route('/create'),
-            'edit' => Pages\EditOpcoe::route('/{record}/edit'),
+            //'create' => Pages\CreateOpcoe::route('/create'),
+            //'edit' => Pages\EditOpcoe::route('/{record}/edit'),
         ];
     }
 }

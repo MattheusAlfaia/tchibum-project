@@ -83,8 +83,8 @@ class PostsResource extends Resource
     {
         return [
             'index' => Pages\ListPosts::route('/'),
-            'create' => Pages\CreatePosts::route('/create'),
-            'edit' => Pages\EditPosts::route('/{record}/edit'),
+            //'create' => Pages\CreatePosts::route('/create'),
+            //'edit' => Pages\EditPosts::route('/{record}/edit'),
         ];
     }
 }

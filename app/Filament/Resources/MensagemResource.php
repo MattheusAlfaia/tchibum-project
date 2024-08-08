@@ -83,8 +83,8 @@ class MensagemResource extends Resource
     {
         return [
             'index' => Pages\ListMensagems::route('/'),
-            'create' => Pages\CreateMensagem::route('/create'),
-            'edit' => Pages\EditMensagem::route('/{record}/edit'),
+            //'create' => Pages\CreateMensagem::route('/create'),
+            //'edit' => Pages\EditMensagem::route('/{record}/edit'),
         ];
     }
 }

@@ -119,8 +119,8 @@ class PacotePersonalizadoResource extends Resource
     {
         return [
             'index' => Pages\ListPacotePersonalizados::route('/'),
-            'create' => Pages\CreatePacotePersonalizado::route('/create'),
-            'edit' => Pages\EditPacotePersonalizado::route('/{record}/edit'),
+            //'create' => Pages\CreatePacotePersonalizado::route('/create'),
+            //'edit' => Pages\EditPacotePersonalizado::route('/{record}/edit'),
         ];
     }
 }

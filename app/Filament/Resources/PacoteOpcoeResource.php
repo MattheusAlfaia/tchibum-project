@@ -85,8 +85,8 @@ class PacoteOpcoeResource extends Resource
     {
         return [
             'index' => Pages\ListPacoteOpcoes::route('/'),
-            'create' => Pages\CreatePacoteOpcoe::route('/create'),
-            'edit' => Pages\EditPacoteOpcoe::route('/{record}/edit'),
+            //'create' => Pages\CreatePacoteOpcoe::route('/create'),
+            //'edit' => Pages\EditPacoteOpcoe::route('/{record}/edit'),
         ];
     }
 }

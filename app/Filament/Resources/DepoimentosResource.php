@@ -85,8 +85,8 @@ class DepoimentosResource extends Resource
     {
         return [
             'index' => Pages\ListDepoimentos::route('/'),
-            'create' => Pages\CreateDepoimentos::route('/create'),
-            'edit' => Pages\EditDepoimentos::route('/{record}/edit'),
+            //'create' => Pages\CreateDepoimentos::route('/create'),
+            //'edit' => Pages\EditDepoimentos::route('/{record}/edit'),
         ];
     }
 }

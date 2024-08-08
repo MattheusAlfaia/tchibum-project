@@ -87,7 +87,9 @@ class PacoteResource extends Resource
                     ->required()
                     ->maxLength(1000),
                 Forms\Components\FileUpload::make('video')
-                    ->maxSize(50000),
+                    ->directory('pacote')
+                    ->disk('public')
+                    ->maxSize(100000),
                 Forms\Components\TextInput::make('pessoas')
                     // ->required()
                     ->numeric(),

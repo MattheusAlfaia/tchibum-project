@@ -22,7 +22,7 @@ class User extends Authenticatable implements FilamentUser
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-     public function canAccessPanel(Panel $panel): bool {
+    public function canAccessPanel(Panel $panel): bool {
 
         $allowedDomains = ['devminds.com', 'tchibum.com'];
 

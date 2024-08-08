@@ -64,8 +64,8 @@ class GaleriaResource extends Resource
     {
         return [
             'index' => Pages\ListGalerias::route('/'),
-            'create' => Pages\CreateGaleria::route('/create'),
-            'edit' => Pages\EditGaleria::route('/{record}/edit'),
+            //'create' => Pages\CreateGaleria::route('/create'),
+            //'edit' => Pages\EditGaleria::route('/{record}/edit'),
         ];
     }
 }
