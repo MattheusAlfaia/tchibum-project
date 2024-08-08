@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->float('preco',10,2);
             $table->datetime('data');
+            $table->date('data_final');
             $table->integer('pessoas');
-            $table->integer('dias');
+            $table->integer('dias')->default(1);
             $table->string('status')->default('PENDENTE');
 
             $table->unsignedBigInteger('comunidade_id')->unsigned();
