@@ -48,12 +48,15 @@ class DepoimentosResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('foto')
+                    ->label('Foto')
+                    ->circular(),
                 Tables\Columns\TextColumn::make('nome')
-                ->searchable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('avaliação')
-                ->searchable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('ocupação')
-                ->searchable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                 ->dateTime()
                 ->label('Organizar por Criação')
