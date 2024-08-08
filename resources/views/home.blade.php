@@ -630,7 +630,7 @@
 
                     }else{
 
-                        window.location.href = '/pacotes_personalizados';
+                        window.location.href = '/pacotes/custom';
 
                     }
             }

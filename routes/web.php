@@ -72,7 +72,7 @@ Route::middleware('web')->group(function () {
 
 
 // Pacotes Fechados
-Route::get('/pacote/custom', [PacksController::class, 'show']);
+Route::get('/pacotes/custom', [PacksController::class, 'show'])->name('pacotes.custom');
 Route::post('/pacote/custom/comunidade', [PacksController::class, 'comunidadeInfo'])->name('pacoteSteps.comunidade');
 Route::post('/pacote/custom/create', [PacksController::class, 'pacoteSelect'])->name('pacoteSteps.create');
 //PACOTES
