@@ -8,7 +8,7 @@ class PacoteSelectRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; // Defina conforme necessário para autorização adicional
+        return true; 
     }
 
     public function rules()

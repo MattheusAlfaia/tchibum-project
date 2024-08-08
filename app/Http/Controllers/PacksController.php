@@ -13,10 +13,11 @@ use App\Models\Contato;
 use App\Models\Comunidade;
 use App\Models\Opcoe;
 
-use Carbon\Carbon;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\PacoteSaveRequest;
+use App\Http\Requests\PacoteSelectRequest;
 
 
 use App\Http\Requests\ComunidadeRequest;
@@ -44,7 +45,7 @@ class PacksController extends Controller
     }
 
 
-    public function pacoteSelect(Request $request)
+    public function pacoteSelect(PacoteSelectRequest $request)
     {
         $id_comunidade = $request->comunidade_id;
 

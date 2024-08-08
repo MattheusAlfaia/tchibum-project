@@ -18,7 +18,7 @@
                                         <label for="pessoas"
                                             class="form-label">{{ trans('messages.quantidade_de_pessoas') }}:</label>
                                         <input type="number" id="pessoas" class="form-control" name="pessoas"
-                                            value="1" min="1" required>
+                                        value="1" min="1" required>
                                     </div>
                                 </div>
 
@@ -68,7 +68,9 @@
                             {{-- <button type="button" id="enviarDados"
                                 class="btn btn-success">Finalizar Compra!
                             </button> --}}
-                            <button type="submit" class="btn btn-success" id="enviarDados">Finalizar Compra!</button>
+                            <button type="submit" class="btn btn-success" id="enviarDados">
+                                Finalizar Compra!
+                            </button>
                         </form>
                     </div>
                 </div>

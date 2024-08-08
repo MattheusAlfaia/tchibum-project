@@ -13,7 +13,7 @@ class PacoteSaveRequest extends FormRequest
      */
     public function authorize()
     {
-        return true; // Defina se necessário para autenticação ou autorização adicional
+        return true;
     }
 
     /**
