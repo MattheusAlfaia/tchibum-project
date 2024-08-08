@@ -28,7 +28,8 @@
         <div class="w-100">
          <span class="subheading">{{ trans('messages.sobre_titulo') }}</span>
          <h2 class="mb-4">{{ trans('messages.sobre') }}</h2>
-         <p class="paragrafo"> {!! nl2br(e(trans('messages.sobre_texto'))) !!}</p>
+         {{-- <p class="paragrafo"> {!! nl2br(e(trans('messages.sobre_texto'))) !!}</p> --}}
+         <p class="paragrafo"> {!! markdown($sobre->sobre) !!}</p>
        </div>
      </div>
      <div class="col-md-6">
