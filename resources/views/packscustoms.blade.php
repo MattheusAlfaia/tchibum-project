@@ -350,7 +350,7 @@
 
             dados.precototal = arredondarParaMultiploDe5(soma);
 
-            let precototal = '<i class="fa fa-money-bill" aria-hidden="true"> <strong> Preço Total: </strong> ' + 'R$' + Math.floor(soma);
+            let precototal = '<i class="fa fa-money-bill" aria-hidden="true"> <strong> Preço Total: </strong> ' + 'R$' + Math.floor(soma) * dados.pessoas + '<br><br>';
 
             resultado = comunidade + data + data_final + pessoas + '<strong> Opções selecionadas: </strong> <br>';
 
