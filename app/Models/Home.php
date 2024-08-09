@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Home extends Model
 {
+    use HasFactory;
 
     protected $table = 'home';
     protected $fillable = ['titulo_principal','video_principal','titulo_bem_vindo','descricao_bem_vindo',
