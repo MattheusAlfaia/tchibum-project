@@ -28,6 +28,7 @@ class GaleriaResource extends Resource
                 Forms\Components\FileUpload::make('imagem')
                     ->maxSize(50000)
                     ->directory('galeria')
+                    ->optimize('webp')
                     ->disk('public')
                     ->required(),
             ]);

@@ -38,6 +38,7 @@ class OpcoeResource extends Resource
             Forms\Components\FileUpload::make('imagem')
                 ->maxSize(50000)
                 ->directory('opcoes')
+                ->optimize('webp')
                 ->disk('public')
                 ->required(),
             Forms\Components\TextInput::make('preco')

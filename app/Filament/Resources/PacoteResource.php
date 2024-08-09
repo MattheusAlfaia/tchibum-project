@@ -48,12 +48,14 @@ class PacoteResource extends Resource
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->label('Imagem Principal')
                     ->directory('pacote')
+                    ->optimize('webp')
                     ->disk('public')
                     ->required(),
                 Forms\Components\FileUpload::make('imagens_secundarias')
                     ->label('Imagens Secundarias')
                     ->directory('pacote')
                     ->disk('public')
+                    ->optimize('webp')
                     ->multiple()
                     ->required(),
                 Forms\Components\TextInput::make('preco')

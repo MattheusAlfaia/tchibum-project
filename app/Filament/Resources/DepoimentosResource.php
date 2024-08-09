@@ -36,6 +36,7 @@ class DepoimentosResource extends Resource
                 Forms\Components\FileUpload::make('foto')
                     ->directory('depoimento')
                     ->disk('public')
+                    ->optimize('webp')
                     ->required(),
                 Forms\Components\TextInput::make('ocupação')
                     ->required()

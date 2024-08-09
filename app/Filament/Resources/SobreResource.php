@@ -50,6 +50,7 @@ class SobreResource extends Resource
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade1')
                     ->label('Imagem Atividade/Comunidade 1')
                     ->directory('sobre')
+                    ->optimize('webp')
                     ->disk('public')
                     ->required(),
                 Forms\Components\TextInput::make('nome_atividade_comunidade3')
@@ -59,6 +60,7 @@ class SobreResource extends Resource
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade2')
                     ->label('Imagem Atividade/Comunidade 2')
                     ->directory('sobre')
+                    ->optimize('webp')
                     ->disk('public')
                     ->required(),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade3')
@@ -67,6 +69,7 @@ class SobreResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade3')
                     ->label('Imagem Atividade/Comunidade 3')
+                    ->optimize('webp')
                     ->directory('sobre')
                     ->disk('public')
                     ->required(),
@@ -77,6 +80,7 @@ class SobreResource extends Resource
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade4')
                     ->label('Imagem Atividade/Comunidade 4')
                     ->directory('sobre')
+                    ->optimize('webp')
                     ->disk('public')
                     ->required(),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade4')
@@ -86,6 +90,7 @@ class SobreResource extends Resource
                 Forms\Components\FileUpload::make('capa_video_principal')
                     ->required()
                     ->directory('sobre')
+                    ->optimize('webp')
                     ->disk('public')
                     ->maxSize(100000),
                 Forms\Components\FileUpload::make('video_principal')

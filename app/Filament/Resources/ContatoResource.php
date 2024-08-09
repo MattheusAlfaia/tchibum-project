@@ -26,6 +26,9 @@ class ContatoResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('imagem_principal')
+                    ->directory('contato')
+                    ->disk('public')
+                    ->optimize('webp')
                     ->required(),
                 Forms\Components\TextInput::make('whatsapp')
                     ->required()

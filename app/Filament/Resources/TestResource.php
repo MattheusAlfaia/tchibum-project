@@ -33,6 +33,7 @@ class TestResource extends Resource
                     ->maxLength(5000),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->directory('test')
+                    ->optimize('webp')
                     ->disk('public')
                     ->required(),
             ]);

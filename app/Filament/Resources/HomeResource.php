@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class HomeResource extends Resource
 {
@@ -57,6 +58,7 @@ class HomeResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade1')
                     ->label('Imagem Atividade/Comunidade 1')
+                    ->optimize('webp')
                     ->directory('home')
                     ->disk('public')
                     ->required(),
@@ -66,6 +68,7 @@ class HomeResource extends Resource
                     ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade2')
                     ->label('Imagem Atividade/Comunidade 2')
+                    ->optimize('webp')
                     ->directory('home')
                     ->disk('public')
                     ->required(),
@@ -75,6 +78,7 @@ class HomeResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade3')
                     ->label('Imagem Atividade/Comunidade 3')
+                    ->optimize('webp')
                     ->directory('home')
                     ->disk('public')
                     ->required(),
@@ -84,6 +88,7 @@ class HomeResource extends Resource
                     ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade4')
                     ->label('Imagem Atividade/Comunidade 4')
+                    ->optimize('webp')
                     ->directory('home')
                     ->disk('public')
                     ->required(),
