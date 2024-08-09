@@ -7,11 +7,11 @@
             <div class="row d-flex">
                 <div id="container" class="container mt-5">
                     <div class="step step-3">
-                        <h3>{{ trans('messages.pessoas_e_atividades') }}</h3>
+                        <h3 class="text-white">{{ trans('messages.pessoas_e_atividades') }}</h3>
                         <form action="{{ route('pacoteSteps.save') }}" method="POST">
                             @csrf
                             <input type="hidden" name="comunidade_id" value="{{ $comunidade->id }}">
-                            <div class="row">
+                            <div class="row text-white">
                                 <!-- Pessoas -->
                                 <div class="col-md-4">
                                     <div class="mb-3">
@@ -41,7 +41,7 @@
                             </div>
 
 
-                            <h3> Selecionar Atividades </h3>
+                            <h3 class="text-white"> Selecionar Atividades </h3>
                             <div class="mb-3">
                                 <select class="js-select2 select-dd" id="opcoes_atividades" name="atividades[]"
                                     multiple="multiple">
@@ -53,15 +53,19 @@
                             </div>
 
 
-                            <h3>Detalhes:</h3>
-                            <div class="mb-3">
-                                <h5 class="">Comunidade: {{ $comunidade->nome }}</h5>
-                                <h5 class="" id="qtd_pessoas">Quantidade de Pessoas:</h5>
-                                <h5 class="" id="label_data_inicial">Data Inicial:</h5>
-                                <h5 class="" id="label_data_final">Data Final:</h5>
-                                <h5 class="" id="label_atividades">Atividades Incluidas:</h5>
-                                <h5 class="" id="preco_final">Preço Total: </h5>
-                            </div>
+                            <h3 class="text-white">Detalhes:</h3>
+                            <card
+                                class="card card-body bg-light text-dark"
+                                style="border-radius: 10px; padding: 10px; margin-bottom: 10px;">
+                                <div class="mb-3">
+                                    <h5 class="text">Comunidade: {{ $comunidade->nome }}</h5>
+                                    <h5 class="text" id="qtd_pessoas">Quantidade de Pessoas:</h5>
+                                    <h5 class="text" id="label_data_inicial">Data Inicial:</h5>
+                                    <h5 class="text" id="label_data_final">Data Final:</h5>
+                                    <h5 class="text" id="label_atividades">Atividades Incluidas:</h5>
+                                    <h5 class="text" id="preco_final">Preço Total: </h5>
+                                </div>
+                            </card>
 
                             {{-- <button type="button"
                                 class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button> --}}
