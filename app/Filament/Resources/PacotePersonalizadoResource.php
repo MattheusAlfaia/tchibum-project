@@ -56,11 +56,11 @@ class PacotePersonalizadoResource extends Resource
                 Forms\Components\Select::make('status')
                     ->required()
                     ->options([
-                        'EM_ANALISE' => 'EM ANALISE',
+                        'EM ANALISE' => 'EM ANALISE',
                         'APROVADO'=> 'APROVADO',
                         'RECUSADO'=>'RECUSADO'
                         ])
-                    ->default('EM_ANALISE'),
+                    ->default('EM ANALISE'),
             ]);
     }
 

@@ -16,12 +16,12 @@ class PacotePersoUsuario extends Model
 
     public function pacoteperso()
     {
-        return $this->belongsTo(PacotePersonalizado::class);
+        return $this->belongsTo(PacotePersonalizado::class, 'pacoteperso_id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

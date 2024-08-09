@@ -33,4 +33,5 @@ class Pacote extends Model
     {
         return $this->belongsToMany(User::class, 'pacoteusuarios','pacote_id','user_id');
     }
+    
 }

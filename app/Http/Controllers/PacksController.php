@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Pacote;
 use App\Models\User;
 use App\Models\PacoteUsuario;
+use App\Models\PacotePersonalizado;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PacoteUsuarios;
 use App\Models\Contato;
 use App\Models\Comunidade;
 use App\Models\Opcoe;
+use App\Models\PacotePersoOpcoe;
 
 
 use Illuminate\Support\Facades\DB;
@@ -26,11 +28,9 @@ class PacksController extends Controller
 {
     public function show()
     {
-        $comunidades = Cache::remember('comunidades_with_pacotes', 8 * 60, function () {
-            return Comunidade::has('pacotes')->get();
-        });
+        $comunidades = Comunidade::has('pacotes')->get();
 
-        return view('pacoteSteps.stepSelect', compact('comunidades'));
+        return view('pacoteSteps/stepSelect', compact('comunidades'));
     }
 
     public function comunidadeInfo(ComunidadeRequest $request)
@@ -45,7 +45,7 @@ class PacksController extends Controller
     }
 
 
-    public function pacoteSelect(PacoteSelectRequest $request)
+    public function pacoteSelect(Request $request)
     {
         $id_comunidade = $request->comunidade_id;
 
@@ -58,51 +58,51 @@ class PacksController extends Controller
 
     // /// /// /// /// /// /// /// /// /// /// /// /// /// ///
 
-    public function pacoteSave(PacoteSaveRequest $request)
+
+
+    public function save(Request $request)
     {
+        $precoTotal = 0;
 
-        $validated = $request->validated();
-
-        $pacoteId = $validated['pacote_id'];
-
-        DB::beginTransaction();
-
-        try {
-            $pacote = Pacote::with('comunidade', 'opcoes')->findOrFail($pacoteId);
-
-            PacoteUsuario::create([
-                'pacote_id' => $pacote->id,
-                'user_id' => auth()->id(),
-                'data' => date("Y-m-d H:i:s"),
-            ]);
-
-            $linkWhatsApp = $this->generateWhatsAppLink($pacote);
-
-            DB::commit();
-
-            return Redirect::to($linkWhatsApp)->with('success', 'Pacote salvo com sucesso!');
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-
-            \Log::error('Erro ao salvar pacote: ' . $e->getMessage());
-
-            return redirect()->back()->with('error', 'Ocorreu um erro ao salvar o pacote. Tente novamente.');
+        if ($request->has('atividades')) {
+            $atividades = Opcoe::whereIn('id', $request->atividades)->get();
+            foreach ($atividades as $atividade) {
+                $precoTotal += $atividade->preco * $request->pessoas;
+            }
         }
+
+        $pacotePersonalizado = PacotePersonalizado::create([
+            'comunidade_id' => $request->comunidade_id,
+            'user_id' => auth()->id(),
+            'preco' => $precoTotal,
+            'data' => $request->data,
+            'data_final' => $request->data_final,
+            'pessoas' => $request->pessoas,
+            'status' => 'EM ANALISE',
+        ]);
+
+        if ($request->has('atividades')) {
+            $pacotePersonalizado->opcoes()->attach($request->atividades);
+        }
+
+        $whatsappLink = $this->generateWhatsAppLink($pacotePersonalizado);
+
+        return redirect()->away($whatsappLink);
     }
 
-    private function generateWhatsAppLink(Pacote $pacote)
+
+    private function generateWhatsAppLink(PacotePersonalizado $pacote)
     {
         $contato = Contato::findOrFail(1);
 
-        $dataFormatada = $pacote->data->format('d/m/Y');
-        $dataFinalFormatada = $pacote->data_final->format('d/m/Y');
+        $dataFormatada = \Carbon\Carbon::parse($pacote->data)->format('d/m/Y');
+        $dataFinalFormatada = \Carbon\Carbon::parse($pacote->data_final)->format('d/m/Y');
+
         $user = auth()->user();
 
-        $mensagem = "Solicitação de Compra (Pacote Fechado) :\n\n";
+        $mensagem = "Solicitação de Compra (Pacote Personalizado) :\n\n";
         $mensagem .= "Informações do Pacote:\n\n";
         $mensagem .= "Identificação do Pacote: " . $pacote->id . "\n";
-        $mensagem .= "Nome do Pacote: " . $pacote->nome . "\n";
         $mensagem .= "Preço: R$" . number_format($pacote->preco, 2, ',', '.') . "\n";
         $mensagem .= "Data: " . $dataFormatada . "\n";
         $mensagem .= "Data Final: " . $dataFinalFormatada . "\n";
@@ -119,6 +119,9 @@ class PacksController extends Controller
     }
 
 
+
+
+
     public function index(){
         $pacotes = Pacote::with('comunidade')->latest()->paginate(6);
 
@@ -132,49 +135,7 @@ class PacksController extends Controller
 
         return view('pack',compact('pacote'));
     }
-    public function solicitacaoCompra(Pacote $pacote){
 
-        $pacote = $pacote::with('comunidade','opcoes')->find( $pacote->id);
-
-        $pacote_usuario = PacoteUsuario::create([
-            'pacote_id' => $pacote->id,
-            'user_id' => auth()->user()->id,
-            'data' => date("Y-m-d H:i:s"),
-        ]);
-
-
-        // $this->enviarSolicitacao($pacote->id);
-
-        $contato = Contato::find(1);
-
-        $dataFormatada = date("d/m/y", strtotime($pacote->data));
-        $dataFinalFormatada = date("d/m/y", strtotime($pacote->data_final));
-        $user = auth()->user();
-
-        $mensagem = "Solicitação de Compra (Pacote Fechado) :\n\n";
-        $mensagem .= "Informações do Pacote:\n\n";
-        $mensagem .= "Identificação do Pacote: " . $pacote->id . "\n";
-        $mensagem .= "Nome do Pacote: " . $pacote->nome . "\n";
-        $mensagem .= "Preço: R$" . $pacote->preco . "\n";
-        $mensagem .= "Data: " . $dataFormatada . "\n";
-        $mensagem .= "Data Final: " . $dataFinalFormatada . "\n";
-        $mensagem .= "Nome da Comunidade: " . $pacote->comunidade->nome . "\n\n";
-        $mensagem .= "Informações das Atividades Inclusas: \n\n";
-        foreach ($pacote->opcoes as $key => $opcao) {
-            $mensagem .= "Atividade: " . $opcao->nome . "\n\n";
-        }
-        $mensagem .= "Informações do Cliente: \n\n";
-        $mensagem .= "Nome: " . $user->name . "\n";
-        $mensagem .= "Email: " . $user->email . "\n";
-
-           // Montar o link do WhatsApp
-        $linkWhatsApp = "https://wa.me/" . $contato->whatsapp. "/?text=" . rawurlencode($mensagem);
-
-           // Redirecionar para o link do WhatsAp
-
-        return $linkWhatsApp;
-
-    }
 
     protected function enviarSolicitacao($pacote){
 
