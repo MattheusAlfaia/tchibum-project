@@ -4,19 +4,12 @@
 
 
     <div class="hero-wrap js-fullheight">
-        <video autoplay loop muted playsinline
-                        style="
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                z-index: -1;
-                top: 0;
-                left: 0;
-            ">
+        <video autoplay loop muted playsinline preload="auto"
+            style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; top: 0; left: 0;">
             <source src="{{ asset('/storage/' . $home->video_principal) }}" type="video/mp4">
             Seu navegador não suporta o elemento de vídeo.
         </video>
+
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
@@ -459,7 +452,7 @@
                                 <div class="testimony-wrap py-4">
                                     <div class="text">
                                         <p class="{{ $depoimento->id }}"></p>
-                                        <p class="mb-4">{{ markdown($depoimento->depoimento) }}</p>
+                                        <p class="mb-4">{!! markdown($depoimento->depoimento) !!}</p>
                                         <div class="d-flex align-items-center">
                                             <div class="user-img"
                                                 style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
