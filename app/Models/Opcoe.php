@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Pacote;
 use App\Models\Comunidade;
 use App\Models\PacotePersonalizado;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Opcoe extends Model
 {
+    use HasFactory;
+    use LogsActivity;
     protected $table = 'opcoes';
     protected $fillable = ['nome','titulo','descricao','imagem','preco','comunidade_id'];
 
@@ -32,5 +36,12 @@ class Opcoe extends Model
         return $this->belongsToMany(PacotePersonalizado::class, 'pacotepersoopcoe', 'opcaoperso_id', 'pacoteperso_id');
     }
 
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly([
+            'nome','titulo','descricao','imagem','preco','comunidade_id'
+        ]);
+    }
 
 }

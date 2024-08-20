@@ -22,6 +22,7 @@
         "laravel/ui": "^4.2",
         "league/commonmark": "^2.5",
         "livewire/livewire": "^3.4",
+        "rmsramos/activitylog": "^1.0",
         "saade/filament-fullcalendar": "^3.0",
         "spatie/laravel-responsecache": "^7.6",
         "statickidz/php-google-translate-free": "^1.2",

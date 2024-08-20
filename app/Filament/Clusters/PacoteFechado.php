@@ -10,5 +10,5 @@ class PacoteFechado extends Cluster
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationLabel = 'Pacote Fechado';
+    protected static ?string $navigationLabel = 'Pacotes Fechados';
 }

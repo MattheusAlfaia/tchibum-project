@@ -14,6 +14,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+
 class GaleriaResource extends Resource
 {
     protected static ?string $model = Galeria::class;
@@ -30,7 +32,7 @@ class GaleriaResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('imagem')
+                Forms\Components\FileUpload::make('imagem')
                     ->optimize('webp')
                     ->directory('galeria')
                     ->disk('public')

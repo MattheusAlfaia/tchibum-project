@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Pacote;
 use App\Models\Opcoe;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class PacoteOpcoe extends Model
 {
+    use HasFactory;
+    use LogsActivity;
     protected $table = 'pacoteopcoe';
     protected $fillable = ['pacote_id', 'opcao_id'];
 
@@ -21,5 +25,11 @@ class PacoteOpcoe extends Model
     {
         return $this->belongsTo(Opcoe::class);
     }
-
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly([
+            'pacote_id', 'opcao_id'
+        ]);
+    }
 }
