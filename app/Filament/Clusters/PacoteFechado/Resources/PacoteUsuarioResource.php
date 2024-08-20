@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\PacoteFechado\Resources;
 
-use App\Filament\Resources\PacoteUsuarioResource\Pages;
-use App\Filament\Resources\PacoteUsuarioResource\RelationManagers;
+use App\Filament\Clusters\PacoteFechado;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteUsuarioResource\Pages;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteUsuarioResource\RelationManagers;
 use App\Models\PacoteUsuario;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -21,9 +22,13 @@ class PacoteUsuarioResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
-    protected static ?string $navigationGroup = 'Pacotes Fechados';
-
     protected static ?string $navigationLabel = 'Compras';
+
+    protected static ?string $cluster = PacoteFechado::class;
+
+    protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

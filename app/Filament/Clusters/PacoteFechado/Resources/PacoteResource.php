@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\PacoteFechado\Resources;
 
-use App\Filament\Resources\PacoteResource\Pages;
-use App\Filament\Resources\PacoteResource\RelationManagers;
+use App\Filament\Clusters\PacoteFechado;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteResource\Pages;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteResource\RelationManagers;
 use App\Models\Pacote;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -12,7 +13,6 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Select;
 use App\Models\Comunidade;
 use Filament\Forms\Components\MarkdownEditor;
 
@@ -22,9 +22,11 @@ class PacoteResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
 
-    protected static ?string $navigationGroup = 'Pacotes Fechados';
+    protected static ?string $cluster = PacoteFechado::class;
 
+    protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
 
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

@@ -123,26 +123,22 @@ class HomeResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('descricao_atividade_comunidade1')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('imagem_atividade_comunidade1')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('imagem_atividade_comunidade1'),
                 Tables\Columns\TextColumn::make('nome_atividade_comunidade2')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('descricao_atividade_comunidade2')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('imagem_atividade_comunidade2')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('imagem_atividade_comunidade2'),
                 Tables\Columns\TextColumn::make('nome_atividade_comunidade3')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('descricao_atividade_comunidade3')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('imagem_atividade_comunidade3')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('imagem_atividade_comunidade3'),
                 Tables\Columns\TextColumn::make('nome_atividade_comunidade4')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('descricao_atividade_comunidade4')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('imagem_atividade_comunidade4')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('imagem_atividade_comunidade4'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

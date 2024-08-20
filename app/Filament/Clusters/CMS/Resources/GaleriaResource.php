@@ -31,8 +31,10 @@ class GaleriaResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('imagem')
-                    ->required()
-                    ->maxLength(255),
+                    ->optimize('webp')
+                    ->directory('galeria')
+                    ->disk('public')
+                    ->required(),
             ]);
     }
 
@@ -40,8 +42,7 @@ class GaleriaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('imagem')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('imagem'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

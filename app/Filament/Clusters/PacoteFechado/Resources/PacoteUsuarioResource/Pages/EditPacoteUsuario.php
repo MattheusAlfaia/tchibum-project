@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\PacoteUsuarioResource\Pages;
+namespace App\Filament\Clusters\PacoteFechado\Resources\PacoteUsuarioResource\Pages;
 
-use App\Filament\Resources\PacoteUsuarioResource;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteUsuarioResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

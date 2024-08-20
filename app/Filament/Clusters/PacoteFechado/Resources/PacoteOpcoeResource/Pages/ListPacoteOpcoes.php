@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Filament\Resources\PacoteOpcoeResource\Pages;
+namespace App\Filament\Clusters\PacoteFechado\Resources\PacoteOpcoeResource\Pages;
 
-use App\Filament\Resources\PacoteOpcoeResource;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteOpcoeResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListPacoteOpcoes extends ListRecords
 {
     protected static string $resource = PacoteOpcoeResource::class;
+
+    protected static ?string $navigationLabel = 'Atividades Inclusas';
 
     protected function getHeaderActions(): array
     {

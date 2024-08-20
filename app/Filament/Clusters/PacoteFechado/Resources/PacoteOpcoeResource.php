@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\PacoteFechado\Resources;
 
-use App\Filament\Resources\PacoteOpcoeResource\Pages;
-use App\Filament\Resources\PacoteOpcoeResource\RelationManagers;
+use App\Filament\Clusters\PacoteFechado;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteOpcoeResource\Pages;
+use App\Filament\Clusters\PacoteFechado\Resources\PacoteOpcoeResource\RelationManagers;
 use App\Models\PacoteOpcoe;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -20,11 +21,13 @@ class PacoteOpcoeResource extends Resource
     protected static ?string $model = PacoteOpcoe::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-folder-open';
-
-    protected static ?string $navigationGroup = 'Pacotes Fechados';
-    protected static ?int $navigationSort = 3;
-
     protected static ?string $navigationLabel = 'Atividades Inclusas';
+
+    protected static ?string $cluster = PacoteFechado::class;
+
+    protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
