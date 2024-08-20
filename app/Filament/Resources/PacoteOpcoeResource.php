@@ -19,9 +19,10 @@ class PacoteOpcoeResource extends Resource
 {
     protected static ?string $model = PacoteOpcoe::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
 
     protected static ?string $navigationGroup = 'Pacotes Fechados';
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $navigationLabel = 'Atividades Inclusas';
 

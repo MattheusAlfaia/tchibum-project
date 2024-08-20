@@ -17,7 +17,7 @@ class ContatoResource extends Resource
 {
     protected static ?string $model = Contato::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
 
     protected static ?string $navigationLabel = 'Contato';
 

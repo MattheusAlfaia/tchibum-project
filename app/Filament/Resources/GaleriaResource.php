@@ -17,7 +17,7 @@ class GaleriaResource extends Resource
 {
     protected static ?string $model = Galeria::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-squares-plus';
 
     protected static ?string $navigationLabel = 'Galeria';
 

@@ -20,7 +20,7 @@ class PacotePersoOpcoeResource extends Resource
 {
     protected static ?string $model = PacotePersoOpcoe::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
 
     protected static ?string $navigationGroup = 'Pacotes Personalizados';
 

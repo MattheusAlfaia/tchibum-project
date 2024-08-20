@@ -18,7 +18,9 @@ class OpcoeResource extends Resource
 {
     protected static ?string $model = Opcoe::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-list-bullet';
+
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $navigationLabel = 'Atividades';
 
