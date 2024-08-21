@@ -28,6 +28,10 @@ class PacksController extends Controller
 {
     public function show()
     {
+        // apena se tiver logado se não vai para login
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
         $comunidades = Comunidade::has('pacotes')->get();
 
         return view('pacoteSteps/stepSelect', compact('comunidades'));
