@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\PacotePersoOpcoeResource\Pages;
+namespace App\Filament\Clusters\CustomPacote\Resources\PacotePersoOpcoeResource\Pages;
 
-use App\Filament\Resources\PacotePersoOpcoeResource;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersoOpcoeResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

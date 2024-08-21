@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\PacotePersonalizadoResource\Pages;
+namespace App\Filament\Clusters\CustomPacote\Resources\PacotePersonalizadoResource\Pages;
 
-use App\Filament\Resources\PacotePersonalizadoResource;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersonalizadoResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 

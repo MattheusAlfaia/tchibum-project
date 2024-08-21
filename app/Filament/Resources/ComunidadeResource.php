@@ -19,7 +19,7 @@ class ComunidadeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
-    protected static ?string $navigationGroup = 'Comunidades';
+    protected static ?string $navigationGroup = 'Comunidades e Atividades';
 
     public static function form(Form $form): Form
     {

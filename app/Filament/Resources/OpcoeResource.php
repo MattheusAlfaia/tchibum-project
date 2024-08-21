@@ -24,6 +24,8 @@ class OpcoeResource extends Resource
 
     protected static ?string $navigationLabel = 'Atividades';
 
+    protected static ?string $navigationGroup = 'Comunidades e Atividades';
+
     public static function form(Form $form): Form
     {
         return $form

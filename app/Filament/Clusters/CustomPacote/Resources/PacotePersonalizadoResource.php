@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\CustomPacote\Resources;
 
-use App\Filament\Resources\PacotePersonalizadoResource\Pages;
-use App\Filament\Resources\PacotePersonalizadoResource\RelationManagers;
+use App\Filament\Clusters\CustomPacote;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersonalizadoResource\Pages;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersonalizadoResource\RelationManagers;
 use App\Models\PacotePersonalizado;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -12,19 +13,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Select;
+
 use App\Models\Comunidade;
 use App\Models\User;
+
 
 class PacotePersonalizadoResource extends Resource
 {
     protected static ?string $model = PacotePersonalizado::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $navigationIcon = 'heroicon-o-lock-open';
 
-    protected static ?string $navigationGroup = 'Pacotes Personalizados';
+    protected static ?string $cluster = CustomPacote::class;
 
-
+    protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
 
     public static function form(Form $form): Form
     {
@@ -119,8 +121,8 @@ class PacotePersonalizadoResource extends Resource
     {
         return [
             'index' => Pages\ListPacotePersonalizados::route('/'),
-            //'create' => Pages\CreatePacotePersonalizado::route('/create'),
-            //'edit' => Pages\EditPacotePersonalizado::route('/{record}/edit'),
+            'create' => Pages\CreatePacotePersonalizado::route('/create'),
+            'edit' => Pages\EditPacotePersonalizado::route('/{record}/edit'),
         ];
     }
 }

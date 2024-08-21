@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\CustomPacote\Resources;
 
-use App\Filament\Resources\PacotePersoUsuarioResource\Pages;
-use App\Filament\Resources\PacotePersoUsuarioResource\RelationManagers;
+use App\Filament\Clusters\CustomPacote;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersoUsuarioResource\Pages;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersoUsuarioResource\RelationManagers;
 use App\Models\PacotePersoUsuario;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -15,16 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\PacotePersonalizado;
 use App\Models\User;
 
-
 class PacotePersoUsuarioResource extends Resource
 {
     protected static ?string $model = PacotePersoUsuario::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
-    protected static ?string $navigationGroup = 'Pacotes Personalizados';
+    protected static ?string $cluster = CustomPacote::class;
 
-    protected static ?string $navigationLabel = 'Compras';
+    protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
 
     public static function form(Form $form): Form
     {

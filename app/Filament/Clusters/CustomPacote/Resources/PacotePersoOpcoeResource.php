@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\CustomPacote\Resources;
 
-use App\Filament\Resources\PacotePersoOpcoeResource\Pages;
-use App\Filament\Resources\PacotePersoOpcoeResource\RelationManagers;
+use App\Filament\Clusters\CustomPacote;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersoOpcoeResource\Pages;
+use App\Filament\Clusters\CustomPacote\Resources\PacotePersoOpcoeResource\RelationManagers;
 use App\Models\PacotePersoOpcoe;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -12,8 +13,6 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Select;
-use App\Models\Comunidade;
 use App\Models\Opcoe;
 
 class PacotePersoOpcoeResource extends Resource
@@ -22,9 +21,9 @@ class PacotePersoOpcoeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-folder-open';
 
-    protected static ?string $navigationGroup = 'Pacotes Personalizados';
+    protected static ?string $cluster = CustomPacote::class;
 
-    protected static ?string $navigationLabel = 'Atividades Inclusas';
+    protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
 
     public static function form(Form $form): Form
     {
