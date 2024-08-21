@@ -6,9 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Comunidade;
 use App\Models\Opcoe;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use App\Models\User;
+
 
 class PacotePersonalizado extends Model
 {
+    use HasFactory;
+    use LogsActivity;
+
     protected $table = 'pacotes_personalizados';
     protected $fillable = ['comunidade_id','user_id','preco','data', 'data_final','pessoas','dias','status'];
 
@@ -28,6 +35,12 @@ class PacotePersonalizado extends Model
         return $this->belongsTo(User::class);
     }
 
-    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly([
+            'comunidade_id','user_id','preco','data', 'data_final','pessoas','dias','status'
+        ]);
+    }
 
 }

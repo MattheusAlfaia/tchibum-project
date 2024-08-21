@@ -17,7 +17,7 @@ class MensagemResource extends Resource
 {
     protected static ?string $model = Mensagem::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
 
     protected static ?string $navigationLabel = 'Mensagens';
 

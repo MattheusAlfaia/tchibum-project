@@ -13,6 +13,8 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use App\Models\Pacote;
 use App\Models\PacotePersonalizado;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -21,6 +23,7 @@ class User extends Authenticatable implements FilamentUser
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use LogsActivity;
 
     public function canAccessPanel(Panel $panel): bool {
 
@@ -81,4 +84,14 @@ class User extends Authenticatable implements FilamentUser
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly([
+            'name',
+            'email',
+            'password',
+        ]);
+    }
 }

@@ -17,7 +17,7 @@ class ContatoResource extends Resource
 {
     protected static ?string $model = Contato::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
 
     protected static ?string $navigationLabel = 'Contato';
 
@@ -26,6 +26,9 @@ class ContatoResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('imagem_principal')
+                    ->directory('contato')
+                    ->disk('public')
+                    ->optimize('webp')
                     ->required(),
                 Forms\Components\TextInput::make('whatsapp')
                     ->required()

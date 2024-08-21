@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Opcoe;
 use App\Models\User;
 use App\Models\Comunidade;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 
 class Pacote extends Model
 {
+    use HasFactory;
+    use LogsActivity;
     protected $table = 'pacotes';
     protected $fillable = ['nome','titulo','descricao','imagem_principal','imagens_secundarias','preco','data','infos','video','comunidade_id'];
 
@@ -33,5 +37,12 @@ class Pacote extends Model
     {
         return $this->belongsToMany(User::class, 'pacoteusuarios','pacote_id','user_id');
     }
-    
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly([
+            'nome','titulo','descricao','imagem_principal','imagens_secundarias','preco','data','infos','video','comunidade_id'
+        ]);
+    }
 }
