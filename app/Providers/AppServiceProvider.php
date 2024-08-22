@@ -29,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
 
        Model::unguard();
        Paginator::useBootstrap();
+
     }
 }
