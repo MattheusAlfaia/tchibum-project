@@ -19,36 +19,46 @@ class Pacotes extends BaseWidget
         $startDate = $this->filters['startDate'] ? Carbon::parse($this->filters['startDate']) : null;
         $endDate = $this->filters['endDate'] ? Carbon::parse($this->filters['endDate'])->endOfDay() : now()->endOfDay();
 
+        // Consulta para Pacotes Fechados (PacoteUsuario)
         $closedPackagesQuery = PacoteUsuario::query()
             ->join('pacotes', 'pacoteusuarios.pacote_id', '=', 'pacotes.id')
             ->when($startDate, fn($query) => $query->where('pacoteusuarios.data', '>=', $startDate))
             ->when($endDate, fn($query) => $query->where('pacoteusuarios.data', '<=', $endDate));
 
+        // Consulta para Pacotes Personalizados (PacotePersoUsuario)
         $customPackagesQuery = PacotePersoUsuario::query()
             ->join('pacotes_personalizados', 'pacotepersousuarios.pacoteperso_id', '=', 'pacotes_personalizados.id')
             ->when($startDate, fn($query) => $query->where('pacotepersousuarios.data', '>=', $startDate))
             ->when($endDate, fn($query) => $query->where('pacotepersousuarios.data', '<=', $endDate));
 
-
+        // Aplicando filtros para o tipo de pacote
         if ($packageType === 'closed') {
-            $customPackagesQuery->whereRaw('1 = 0');
+            $customPackagesQuery->whereRaw('1 = 0');  // Bloqueia pacotes personalizados
         } elseif ($packageType === 'custom') {
-            $closedPackagesQuery->whereRaw('1 = 0');
+            $closedPackagesQuery->whereRaw('1 = 0');  // Bloqueia pacotes fechados
         }
 
         // Receita dos pacotes pagos
-        $closedRevenue = $closedPackagesQuery->where('pacoteusuarios.status', 'PAGO')->sum('pacotes.preco');
-        $customRevenue = $customPackagesQuery->where('pacotepersousuarios.status', 'PAGO')->sum('pacotes_personalizados.preco');
+        $closedRevenue = $closedPackagesQuery->clone()->where('pacoteusuarios.status', 'PAGO')->sum('pacotes.preco');
+        $customRevenue = $customPackagesQuery->clone()->where('pacotepersousuarios.status', 'PAGO')->sum('pacotes_personalizados.preco');
         $totalRevenue = $closedRevenue + $customRevenue;
 
         // Total de pacotes não pagos
-        $closedUnpaid = $closedPackagesQuery->where('pacoteusuarios.status', 'NÃO PAGO')->count('pacoteusuarios.id');
-        $customUnpaid = $customPackagesQuery->where('pacotepersousuarios.status', 'NÃO PAGO')->count('pacotepersousuarios.id');
+        $closedUnpaidQuery = clone $closedPackagesQuery;
+        $closedUnpaid = $closedUnpaidQuery->where('pacoteusuarios.status', 'NÃO PAGO')->count('pacoteusuarios.id');
+
+        $customUnpaidQuery = clone $customPackagesQuery;
+        $customUnpaid = $customUnpaidQuery->where('pacotepersousuarios.status', 'NÃO PAGO')->count('pacotepersousuarios.id');
+
         $totalUnpaid = $closedUnpaid + $customUnpaid;
 
         // Total de pacotes (fechados e personalizados)
-        $totalClosedPackages = $closedPackagesQuery->count('pacoteusuarios.id');
-        $totalCustomPackages = $customPackagesQuery->count('pacotepersousuarios.id');
+        $totalClosedPackagesQuery = clone $closedPackagesQuery;
+        $totalClosedPackages = $totalClosedPackagesQuery->count('pacoteusuarios.id');
+
+        $totalCustomPackagesQuery = clone $customPackagesQuery;
+        $totalCustomPackages = $totalCustomPackagesQuery->count('pacotepersousuarios.id');
+
         $totalPackages = $totalClosedPackages + $totalCustomPackages;
 
         return [

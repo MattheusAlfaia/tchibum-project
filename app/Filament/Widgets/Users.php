@@ -19,7 +19,6 @@ class Users extends BaseWidget
     {
 
     $users = User::all();
-        // Obtenha os valores associados às chaves especificadas
     $onlineUsers = ['users'=>[]];
 
 
