@@ -16,6 +16,7 @@ use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\PacksCustomControllers;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ParceiroControllers;
 
 
 
@@ -39,6 +40,10 @@ Route::middleware('responsecache:60')->get('/sobre', [AboutController::class, 'i
 Route::middleware('responsecache:60')->get('/depoimentos', [TestimonyController::class, 'index']);
 
 Route::middleware('responsecache:60')->get('/faleconosco', [ContatusController::class, 'index']);
+
+Route::middleware('responsecache:60')->get('/parceiro', [ParceiroControllers::class, 'index']);
+
+Route::post('/parceiro/mensagem', [ParceiroControllers::class, 'mensagem']);
 
 Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
 
