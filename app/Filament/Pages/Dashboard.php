@@ -18,8 +18,8 @@ class Dashboard extends BaseDashboard
                 Select::make('packageType')
                     ->options([
                         'all' => 'Todos os Pacotes',
-                        'closed' => 'Somente Pacote Fechado',
-                        'custom' => 'Somente Pacote Personalizado',
+                        'closed' => 'Pacote Fechado',
+                        'custom' => 'Pacote Personalizado',
                     ])
                     ->default('all')
                     ->label('Tipo de Pacote')
