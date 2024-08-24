@@ -26,7 +26,6 @@ class Parceiro extends Model
         'endereco',
         'cep',
         'mensagem',
-        'logo',
         'url',
         'accepted_terms'
     ];
@@ -46,7 +45,6 @@ class Parceiro extends Model
             'endereco',
             'cep',
             'mensagem',
-            'logo',
             'url',
             'accepted_terms'
         ]);
