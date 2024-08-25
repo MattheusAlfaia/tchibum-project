@@ -38,7 +38,7 @@
 
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                     aria-labelledby="v-pills-nextgen-tab">
-                                    <form class="search-property-1">
+                                    {{-- <form class="search-property-1"> --}}
                                         <div class="row no-gutters">
 
                                             <div id="container-pacotes" class="col-md d-flex">
@@ -46,7 +46,8 @@
                                                 <a href="/pacotes">
                                                     <div id="pacotes">
                                                         <div id="pacote-fixo">
-                                                            <img id="pacote-fixo-img" src="{{ asset('/images/pacote-fechado.png')}}">
+                                                            <img id="pacote-fixo-img"
+                                                                src="{{ asset('/images/pacote-fechado.png') }}">
                                                         </div>
                                                         {{-- <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p> --}}
                                                         <p id="pacote-fixo-nome">Pacotes Fechados</p>
@@ -55,7 +56,8 @@
 
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
-                                                        <img id="pacote-comunidade-img" src="{{ asset('/images/pacote-personalizado.png')}}">
+                                                        <img id="pacote-comunidade-img"
+                                                            src="{{ asset('/images/pacote-personalizado.png') }}">
                                                     </div>
                                                     {{-- <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p> --}}
                                                     <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
@@ -63,7 +65,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
 
                             </div>
@@ -75,74 +77,77 @@
 
     <div class="modal" id="meuModal">
         <div class="modal-dialog">
-           <div class="modal-content">
+            <div class="modal-content">
 
-              <!-- Cabeçalho do Modal -->
-              <div class="modal-header">
-                 <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
-                 <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
-              </div>
+                <!-- Cabeçalho do Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
+                    <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
 
-              <!-- Corpo do Modal -->
-              <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                <form id="form">
-                   @csrf
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="estrangeiro">
-                        <label class="form-check-label" for="flexRadioDefault1" >
-                            {{ trans('messages.e_estrangeiro') }}
-                        </label>
-                      </div>
+                <!-- Corpo do Modal -->
+                <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                    <form id="form">
+                        @csrf
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="estrangeiro">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                {{ trans('messages.e_estrangeiro') }}
+                            </label>
+                        </div>
 
-                    <div class="mb-3" id="cpf-container">
-                        <label for="cpf"  class="form-label">CPF</label>
-                        <input type="text" id="cpf" name="cpf" class="form-control" >
-                    </div>
+                        <div class="mb-3" id="cpf-container">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <input type="text" id="cpf" name="cpf" class="form-control">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
-                        <input type="text" id="endereco" name="endereco" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Cep</label>
-                        <input type="text" id="cep" name="cep" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.cidade') }}</label>
-                        <input type="text" id="cidade" name="cidade" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.identificacao') }}</label>
-                        <input type="text" id="identificacao" name="identificacao" class="form-control" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
-                        <input type="text" id="proficao" name="proficao" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.nacionalidade') }}</label>
-                        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" required>
-                    </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
+                            <input type="text" id="endereco" name="endereco" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Cep</label>
+                            <input type="text" id="cep" name="cep" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">{{ trans('messages.cidade') }}</label>
+                            <input type="text" id="cidade" name="cidade" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1"
+                                class="form-label">{{ trans('messages.identificacao') }}</label>
+                            <input type="text" id="identificacao" name="identificacao" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
+                            <input type="text" id="proficao" name="proficao" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1"
+                                class="form-label">{{ trans('messages.nacionalidade') }}</label>
+                            <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" required>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.estado') }}</label>
-                        <input type="text" id="estado" name="estado" class="form-control" required>
-                    </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">{{ trans('messages.estado') }}</label>
+                            <input type="text" id="estado" name="estado" class="form-control" required>
+                        </div>
 
-                  </form>
+                    </form>
 
-              </div>
+                </div>
 
-              <!-- Rodapé do Modal -->
-              <div class="modal-footer">
-                <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">{{ trans('messages.enviar') }}</button>
+                <!-- Rodapé do Modal -->
+                <div class="modal-footer">
+                    <button id="enviardadoscomple" type="submit" class="btn btn-success"
+                        data-dismiss="modal">{{ trans('messages.enviar') }}</button>
 
-              </div>
+                </div>
 
-           </div>
+            </div>
         </div>
-     </div>
+    </div>
 
 
     <section class="ftco-section services-section">
@@ -165,18 +170,18 @@
                                 {{-- <div class="icon d-flex align-items-center justify-content-center">
                                     <span class="flaticon-paragliding"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{$home->nome_atividade_comunidade1}}</h3>
+                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade1 }}</h3>
                                     {{-- <p class="descricao_atividade_comunidade">
                                         {{ trans('messages.home_descricao_atividade_comunidade1') }}</p> --}}
-                                        <p class="descricao_atividade_comunidade">
-                                            {{ $home->descricao_atividade_comunidade1 }}</p>
+                                    <p class="descricao_atividade_comunidade">
+                                        {{ $home->descricao_atividade_comunidade1 }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-2 d-block img"
                                 style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade2) }}');">
-                              {{--   <div class="icon d-flex align-items-center justify-content-center"><span
+                                {{--   <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-route"></span></div> --}}
                                 <div class="media-body">
                                     {{-- <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade2') }}</h3> --}}
@@ -191,7 +196,7 @@
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-3 d-block img"
                                 style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade3) }}');">
-                               {{--  <div class="icon d-flex align-items-center justify-content-center"><span
+                                {{--  <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-tour-guide"></span></div> --}}
                                 <div class="media-body">
                                     {{-- <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade3') }}</h3> --}}
@@ -225,21 +230,17 @@
     </section>
 
     {{-- pacotes --}}
-    <section class="ftco-section">
-        <div class="container">
+    <section class="ftco-select-destination">
+        <!-- <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Pacotes</h2>
                     {{-- <h2 class="mb-4">{{ trans('messages.pacotes') }}</h2> --}}
                 </div>
             </div>
-
-            <div class="row">
-
-
-                @foreach ( $pacotes as $pacote)
-
-
+        </div> -->
+        {{-- <div class="row">
+                @foreach ($pacotes as $pacote)
                 <div class="col-md-4 ftco-animate"
                     style="margin-bottom: 20px; cursor: pointer;"
                     onclick="window.location.href='/pacote-{{ $pacote->id }}'">
@@ -254,72 +255,91 @@
                             <ul>
                                 <li><i class="fa fa-users"></i> 2</li>
                                 <li><span style="color: #999999" class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data))}}</li>
-
                             </ul>
                         </div>
                     </div>
                 </div>
-
                 @endforeach
+            </div> --}}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h2>Pacotes</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
 
+                    <div class="carousel-destination owl-carousel owl-loaded owl-drag">
+
+                        @foreach ($pacotes as $pacote)
+                            <div class="item owl-stage-outer">
+                                <div class="project-wrap" style="margin-bottom: 20px; cursor: pointer;"
+                                    onclick="window.location.href='/pacote-{{ $pacote->id }}'">
+                                    <a class="img"
+                                        style="background-image: url('{{ asset('/storage/' . $pacote->imagem_principal) }}')">
+                                        <span class="price">R$ {{ number_format($pacote->preco, 2, ',', '.') }} </span>
+                                    </a>
+                                    <div class="text p-4">
+                                        <span class="days">{{ $pacote->dias }} Dias de Tour</span>
+                                        <h3><a>{{ $pacote->nome }}</a></h3>
+                                        <p class="location"><span class="fa fa-map-marker"></span>
+                                            {{ $pacote->comunidade->nome }}</p>
+                                        <ul>
+                                            <li><i class="fa fa-users"></i> 2</li>
+                                            <li><span style="color: #999999"
+                                                    class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data)) }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="ftco-section" style="{{ asset('/storage/bg_3.jpg') }}">
+    <section class="ftco-select-destination">
         <div class="container">
-            <div class="row d-flex text-center">
+            <div class="row justify-content-center">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-
-                    <h2 class="mb-4">Posts</h2><br>
+                    <h2>Posts</h2>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carousel-destination owl-carousel owl-loaded owl-drag">
+                        @foreach ($posts as $post)
+                            <div class="item owl-stage-outer">
+                                <div class="project-wrap" style="margin-bottom: 20px; cursor: pointer;"
+                                    onclick="window.location.href='/post-{{ $post->id }}'">
+                                    <a class="img"
+                                        style="background-image: url('{{ asset('/storage/' . $post->imagem_principal) }}')">
+                                    </a>
+                                    @php
+                                        $created_at = $post->created_at;
 
-                @foreach ($posts as $post)
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry justify-content-end">
-                            <img class="block-20" src="{{ asset('/storage/' . $post->imagem_principal) }}">
+                                        $datepost = $created_at->format('Y-m-d H:i:s');
 
-                            @php
-                                $created_at = $post->created_at;
-
-                                $datepost = $created_at->format('Y-m-d H:i:s');
-
-                                $dia = $created_at->format('d');
-                                setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
-                                $mes = ucfirst(strftime('%B', strtotime($created_at->format('Y-m-d'))));
-                                $ano = $created_at->format('Y');
-                            @endphp
-
-                            <div class="text">
-                                <div class="d-flex align-items-center mb-4 topp">
-                                    <div class="one">
-                                        <span class="day" style="font-size:30px;">{{ $dia }}</span>
-                                    </div>
-                                    <div class="two">
-                                        <span class="yr">{{ $mes }}</span>
-                                        <span class="mos">{{ $ano }}</span>
+                                        $dia = $created_at->format('d');
+                                        setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
+                                        $mes = ucfirst(strftime('%B', strtotime($created_at->format('Y-m-d'))));
+                                        $ano = $created_at->format('Y');
+                                    @endphp
+                                    <div class="text p-4 text-center">
+                                        {{-- <h3><a>{{ $post->titulo }}</a></h3> --}}
+                                        <h5>{{ $post->titulo }}</h5>
+                                        <p><a href="/post-{{ $datepost }}" class="btn btn-primary">Ler mais</a></p>
                                     </div>
                                 </div>
-                                <h3 class="heading"><a href="/post-{{ $datepost }}">{{ $post->titulo }}</a></h3>
-                                <p>{{ $post->descricao }}</p>
-                                <p><a href="/post-{{ $datepost }}"
-                                        class="btn btn-primary">Ler mais</a></p>
-                                {{-- <p><a href="/post-{{ $datepost }}"
-                                    class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p> --}}
                             </div>
-
-                        </div>
-                    </div>
-                @endforeach
-                {{-- navegação --}}
-                <div class="row mt-5">
-                    <div class="col text-center">
-                        <div class="block-27">
-
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <section class="ftco-section">
@@ -338,11 +358,12 @@
                             style="background-image: url('{{ asset('/storage/' . $comunidade->imagem_principal) }}'); height: 300px; width:100% ; margin-top:10px; border-radius: 50px;">
                         </a>
                     </div>
-                    <div class="col-md-6 mx-auto" >
+                    <div class="col-md-6 mx-auto">
                         <div class="text" style="border-radius: 50px;">
                             <h3 class="heading"><a>{{ $comunidade->nome }}</a></h3>
                             <p>{{ $comunidade->titulo }}</p>
-                            <p><a href="/comunidade-{{ $comunidade->id }}" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
+                            <p><a href="/comunidade-{{ $comunidade->id }}"
+                                    class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
                         </div>
                     </div>
                 </div>
@@ -353,7 +374,8 @@
 
     {{-- Atividades --}}
 
-    <section class="ftco-section img ftco-select-destination" style="background-image: url('{{ asset('/storage/bg_3.jpg') }}');">
+    <section class="ftco-section img ftco-select-destination"
+        style="background-image: url('{{ asset('/storage/bg_3.jpg') }}');">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
@@ -435,7 +457,8 @@
         </div>
     </section>
 
-    <section class="ftco-section testimony-section bg-bottom" style="background-image: url('{{ asset('/storage/bg_feedback.jpg') }}');">
+    <section class="ftco-section testimony-section bg-bottom"
+        style="background-image: url('{{ asset('/storage/bg_feedback.jpg') }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-center pb-4">
@@ -473,7 +496,7 @@
     </section>
 
     <a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"
-         target="_blank" class="btn btn-success whatsapp-btn">
+        target="_blank" class="btn btn-success whatsapp-btn">
         <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="whatsapp">
     </a>
 
@@ -500,6 +523,7 @@
             width: 50px;
             height: 50px;
         }
+
         @media screen and (max-width: 768px) {
             #container-pacotes {
                 flex-direction: column;
@@ -513,7 +537,7 @@
             border-radius: 20px;
             padding: 10px;
             margin-top: 40px;
-            border: 1px solid black;
+            border: 5px solid #226315;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -546,14 +570,14 @@
         }
 
         #pacote-fixo-nome {
-            color: #f4bc08;
+            color: #000000;
             cursor: pointer;
             font-weight: 600;
 
         }
 
         #pacote-comunidade-nome {
-            color: #f4bc08;
+            color: #000000;
             cursor: pointer;
             font-weight: 600;
         }
@@ -573,16 +597,18 @@
         }
     </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
     <script>
         let depoimentos = @json($depoimentos);
         let user = @json(auth()->user());
 
 
-        jQuery(document).ready(function ($) {
+        jQuery(document).ready(function($) {
             // Aplicar a máscara para o CPF
-            $('#cpf').mask('000.000.000-00', { reverse: true });
+            $('#cpf').mask('000.000.000-00', {
+                reverse: true
+            });
         });
 
 
@@ -604,49 +630,49 @@
 
         // verificar se usuário tem as informações complementares
 
-        $("#pacote-comunidade-img").click(function () {
-            if(user == null){
+        $("#pacote-comunidade-img").click(function() {
+            if (user == null) {
 
                 window.location.href = '/login';
 
-            }else{
+            } else {
 
 
 
-                    if(user.endereco == null &&
+                if (user.endereco == null &&
                     user.cep == null &&
                     user.cidade == null &&
                     user.proficao == null &&
                     user.nacionalidade == null &&
-                    user.estado == null ){
+                    user.estado == null) {
 
 
-                        $("#meuModal").fadeIn();
+                    $("#meuModal").fadeIn();
 
-                    }else{
+                } else {
 
-                        window.location.href = '/pacotes/custom';
+                    window.location.href = '/pacotes/custom';
 
-                    }
+                }
             }
         });
 
         // enviardadoscomple
 
-        $('#enviardadoscomple').click(function () {
+        $('#enviardadoscomple').click(function() {
             let formData = $('#form').serialize();
 
 
             $.ajax({
                 type: 'POST',
-                url: '/adddadoscomple/'+ user.id,  // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
+                url: '/adddadoscomple/' + user.id, // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
                 data: formData,
-                success: function (response) {
+                success: function(response) {
 
                     window.location.href = '/pacotes/custom';
 
                 },
-                error: function (error) {
+                error: function(error) {
                     // Lógica para tratar erros (se necessário)
                     console.log(error);
                 }
@@ -654,14 +680,11 @@
             });
         });
 
-    $("#fechar").click(function () {
+        $("#fechar").click(function() {
 
-      $("#meuModal").fadeOut();
+            $("#meuModal").fadeOut();
 
-   });
-
-
-
+        });
     </script>
     <script>
         $(document).ready(function() {
@@ -669,17 +692,17 @@
             $('#cpf').show();
             $('#identificacao').hide();
 
-            $('#estrangeiro').change(function () {
-            // Se o checkbox estiver marcado (pessoa estrangeira), oculte os campos "UF" e "identificacao"
-            if ($(this).prop('checked')) {
-                $('#cpf').hide();
-                $('#identificacao').show();
-            } else {
-                // Se o checkbox estiver desmarcado (pessoa não estrangeira), exiba os campos "UF" e "identificacao"
-                $('#cpf').show();
-                $('#identificacao').hide();
-            }
-        });
+            $('#estrangeiro').change(function() {
+                // Se o checkbox estiver marcado (pessoa estrangeira), oculte os campos "UF" e "identificacao"
+                if ($(this).prop('checked')) {
+                    $('#cpf').hide();
+                    $('#identificacao').show();
+                } else {
+                    // Se o checkbox estiver desmarcado (pessoa não estrangeira), exiba os campos "UF" e "identificacao"
+                    $('#cpf').show();
+                    $('#identificacao').hide();
+                }
+            });
 
             // window.location.reload();
 
