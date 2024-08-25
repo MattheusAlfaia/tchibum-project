@@ -31,11 +31,11 @@ class Pacotes extends BaseWidget
             ->when($startDate, fn($query) => $query->where('pacotepersousuarios.data', '>=', $startDate))
             ->when($endDate, fn($query) => $query->where('pacotepersousuarios.data', '<=', $endDate));
 
-        // Aplicando filtros para o tipo de pacote
+        // Filtrar o tipo de pacote
         if ($packageType === 'closed') {
-            $customPackagesQuery->whereRaw('1 = 0');  // Bloqueia pacotes personalizados
+            $customPackagesQuery->whereRaw('1 = 0');
         } elseif ($packageType === 'custom') {
-            $closedPackagesQuery->whereRaw('1 = 0');  // Bloqueia pacotes fechados
+            $closedPackagesQuery->whereRaw('1 = 0');
         }
 
         // Receita dos pacotes pagos
