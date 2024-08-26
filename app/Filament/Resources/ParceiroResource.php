@@ -67,6 +67,8 @@ class ParceiroResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('logo')
+                    ->circular(),
                 Tables\Columns\TextColumn::make('nome')
                     ->label('Nome da Empresa')
                     ->searchable(),
@@ -85,10 +87,6 @@ class ParceiroResource extends Resource
                 Tables\Columns\TextColumn::make('endereco')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cep')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('logo')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('url')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('accepted_terms')
                     ->boolean(),
