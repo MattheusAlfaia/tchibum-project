@@ -32,14 +32,14 @@
 
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />-->
     <link rel="stylesheet" href="{{ asset('/multiselect-05/css/style.css') }}">
 
 
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
-    @vite(['resources/js/app.js'])
+    <!--@vite(['resources/js/app.js'])-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
@@ -336,15 +336,12 @@
         
     </script>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/js/select2.min.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('multiselect-05/js/main.js') }}"></script>
-    {{-- <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script> --}}
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('js/jquery.easing.1.3.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.min.js" integrity="sha512-KtobYzjTmbnXOyVDAk3C3AWIVAD0h5im6MAzFxNOJtBR1Z6lKORcOnCjo4FIwE48hBAL6XbYFLn2jOIW278T8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
