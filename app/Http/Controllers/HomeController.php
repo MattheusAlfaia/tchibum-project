@@ -9,6 +9,7 @@ use App\Models\Posts;
 use App\Models\Comunidade;
 use App\Models\Opcoe;
 use App\Models\Pacote;
+use App\Models\Parceiro;
 use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
@@ -39,6 +40,8 @@ class HomeController extends Controller
             return Pacote::with('comunidade')->get();
         });
 
-        return view('home', compact('depoimentos', 'home', 'imagens', 'posts', 'comunidades', 'opcoes', 'pacotes'));
+        $parceiros = Parceiro::select('logo', 'url')->get();
+
+        return view('home', compact('parceiros', 'depoimentos', 'home', 'imagens', 'posts', 'comunidades', 'opcoes', 'pacotes'));
     }
 }

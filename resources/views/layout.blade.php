@@ -351,7 +351,11 @@
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+<<<<<<< Updated upstream
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.min.js" integrity="sha512-KtobYzjTmbnXOyVDAk3C3AWIVAD0h5im6MAzFxNOJtBR1Z6lKORcOnCjo4FIwE48hBAL6XbYFLn2jOIW278T8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+=======
+    <script src="{{ asset('js/jquery.easing.1.4.1.js')}}"></script>
+>>>>>>> Stashed changes
     <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>

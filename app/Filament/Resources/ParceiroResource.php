@@ -51,8 +51,10 @@ class ParceiroResource extends Resource
                     ->maxLength(9),
                 Forms\Components\Textarea::make('mensagem')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('logo')
-                    ->maxLength(255),
+                Forms\Components\FileUpload::make('logo')
+                    ->directory('parceiros')
+                    ->disk('public')
+                    ->optimize('webp'),
                 Forms\Components\TextInput::make('url')
                     ->maxLength(255),
                 Forms\Components\Toggle::make('accepted_terms')

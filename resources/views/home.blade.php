@@ -494,6 +494,36 @@
             </div>
         </div>
     </section>
+    @if ($parceiros->isNotEmpty())
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-6 heading-section text-center ftco-animate">
+                    <span class="subheading">Nossos Parceiros</span>
+                </div>
+            </div>
+        </div>
+        <section id="parceiros" class="parceiros">
+            <div class="container" data-aos="fade-up">
+                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                    @foreach ($parceiros->whereNotNull('logo') as $parceiro)
+                        <div class="col-lg-4 col-md-6 galeria-item">
+                            <div class="portfolio-img">
+                                @if ($parceiro->url)
+                                    <a href="{{ $parceiro->url }}" target="_blank">
+                                        <img src="{{ asset('/storage/' . $parceiro->logo) }}" class="img-fluid" alt="Logo do parceiro">
+                                    </a>
+                                @else
+                                    <img src="{{ asset('/storage/' . $parceiro->logo) }}" class="img-fluid" alt="Logo do parceiro">
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+
 
     <a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"
         target="_blank" class="btn btn-success whatsapp-btn">
