@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\ContatoResource\Pages;
+namespace App\Filament\Clusters\CMS\Resources\ContatoResource\Pages;
 
-use App\Filament\Resources\ContatoResource;
+use App\Filament\Clusters\CMS\Resources\ContatoResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 

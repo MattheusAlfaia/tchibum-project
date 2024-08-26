@@ -18,13 +18,15 @@ class ParceirosPageResource extends Resource
 {
     protected static ?string $model = ParceirosPage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-link';
+
+    protected static ?string $navigationLabel = 'Pagina Parceiros';
 
     protected static ?string $cluster = CMS::class;
 
     protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
 
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {

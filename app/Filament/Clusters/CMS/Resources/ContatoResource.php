@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Clusters\CMS\Resources;
 
-use App\Filament\Resources\ContatoResource\Pages;
-use App\Filament\Resources\ContatoResource\RelationManagers;
+use App\Filament\Clusters\CMS;
+use App\Filament\Clusters\CMS\Resources\ContatoResource\Pages;
+use App\Filament\Clusters\CMS\Resources\ContatoResource\RelationManagers;
 use App\Models\Contato;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -19,8 +20,13 @@ class ContatoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
 
-    protected static ?string $navigationLabel = 'Contato';
+    protected static ?string $navigationLabel = 'Pagina Contato';
 
+    protected static ?string $cluster = CMS::class;
+
+    protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
+
+    protected static ?int $navigationSort = 7;
     public static function form(Form $form): Form
     {
         return $form
@@ -48,6 +54,14 @@ class ContatoResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

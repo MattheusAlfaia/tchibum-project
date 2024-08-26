@@ -26,6 +26,9 @@ class PacotePersonalizadoResource extends Resource
 
     protected static ?string $cluster = CustomPacote::class;
 
+    protected static ?string $navigationLabel = 'Pacotes';
+    protected static ?int $navigationSort = 2;
+
     protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
 
     public static function form(Form $form): Form
