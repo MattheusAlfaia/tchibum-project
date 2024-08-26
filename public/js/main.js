@@ -76,7 +76,9 @@
 				}
 			}
 		});
-
+		$('.carousel-destination').on('touchmove', function(event) {
+			event.stopPropagation(); // Evita que o evento de touchmove seja bloqueado
+		});
 	};
 	carousel();
 
