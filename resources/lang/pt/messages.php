@@ -69,6 +69,23 @@ return [
     'assunto_cliente' => 'Assunto', PHP_EOL,
     'mensagem_cliente' => 'Mensagem', PHP_EOL,
 
+    // parceiros
+    'parceiros' => 'Parceiros',
+    'nome' => 'Nome',
+    //'email_parceiro' => 'Email',
+    'seguimento' => 'Seguimento',
+    'seguimento_turismo' => 'Turismo',
+    'seguimento_hospedagem' => 'Hospedagem',
+    'seguimento_guia_turistico' => 'Guia Turístico',
+    'responsavel' => 'Responsável',
+    'cargo' => 'Cargo',
+    'cnpj' => 'CNPJ',
+    'cadastur' => 'Cadastur',
+    'endereco' => 'Endereço',
+    'cep' => 'CEP',
+    'mensagem_parceiro' => 'Mensagem',
+    'accepted_terms' => 'Termos Aceitos',
+
     // compras
 
     'opcoes' => 'Escolha uma Opção', PHP_EOL,

@@ -1,173 +1,183 @@
-
 @extends('layout')
-@section('title','parceiros')
+@section('title','Parceiros')
 @section('content')
 
-
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('/storage/'. $contato->imagem_principal) }}');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('/storage/' . $parceiros_page->imagem_principal) }}');">
     <div class="overlay"></div>
     <div class="container">
-      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-        <div class="col-md-9 ftco-animate pb-5 text-center">
-         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>{{ trans('messages.fale_conosco') }} <i class="fa fa-chevron-right"></i></span></p>
-         <h1 class="mb-0 bread">{{ trans('messages.fale_conosco') }}</h1>
-         <a href="#fale_conosco"> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
-       </div>
-     </div>
-   </div>
-  </section>
-
-  <section id="fale_conosco" class="ftco-section ftco-no-pb contact-section mb-4">
-        <div class="container">
-
-        <div class="row d-flex contact-info">
-
-        <div class="col-md-12 d-flex">
-            <div class="info box2 p-4 text-center">
-               <p > {{ trans('messages.orientacao1') }} <br> {{ trans('messages.orientacao2') }} </p>
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('home') }}">Home <i class="fa fa-chevron-right"></i></a></span> <span>Parceiros <i class="fa fa-chevron-right"></i></span></p>
+                <h1 class="mb-0 bread">Parceiros</h1>
+                <a href="#parceiros"> <i class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
             </div>
         </div>
+    </div>
+</section>
 
-        </div>
-        </div>
-  </section>
-
-
-  <section id="fale_conosco" class="ftco-section ftco-no-pb contact-section mb-4">
-        <div class="container">
-
-            <div class="row d-flex contact-info">
-
+<section id="parceiros" class="ftco-section ftco-no-pb contact-section mb-4">
+    <div class="container">
+        <div class="row d-flex contact-info">
             <div class="col-md-12 d-flex">
-                <div class="info2 box2 p-4 text-center">
-                <p> {{ trans('messages.mensagem') }} </p>
+                <div class="info box2 p-4 text-center">
+                    <p>Precisa de alguma orientação ou<br>alguma pergunta? Nós estamos disponíveis</p>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
 
+<section id="parceiros" class="ftco-section ftco-no-pb contact-section mb-4">
+    <div class="container">
+        <div class="row d-flex contact-info">
+            <div class="col-md-12 d-flex">
+                <div class="info2 box2 p-4 text-center">
+                    <p>Ou escreva sua mensagem aqui</p>
+                </div>
             </div>
         </div>
-  </section>
+    </div>
+</section>
 
-  @if(session()->has('message'))
+@if(session()->has('message'))
     <div class="container alert alert-success">
         {{ session()->get('message') }}
     </div>
-  @endif
+@endif
 
-  <section class="ftco-section contact-section ftco-no-pt">
+<section class="ftco-section contact-section ftco-no-pt">
     <div class="container">
-      <div class="row block-9">
-        <div id="block"  class="col-md-12 order-md-last d-flex">
-          <form action="/faleconosco/mensagem" method="POST" class="bg-light p-5 contact-form" >
-            @csrf
-            <div class="form-group">
-              <label>{{ trans('messages.nome_cliente') }}</label>
-              <input name="nome" type="text" class="form-control">
-            </div>
+        <div class="row block-9">
+            <div id="block" class="col-md-12 order-md-last d-flex">
+                <form action="{{ route('parceiros.mensagem') }}" method="POST" class="bg-light p-5 contact-form">
+                    @csrf
+                    <div class="form-group">
+                        <label>Seu Nome</label>
+                        <input name="nome" type="text" class="form-control" required>
+                        @error('nome')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-            <div class="form-group">
-              <input type="submit" value="Enviar" class="btn btn-primary py-3 px-5">
-            </div>
-          </form>
+                    <div class="form-group">
+                        <label>Seu Email</label>
+                        <input name="email" type="email" class="form-control" required>
+                        @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
+                    <div class="form-group">
+                        <label>Seguimento</label>
+                        <select name="seguimento" class="form-control" required>
+                            <option value="turismo">Turismo</option>
+                            <option value="hospedagem">Hospedagem</option>
+                            <option value="guia_turistico">Guia Turístico</option>
+                        </select>
+                        @error('seguimento')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Responsável</label>
+                        <input name="responsavel" type="text" class="form-control" required>
+                        @error('responsavel')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cargo</label>
+                        <input name="cargo" type="text" class="form-control" required>
+                        @error('cargo')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>CNPJ</label>
+                        <input name="cnpj" type="text" class="form-control" placeholder="00.000.000/0000-00">
+                        @error('cnpj')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cadastur</label>
+                        <input name="cadastur" type="text" class="form-control">
+                        @error('cadastur')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Endereço</label>
+                        <input name="endereco" type="text" class="form-control" required>
+                        @error('endereco')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>CEP</label>
+                        <input name="cep" type="text" class="form-control" placeholder="00000-000" required>
+                        @error('cep')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea name="mensagem" class="form-control"></textarea>
+                        @error('mensagem')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input name="accepted_terms" type="checkbox" required>
+                        <label>Termos Aceitos</label>
+                        @error('accepted_terms')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Enviar" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+            </div>
         </div>
-     </div>
-   </div>
-  </section>
+    </div>
+</section>
 
- <style>
-    #block,#map{
+<style>
+    #block, #map {
         border-radius: 20px;
         margin-top: 10px;
     }
 
-    #whatsapp{
+    #whatsapp {
         cursor: pointer;
     }
 
-    .box2{
+    .box2 {
         width: 100%;
         display: block;
         background: white;
     }
 
-    .info{
+    .info {
         margin-bottom: -100px;
         font-size: 20px;
         color: #f4bc08;
     }
 
-    .info2{
+    .info2 {
         font-size: 20px;
         color: #f4bc08;
     }
- </style>
+</style>
 
-
-  <script>
-
-
-    let whatsapp = @json($contato->whatsapp);
-
-
-   $(document).ready(function() {
-           // Rolar a tela para baixo até 500 pixels ao carregar a página
-            $('html, body').animate({
-               scrollTop: 615
-           }, 2000); // 1000 é a duração da animação em milissegundos
-
-           // gerar link whatsapp
-
-            $("#gerarLink").click(function() {
-
-                // Mensagem opcional para ser enviada junto com o link
-                let mensagem = "Olá, gostaria de tirar algumas dúvidas"; // Substitua pela mensagem desejada
-
-                // Montar o link do WhatsApp
-                let linkWhatsApp = "https://wa.me/" + whatsapp + "/?text=" + encodeURIComponent(mensagem);
-
-                window.location.href = linkWhatsApp;
-
-            });
-
-
-            // Google Maps
-
-            let address = ['New York'];
-
-
-                // Use o URL relativo para a rota Laravel
-                let url = '/geocode/' + encodeURIComponent(address);
-
-                $.ajax({
-                    url: url,
-                    type: 'GET',
-                    success: function(data) {
-                        console.log(data);
-                        if (data.results && data.results.length > 0) {
-                            let p = data.results[0].geometry.location;
-                            let latlng = new google.maps.LatLng(p.lat, p.lng);
-                            new google.maps.Marker({
-                                position: latlng,
-                                map: map,
-                                icon: 'images/loc.png'
-                            });
-
-                        }
-                    },
-                    error: function() {
-                        console.error('Erro ao recuperar dados de geocodificação.');
-                    }
-                });
-
-
-
-
-
-
-    });
-
-
-  </script>
-
-  @endsection
+@endsection
