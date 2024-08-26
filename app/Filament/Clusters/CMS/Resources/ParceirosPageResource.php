@@ -3,9 +3,9 @@
 namespace App\Filament\Clusters\CMS\Resources;
 
 use App\Filament\Clusters\CMS;
-use App\Filament\Clusters\CMS\Resources\PostsResource\Pages;
-use App\Filament\Clusters\CMS\Resources\PostsResource\RelationManagers;
-use App\Models\Posts;
+use App\Filament\Clusters\CMS\Resources\ParceirosPageResource\Pages;
+use App\Filament\Clusters\CMS\Resources\ParceirosPageResource\RelationManagers;
+use App\Models\ParceirosPage;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,34 +14,27 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PostsResource extends Resource
+class ParceirosPageResource extends Resource
 {
-    protected static ?string $model = Posts::class;
+    protected static ?string $model = ParceirosPage::class;
 
+    protected static ?string $navigationIcon = 'heroicon-o-link';
+
+    protected static ?string $navigationLabel = 'Pagina Parceiros';
 
     protected static ?string $cluster = CMS::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
-
     protected static \Filament\Pages\SubNavigationPosition $subNavigationPosition = \Filament\Pages\SubNavigationPosition::Top;
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('titulo')
-                    ->required()
-                    ->maxLength(35),
-                Forms\Components\TextInput::make('descricao')
-                    ->maxLength(100),
-                Forms\Components\MarkdownEditor::make('conteudo')
-                    ->required()
-                    ->maxLength(5000),
                 Forms\Components\FileUpload::make('imagem_principal')
-                    ->directory('post')
                     ->optimize('webp')
+                    ->directory('parceiros_page')
                     ->disk('public')
                     ->required(),
             ]);
@@ -51,22 +44,16 @@ class PostsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('titulo')
-                    ->label('Título')
+                Tables\Columns\TextColumn::make('imagem_principal')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('descricao')
-                    ->label('Descrição')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime('d/m/y H:m:s')
-                    ->label('Criado em')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
-                    ->label('Organizar por Criação')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
@@ -91,9 +78,9 @@ class PostsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPosts::route('/'),
-            //'create' => Pages\CreatePosts::route('/create'),
-            //'edit' => Pages\EditPosts::route('/{record}/edit'),
+            'index' => Pages\ListParceirosPages::route('/'),
+            'create' => Pages\CreateParceirosPage::route('/create'),
+            'edit' => Pages\EditParceirosPage::route('/{record}/edit'),
         ];
     }
 }

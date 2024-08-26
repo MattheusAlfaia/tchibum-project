@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-cTf9aImi42Xrq1zL5IU3yERgF/ZGJ8jFf0Y5SGgkPl5FtM2j4af0/TzX5lX0L/wJSsZ8trHfjW9CZGmH8ekyeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('/css/animate.css')}}">
@@ -55,7 +55,7 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                   
+
                     <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
 
                     @if (auth()->user()?->role == 'admin')
@@ -79,16 +79,26 @@
                             </div>
                         </div>
                     </li>
-                 
+
                     @auth
-                 
+
                     <li class="nav-item"><a href="/compras-{{auth()->user()->id}}" class="nav-link">{{ trans('messages.compras') }}</a></li>
 
                     @endauth
+                    <li class="nav-item">
+                        <div class="nav-link dropdown">
+                            <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                FALE CONOSCO
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/faleconosco">CONTATO</a>
+                                <a class="dropdown-item" href="/parceiro">SEJA NOSSO PARCEIRO</a>
+                            </div>
+                        </div>
+                    </li>
 
 
-                    <li class="nav-item"><a href="/faleconosco" class="nav-link">{{ trans('messages.fale_conosco_layout') }}</a></li>
-                    
                     {{-- <li class="nav-item">
                         <div class="nav-link dropdown">
                             <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -105,15 +115,15 @@
                         </div>
                     </div>
                 </li>  --}}
-                
-                
+
+
                 @guest
                 <li class="nav-item"><a href="/login" class="nav-link">{{ trans('messages.entrar') }}</a></li>
                 <li class="nav-item"><a href="/register" class="nav-link">{{ trans('messages.cadastrar') }}</a></li>
                 @endguest
-                
+
                 @auth
-                
+
                 <form action="/logout" method="POST">
                     @csrf
                     <li class="nav-ite"><a id="logout" href="/logout"
@@ -264,7 +274,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> Todos os direitos reservados 
+                        </script> Todos os direitos reservados
                     </p>
                 </div>
             </div>
@@ -280,7 +290,7 @@
 
     <script>
 
-       
+
 
         $("#modalInfoComple").click(function () {
 
@@ -291,15 +301,15 @@
 
                     }else{
 
-                    
-                
+
+
                             if(user.endereco == null &&
                             user.cep == null &&
                             user.cidade == null &&
                             user.proficao == null &&
                             user.nacionalidade == null &&
                             user.estado == null ){
-                            
+
 
                                 $("#meuModal").fadeIn();
 
@@ -333,7 +343,7 @@
 
                     });
                 });
-        
+
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -341,7 +351,11 @@
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+<<<<<<< Updated upstream
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.min.js" integrity="sha512-KtobYzjTmbnXOyVDAk3C3AWIVAD0h5im6MAzFxNOJtBR1Z6lKORcOnCjo4FIwE48hBAL6XbYFLn2jOIW278T8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+=======
+    <script src="{{ asset('js/jquery.easing.1.4.1.js')}}"></script>
+>>>>>>> Stashed changes
     <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
