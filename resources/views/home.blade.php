@@ -495,7 +495,7 @@
         </div>
     </section>
 
-    <a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"
+    <a href="https://api.whatsapp.com/send/?phone=559292197150&text=Olá,%20li%20sobre%20os%20pacotes%20no%20site%20e%20gostaria%20de%20mais%20informações"
         target="_blank" class="btn btn-success whatsapp-btn">
         <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="whatsapp">
     </a>

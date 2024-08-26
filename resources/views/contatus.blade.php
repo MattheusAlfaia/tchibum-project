@@ -162,7 +162,7 @@
             $("#gerarLink").click(function() {
 
                 // Mensagem opcional para ser enviada junto com o link
-                let mensagem = "Olá, gostaria de tirar algumas dúvidas"; // Substitua pela mensagem desejada
+                let mensagem = "Olá, li sobre os pacotes no site e gostaria de mais informações"; // Substitua pela mensagem desejada
 
                 // Montar o link do WhatsApp
                 let linkWhatsApp = "https://wa.me/" + whatsapp + "/?text=" + encodeURIComponent(mensagem);
