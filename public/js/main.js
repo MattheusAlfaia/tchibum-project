@@ -62,7 +62,7 @@
 			items:1,
 			margin: 30,
 			stagePadding: 0,
-			nav: false,
+			nav: true,
 			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
 			responsive:{
 				0:{
@@ -76,7 +76,9 @@
 				}
 			}
 		});
-
+		$('.carousel-destination').on('touchmove', function(event) {
+			event.stopPropagation(); // Evita que o evento de touchmove seja bloqueado
+		});
 	};
 	carousel();
 
