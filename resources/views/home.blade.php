@@ -494,48 +494,40 @@
             </div>
         </div>
     </section>
-    @if ($parceiros->isNotEmpty())
-    <div class="container">
-        <div class="row justify-content-center pb-4">
-            <div class="col-md-6 heading-section text-center ftco-animate">
-                <span class="subheading">Nossos Parceiros</span>
-            </div>
-        </div>
-    </div>
-    <section id="parceiros" class="parceiros">
-        <div class="container" data-aos="fade-up">
-            <div id="parceirosCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach ($parceiros->whereNotNull('logo')->chunk(3) as $chunk)
-                        <div class="carousel-item @if ($loop->first) active @endif">
-                            <div class="row justify-content-center">
-                                @foreach ($chunk as $parceiro)
-                                    <div class="col-lg-4 col-md-6 text-center mb-4">
-                                        @if ($parceiro->url)
-                                            <a href="{{ $parceiro->url }}" target="_blank" class="d-inline-block">
-                                                <img src="{{ asset('/storage/' . $parceiro->logo) }}" class="img-fluid rounded-circle" alt="Logo do parceiro">
-                                            </a>
-                                        @else
-                                            <img src="{{ asset('/storage/' . $parceiro->logo) }}" class="img-fluid rounded-circle" alt="Logo do parceiro">
-                                        @endif
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    @endforeach
+    {{-- @if ($parceiros->isNotEmpty())
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-6 heading-section text-center ftco-animate">
+                    <span class="subheading">Nossos Parceiros</span>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#parceirosCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#parceirosCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
-    </section>
-@endif
+        <section id="parceiros" class="parceiros">
+            <div class="container" data-aos="fade-up">
+                <div id="parceirosCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($parceiros->whereNotNull('logo')->chunk(3) as $chunk)
+                            <div class="carousel-item @if ($loop->first) active @endif">
+                                <div class="row justify-content-center">
+                                    @foreach ($chunk as $parceiro)
+                                        <div class="col-lg-4 col-md-6 text-center mb-4">
+                                            @if ($parceiro->url)
+                                                <a href="{{ $parceiro->url }}" target="_blank" class="d-inline-block">
+                                                    <img src="{{ asset('/storage/' . $parceiro->logo) }}" class="img-fluid rounded-circle" alt="Logo do parceiro">
+                                                </a>
+                                            @else
+                                                <img src="{{ asset('/storage/' . $parceiro->logo) }}" class="img-fluid rounded-circle" alt="Logo do parceiro">
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif --}}
 
 
 

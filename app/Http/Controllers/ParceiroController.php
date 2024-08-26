@@ -34,6 +34,12 @@ class ParceiroController extends Controller
             'mensagem',
             'accepted_terms',
         ]);
+        // dd($request->all());
+        if($request->accepted_terms == 'on'){
+            $data['accepted_terms'] = 1;
+        } else {
+            $data['accepted_terms'] = 0;
+        }
 
         Parceiro::create($data);
 
