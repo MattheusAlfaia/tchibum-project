@@ -24,6 +24,7 @@ class ParceiroResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nome')
+                    ->label('Nome da Empresa')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('seguimento')
@@ -67,6 +68,7 @@ class ParceiroResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nome')
+                    ->label('Nome da Empresa')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('seguimento')
                     ->searchable(),
