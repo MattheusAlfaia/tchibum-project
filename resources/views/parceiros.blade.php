@@ -97,6 +97,8 @@
                                     <option value="turismo">Turismo</option>
                                     <option value="hospedagem">Hospedagem</option>
                                     <option value="guia_turistico">Guia Turístico</option>
+                                    <option value="gastronomia">Gastronomia</option>
+                                    <option value="artesanato">Artesanato</option>
                                 </select>
                                 @error('seguimento')
                                     <div class="text-danger">{{ $message }}</div>
@@ -130,14 +132,35 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="col-md-6 form-group">
+                                <label>Cidade</label>
+                                <input name="cidade" type="text" class="form-control" required>
+                                @error('cidade')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Comunidade</label>
+                                <input name="comunidade" type="text" class="form-control" required>
+                                @error('comunidade')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Número (WhatsApp)</label>
+                                <input name="numero" type="text" class="form-control" required>
+                                @error('numero')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                     </div>
 
                     <!-- Mensagem -->
                     <div class="form-section">
-                        <h3>Mensagem</h3>
+                        <h3>O que te motiva a ser nosso Parceiro?</h3>
                         <div class="form-group">
-                            <label>Mensagem</label>
+                            <label>Deixe uma breve apresentação</label>
                             <textarea name="mensagem" class="form-control"></textarea>
                             @error('mensagem')
                                 <div class="text-danger">{{ $message }}</div>

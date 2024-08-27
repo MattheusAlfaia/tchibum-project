@@ -168,7 +168,7 @@ return [
     'natureza' => 'Praias', PHP_EOL,
     'acampamentos' => 'Acampamentos', PHP_EOL,
     'festas_regionais' => 'Festas Regionais', PHP_EOL,
-    'duvidas' => 'Dudas', PHP_EOL,
+    'duvidas' => 'Dúvidas', PHP_EOL,
 
 
 ];
