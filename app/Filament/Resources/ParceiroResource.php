@@ -44,9 +44,15 @@ class ParceiroResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('cidade')
+                    ->maxLength(100),
                 Forms\Components\TextInput::make('endereco')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('comunidade')
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('numero')
+                    ->maxLength(100),
                 Forms\Components\TextInput::make('cep')
                     ->required()
                     ->maxLength(9),
@@ -87,6 +93,12 @@ class ParceiroResource extends Resource
                 Tables\Columns\TextColumn::make('endereco')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cep')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('cidade')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('comunidade')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('numero')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('accepted_terms')
                     ->boolean(),

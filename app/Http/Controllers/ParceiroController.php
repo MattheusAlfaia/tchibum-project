@@ -33,8 +33,10 @@ class ParceiroController extends Controller
             'cep',
             'mensagem',
             'accepted_terms',
+            'cidade',
+            'comunidade',
+            'numero'
         ]);
-        // dd($request->all());
         if($request->accepted_terms == 'on'){
             $data['accepted_terms'] = 1;
         } else {

@@ -27,7 +27,10 @@ class Parceiro extends Model
         'cep',
         'mensagem',
         'url',
-        'accepted_terms'
+        'accepted_terms',
+        'cidade',
+        'comunidade',
+        'numero'
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -46,7 +49,10 @@ class Parceiro extends Model
             'cep',
             'mensagem',
             'url',
-            'accepted_terms'
+            'accepted_terms',
+            'cidade',
+            'comunidade',
+            'numero'
         ]);
     }
 }
