@@ -1,6 +1,6 @@
 (function($) {
 
-	"use strict";
+	/*"use strict";
 
 	$(window).stellar({
     responsive: true,
@@ -9,7 +9,7 @@
     horizontalScrolling: false,
     hideDistantElements: false,
     scrollProperty: 'scroll'
-  });
+  });*/
 
 
 	var fullHeight = function() {
