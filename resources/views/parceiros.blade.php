@@ -20,7 +20,7 @@
         <div class="row d-flex contact-info">
             <div class="col-md-12 d-flex">
                 <div class="info box2 p-4 text-center">
-                    <p>Precisa de alguma orientação ou<br>alguma pergunta? Nós estamos disponíveis</p>
+                    <p>O turismo pode ser uma força positiva para a conservação da Amazônia.<br> Ao se tornar nosso parceiro, você contribuirá para a geração de renda, a preservação da cultura e o desenvolvimento local.</p>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="row d-flex contact-info">
             <div class="col-md-12 d-flex">
                 <div class="info2 box2 p-4 text-center">
-                    <p>Ou escreva sua mensagem aqui</p>
+                    <p>Quer saber mais? Entre em contato:</p>
                 </div>
             </div>
         </div>
