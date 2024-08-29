@@ -466,61 +466,55 @@
             @endif
             <div class="slick-carousel-feedback">
                 @foreach ($depoimentos as $depoimento)
-                    <div class="col-md-12">
-                        <div class="testimony-wrap py-2">
-                            <div class="text">
+                    <div class="col-md-4">
+                        <div class="testimony-wrap">
+                            <div class="text pt-2">
+                                <div class="user-img"
+                                    style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
+                                </div>
                                 <p class="{{ $depoimento->id }}"></p>
                                 <p class="mb-4">{!! markdown($depoimento->depoimento) !!}</p>
-                                <div class="d-flex align-items-center">
-                                    <div class="user-img"
-                                        style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
-                                    </div>
-                                    <div class="pl-3 depoimento-info">
-                                        <p class="name depoimento-nome">{{ $depoimento->nome }}</p>
-                                        <span class="position">{{ $depoimento->ocupação }}</span>
-                                    </div>
+                                {{-- <div class="d-flex align-items-center"> --}}
+                                <div class="pl-3 depoimento-info">
+                                    <span class="position">{{ $depoimento->ocupação }}</span>
+                                    <p class="name depoimento-nome">{{ $depoimento->nome }}</p>
                                 </div>
+                                {{-- </div> --}}
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            {{-- <div class="row ftco-animate">
-                <div class="col-md-12">
-                    <div class="carousel-testimony owl-carousel">
-                        @foreach ($depoimentos as $depoimento)
-                            <div class="item">
-                                <div class="testimony-wrap py-4">
-                                    <div class="text">
-                                        <p class="{{ $depoimento->id }}"></p>
-                                        <p class="mb-4">{!! markdown($depoimento->depoimento) !!}</p>
-                                        <div class="d-flex align-items-center">
-                                            <div class="user-img"
-                                                style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
-                                            </div>
-                                            <div class="pl-3 depoimento-info">
-                                                <p class="name depoimento-nome">{{ $depoimento->nome }}</p>
-                                                <span class="position">{{ $depoimento->ocupação }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </section>
-    {{-- @if ($parceiros->isNotEmpty())
-        <div class="container">
-            <div class="row justify-content-center pb-4">
-                <div class="col-md-6 heading-section text-center ftco-animate">
-                    <span class="subheading">Nossos Parceiros</span>
+
+
+    @if ($parceiros->isNotEmpty())
+        <section class="ftco-section">
+            <div class="container-fluid">
+                <div class="row justify-content-center pb-4">
+                    <div class="col-md-6 heading-section text-center ftco-animate">
+                        <span class="subheading">Nossos Parceiros</span>
+                    </div>
+                </div>
+                <div class="slick-carousel-parceiros">
+                    @foreach ($parceiros as $parceiro)
+                        <div class="col-lg-4">
+                            @if ($parceiro->url)
+                                <a href="{{ $parceiro->url }}" target="_blank">
+                                    <img data-lazy="{{ asset('/storage/' . $parceiro->logo) }}" width="150px"  height="150px"
+                                        class="img-fluid rounded-circle logo_parceiros" alt="Logo do parceiro">
+                                </a>
+                            @else
+                                <img data-lazy="{{ asset('/storage/' . $parceiro->logo) }}" width="150px"   height="150px"
+                                    class="img-fluid rounded-circle logo_parceiros" alt="Logo do parceiro">
+                            @endif
+                        </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-        <section id="parceiros" class="parceiros">
+        </section>
+        {{-- <section id="parceiros" classs="parceiros">
             <div class="container" data-aos="fade-up">
                 <div id="parceirosCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -544,8 +538,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-    @endif --}}
+        </section> --}}
+    @endif
 
 
 
@@ -564,6 +558,11 @@
         </svg></div>
 
     <style>
+        .logo_parceiros {
+            width: 150px;
+            height: 150px;
+        }
+
         .slick-dots li.slick-active button:before {
             color: #f4bc08;
             opacity: 0.75;
