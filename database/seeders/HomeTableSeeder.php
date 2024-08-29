@@ -14,6 +14,7 @@ class HomeTableSeeder extends Seeder
      *
      * @return void
      */
+        // php artisan db:seed --class=HomeTableSeeder     
     public function run()
     {
         DB::table('home')->insert([

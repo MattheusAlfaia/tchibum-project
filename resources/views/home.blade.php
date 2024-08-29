@@ -1,5 +1,17 @@
 @extends('layout')
 @section('title', 'Tchibum Home')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/slick-lib/slick.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/slick-lib/slick-theme.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/slick-lib/styles.css') }}" />
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('/slick-lib/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/slick-lib/script.js') }}"></script>
+@endsection
+
 @section('content')
 
 
@@ -39,32 +51,32 @@
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                     aria-labelledby="v-pills-nextgen-tab">
                                     {{-- <form class="search-property-1"> --}}
-                                        <div class="row no-gutters">
+                                    <div class="row no-gutters">
 
-                                            <div id="container-pacotes" class="col-md d-flex">
+                                        <div id="container-pacotes" class="col-md d-flex">
 
-                                                <a href="/pacotes">
-                                                    <div id="pacotes">
-                                                        <div id="pacote-fixo">
-                                                            <img id="pacote-fixo-img"
-                                                                src="{{ asset('/images/pacote-fechado.png') }}">
-                                                        </div>
-                                                        {{-- <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p> --}}
-                                                        <p id="pacote-fixo-nome">Pacotes Fechados</p>
-                                                    </div>
-                                                </a>
-
+                                            <a href="/pacotes">
                                                 <div id="pacotes">
-                                                    <div id="pacote-comunidade">
-                                                        <img id="pacote-comunidade-img"
-                                                            src="{{ asset('/images/pacote-personalizado.png') }}">
+                                                    <div id="pacote-fixo">
+                                                        <img id="pacote-fixo-img"
+                                                            src="{{ asset('/images/pacote-fechado.png') }}">
                                                     </div>
-                                                    {{-- <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p> --}}
-                                                    <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
+                                                    {{-- <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p> --}}
+                                                    <p id="pacote-fixo-nome">Pacotes Fechados</p>
                                                 </div>
+                                            </a>
 
+                                            <div id="pacotes">
+                                                <div id="pacote-comunidade">
+                                                    <img id="pacote-comunidade-img"
+                                                        src="{{ asset('/images/pacote-personalizado.png') }}">
+                                                </div>
+                                                {{-- <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p> --}}
+                                                <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
                                             </div>
+
                                         </div>
+                                    </div>
                                     {{-- </form> --}}
                                 </div>
 
@@ -120,7 +132,8 @@
                             <input type="text" id="identificacao" name="identificacao" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
+                            <label for="exampleInputPassword1"
+                                class="form-label">{{ trans('messages.proficao') }}</label>
                             <input type="text" id="proficao" name="proficao" class="form-control" required>
                         </div>
                         <div class="mb-3">
@@ -230,114 +243,93 @@
     </section>
 
     {{-- pacotes --}}
-    <section class="ftco-select-destination">
-        <!-- <div class="container">
-            <div class="row justify-content-center pb-4">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">Pacotes</h2>
-                    {{-- <h2 class="mb-4">{{ trans('messages.pacotes') }}</h2> --}}
-                </div>
-            </div>
-        </div> -->
-        {{-- <div class="row">
-                @foreach ($pacotes as $pacote)
-                <div class="col-md-4 ftco-animate"
-                    style="margin-bottom: 20px; cursor: pointer;"
-                    onclick="window.location.href='/pacote-{{ $pacote->id }}'">
-                    <div class="project-wrap">
-                        <a class="img" style="background-image: url('{{ asset('/storage/'. $pacote->imagem_principal) }}')">
-                            <span class="price">R$ {{ number_format($pacote->preco, 2, ',', '.') }} </span>
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">{{$pacote->dias}} Dias de Tour</span>
-                            <h3><a>{{$pacote->nome}}</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> {{$pacote->comunidade->nome}}</p>
-                            <ul>
-                                <li><i class="fa fa-users"></i> 2</li>
-                                <li><span style="color: #999999" class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data))}}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div> --}}
+    <section>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12 heading-section text-center ftco-animate">
+                <div class="col-md-6 heading-section text-center ftco-animate">
                     <h2>Pacotes</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-
-                    <div class="carousel-destination owl-carousel owl-loaded owl-drag">
-
-                        @foreach ($pacotes as $pacote)
-                            <div class="item owl-stage-outer">
-                                <div class="project-wrap" style="margin-bottom: 20px; cursor: pointer;"
-                                    onclick="window.location.href='/pacote-{{ $pacote->id }}'">
-                                    <a class="img"
-                                        style="background-image: url('{{ asset('/storage/' . $pacote->imagem_principal) }}')">
-                                        <span class="price">R$ {{ number_format($pacote->preco, 2, ',', '.') }} </span>
-                                    </a>
-                                    <div class="text p-4">
-                                        <span class="days">{{ $pacote->dias }} Dias de Tour</span>
-                                        <h3><a>{{ $pacote->nome }}</a></h3>
-                                        <p class="location"><span class="fa fa-map-marker"></span>
-                                            {{ $pacote->comunidade->nome }}</p>
-                                        <ul>
-                                            <li><i class="fa fa-users"></i> 2</li>
-                                            <li><span style="color: #999999"
-                                                    class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data)) }}
-                                            </li>
-                                        </ul>
-                                    </div>
+            @if (count($pacotes) <= 3)
+                <style>
+                    @media (min-width: 780px) {
+                        .slick-carousel .slick-track {
+                            width: 100% !important;
+                        }
+                    }
+                </style>
+            @endif
+            <div class="slick-carousel">
+                @foreach ($pacotes as $pacote)
+                    <div class="col-md-4">
+                        <a href="/pacote-{{ $pacote->id }}">
+                            <div class="project-wrap">
+                                <div class="img"
+                                    style="background-image: url('{{ asset('/storage/' . $pacote->imagem_principal) }}')">
+                                    <span class="price">R$ {{ number_format($pacote->preco, 2, ',', '.') }} </span>
+                                </div>
+                                <div class="text p-4">
+                                    <span class="days">{{ $pacote->dias }} Dias de Tour</span>
+                                    <h3>{{ $pacote->nome }}</h3>
+                                    <p class="location"><span class="fa fa-map-marker"></span>
+                                        {{ $pacote->comunidade->nome }}</p>
+                                    <ul>
+                                        <li><i class="fa fa-users"></i> 2</li>
+                                        <li><span style="color: #999999"
+                                                class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data)) }}
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                        @endforeach
+                        </a>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
-
-    <section class="ftco-select-destination">
+    {{-- Posts --}}
+    <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12 heading-section text-center ftco-animate">
+                <div class="col-md-6 heading-section text-center ftco-animate">
                     <h2>Posts</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="carousel-destination owl-carousel owl-loaded owl-drag">
-                        @foreach ($posts as $post)
-                            <div class="item owl-stage-outer">
-                                <div class="project-wrap" style="margin-bottom: 20px; cursor: pointer;"
-                                    onclick="window.location.href='/post-{{ $post->id }}'">
-                                    <a class="img"
-                                        style="background-image: url('{{ asset('/storage/' . $post->imagem_principal) }}')">
-                                    </a>
-                                    @php
-                                        $created_at = $post->created_at;
-
-                                        $datepost = $created_at->format('Y-m-d H:i:s');
-
-                                        $dia = $created_at->format('d');
-                                        setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
-                                        $mes = ucfirst(strftime('%B', strtotime($created_at->format('Y-m-d'))));
-                                        $ano = $created_at->format('Y');
-                                    @endphp
-                                    <div class="text p-4 text-center">
-                                        {{-- <h3><a>{{ $post->titulo }}</a></h3> --}}
-                                        <h5>{{ $post->titulo }}</h5>
-                                        <p><a href="/post-{{ $datepost }}" class="btn btn-primary">Ler mais</a></p>
-                                    </div>
-                                </div>
+            @if (count($posts) < 3)
+                <style>
+                    @media (min-width: 780px) {
+                        .slick-carousel-posts .slick-track {
+                            width: 100% !important;
+                        }
+                    }
+                </style>
+            @endif
+            <div class="slick-carousel-posts">
+                @foreach ($posts as $post)
+                    <div class="col-md-4">
+                        <div class="project-wrap">
+                            <div class="img"
+                                style="background-image: url('{{ asset('/storage/' . $post->imagem_principal) }}')">
                             </div>
-                        @endforeach
+                            <div class="text p-4">
+                                <h3>{{ $post->titulo }}</h3>
+                                <p class="location"><span class="fa fa-calendar"></span>
+                                    {{ date('d/m/y', strtotime($post->created_at)) }}</p>
+                                @php
+                                    $created_at = $post->created_at;
+
+                                    $datepost = $created_at->format('Y-m-d H:i:s');
+
+                                    $dia = $created_at->format('d');
+                                    setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
+                                    $mes = ucfirst(strftime('%B', strtotime($created_at->format('Y-m-d'))));
+                                    $ano = $created_at->format('Y');
+                                @endphp
+                                <p><a href="/post-{{ $datepost }}" class="btn btn-primary">Ler mais</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -371,50 +363,47 @@
         </div>
     </section>
 
-
     {{-- Atividades --}}
-
-    <section class="ftco-section img ftco-select-destination"
-        style="background-image: url('{{ asset('/storage/bg_3.jpg') }}');">
+    <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
                     <span class="subheading">O que oferecemos de melhor</span>
-                    {{-- <span class="subheading">{{ trans('messages.o_que_oferecemo_de_melhor') }}</span> --}}
                     <h2 class="mb-4">Nossas Atividades</h2>
-                    {{-- <h2 class="mb-4">{{ trans('messages.nossas_atividades') }}</h2> --}}
                 </div>
             </div>
-        </div>
-        <div class="container ">
-            <div class="row">
-
-
-
-                <div class="col-md-12">
-
-                    <div class="carousel-destination owl-carousel">
-
-                        @foreach ($opcoes as $opcoe)
-                            <div class="item">
-                                <div class="project-destination">
-                                    <a href="/atividade-{{ $opcoe->id }}" class="img"
-                                        style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}');">
-                                        <div class="text">
-                                            <h3>{{ $opcoe->nome }}</h3>
-                                        </div>
-                                    </a>
+            @if (count($opcoes) < 3)
+                <style>
+                    @media (min-width: 780px) {
+                        .slick-carousel-atividades .slick-track {
+                            width: 100% !important;
+                        }
+                    }
+                </style>
+            @endif
+            <div class="slick-carousel-atividades">
+                @foreach ($opcoes as $opcoe)
+                    <div class="col-md-4">
+                        <a href="/atividade-{{ $opcoe->id }}">
+                            <div class="project-wrap">
+                                <div class="img"
+                                    style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}')">
                                 </div>
-
+                                <div class="text p-4">
+                                    <h3>{{ $opcoe->nome }}</h3>
+                                    <p class="location"><span class="fa fa-map-marker"></span>
+                                        {{ $opcoe->comunidade->nome }}</p>
+                                    {{-- <ul>
+                                        <li><i class="fa fa-users"></i> 2</li>
+                                        <li><span style="color: #999999"
+                                                class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($opcoe->data)) }}
+                                        </li>
+                                    </ul> --}}
+                                </div>
                             </div>
-                        @endforeach
-
+                        </a>
                     </div>
-
-                </div>
-
-
-
+                @endforeach
             </div>
         </div>
     </section>
@@ -466,8 +455,37 @@
                     <h2 class="mb-4">Feedback</h2>
                 </div>
             </div>
-
-            <div class="row ftco-animate">
+            @if (count($depoimentos) < 3)
+                <style>
+                    @media (min-width: 780px) {
+                        .slick-carousel-feedback .slick-track {
+                            width: 100% !important;
+                        }
+                    }
+                </style>
+            @endif
+            <div class="slick-carousel-feedback">
+                @foreach ($depoimentos as $depoimento)
+                    <div class="col-md-12">
+                        <div class="testimony-wrap py-2">
+                            <div class="text">
+                                <p class="{{ $depoimento->id }}"></p>
+                                <p class="mb-4">{!! markdown($depoimento->depoimento) !!}</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img"
+                                        style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
+                                    </div>
+                                    <div class="pl-3 depoimento-info">
+                                        <p class="name depoimento-nome">{{ $depoimento->nome }}</p>
+                                        <span class="position">{{ $depoimento->ocupação }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            {{-- <div class="row ftco-animate">
                 <div class="col-md-12">
                     <div class="carousel-testimony owl-carousel">
                         @foreach ($depoimentos as $depoimento)
@@ -491,7 +509,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     {{-- @if ($parceiros->isNotEmpty())
@@ -546,6 +564,11 @@
         </svg></div>
 
     <style>
+        .slick-dots li.slick-active button:before {
+            color: #f4bc08;
+            opacity: 0.75;
+        }
+
         #parceiros {
             padding: 60px 0;
         }
@@ -562,7 +585,7 @@
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            background-color: #333; 
+            background-color: #333;
             border-radius: 50%;
         }
 
@@ -772,6 +795,43 @@
                 var src = $(this).children('img').attr('src');
                 $('#imagemModal').attr('src', src);
                 $('#modalImagem').modal('show');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.logo-carousel').slick({
+                infinite: false,
+                autoplay: false,
+                // autoplaySpeed: 1000,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: true,
+                touchMove: true,
+
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
             });
         });
     </script>

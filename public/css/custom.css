@@ -36,7 +36,7 @@
 .depoimento-info{
   position: absolute;
   bottom: 0;
-  right: 10%;
+  left: 0;
 }
 .depoimento-nome{
   font-size: 20px;

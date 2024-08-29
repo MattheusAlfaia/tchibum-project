@@ -9059,7 +9059,7 @@ position: relative; }
     height: 320px; }
   .project-wrap .text {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     position: relative;
     border-top: none;
     margin-top: -40px;

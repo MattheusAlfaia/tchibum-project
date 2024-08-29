@@ -39,8 +39,8 @@
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
-    <!--@vite(['resources/js/app.js'])-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    @yield('styles')
 </head>
 
 <body>
@@ -362,5 +362,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{{ asset('js/google-map.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

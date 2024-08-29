@@ -1,0 +1,42 @@
+.slick-prev, .slick-next {
+    z-index: 2;
+}
+.slick-prev {
+    left: 25px;
+}
+.slick-next {
+    right: 25px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 30px;
+}
+
+/*====| dots |=== */
+.slick-dots li.slick-active button:before{
+    color: #e3f21a;
+}
+.slick-dots li button:hover:before{
+    color: #cecece;
+}
+
+/* cor das Setas */
+.slick-prev:before, .slick-next:before {
+    color: #2c5423 ;
+}
+
+/*==|css para div dentro da classe|==*/
+.slick-carousel div {
+    position: relative;
+}
+
+.slick-carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slick-slide a {
+    display: block; /* Garante que o link ocupe o espaço do slide */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
