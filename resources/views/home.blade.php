@@ -468,18 +468,15 @@
                 @foreach ($depoimentos as $depoimento)
                     <div class="col-md-4">
                         <div class="testimony-wrap">
+                            <div class="user-img" style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
+                            </div>
                             <div class="text pt-2">
-                                <div class="user-img"
-                                    style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
-                                </div>
-                                <p class="{{ $depoimento->id }}"></p>
-                                <p class="mb-4">{!! markdown($depoimento->depoimento) !!}</p>
-                                {{-- <div class="d-flex align-items-center"> --}}
+                                <p class="{{ $depoimento->id }}" style="margin-bottom: 5px !important;"></p>
+                                <p>{!! markdown($depoimento->depoimento) !!}</p>
                                 <div class="pl-3 depoimento-info">
                                     <span class="position">{{ $depoimento->ocupação }}</span>
                                     <p class="name depoimento-nome">{{ $depoimento->nome }}</p>
                                 </div>
-                                {{-- </div> --}}
                             </div>
                         </div>
                     </div>
