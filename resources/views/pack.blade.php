@@ -5,7 +5,7 @@
 
 
 
-<section id="posts" class="ftco-section" style="background-image:url('{{ secure_asset('/storage/32.jpg') }}'); background-repeat: no-repeat;">
+<section id="posts" class="ftco-section" style="background-image:url('{{ asset('/images/32.jpg') }}'); background-repeat: no-repeat;">
     <div class="container">
         <div class="row d-flex">
 
