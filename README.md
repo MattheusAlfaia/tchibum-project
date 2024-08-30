@@ -6,6 +6,8 @@
 composer2 install
 ```
 ## Config app, db
+```bash
+```
 
 ## Dependencias
 ```bash
@@ -18,6 +20,8 @@ php artisan db:seed --class=HomeTableSeeder
 ```
 
 # Mod permissão dir
+```bash
+```
 
 ## Storage
 ```bash
