@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('descricao_atividade_comunidade4',125);
             $table->string('imagem_atividade_comunidade4',255);
 
-            $table->string('video_principal',255);
+            $table->string('video_principal',255)->nullable();
             $table->timestamps();
         });
     }

@@ -21,8 +21,8 @@ return new class extends Migration
             $table->float('preco',10,2);
             $table->datetime('data');
             $table->datetime('data_final')->nullable();
-            $table->string('infos',1000);
-            $table->string('video',50);
+            $table->string('infos',1000)->nullable();
+            $table->string('video',50)->nullable();
             $table->integer('pessoas')->nullable();
             $table->integer('dias')->nullable();
 

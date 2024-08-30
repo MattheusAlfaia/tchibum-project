@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('sobre', function (Blueprint $table) {
-            $table->string('capa_video_principal',255)->after('video_principal');
+            $table->string('capa_video_principal',255)->after('video_principal')->nullable();
         });
     }
 

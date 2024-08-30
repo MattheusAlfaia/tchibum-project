@@ -58,8 +58,7 @@ class PacoteResource extends Resource
                     ->directory('pacote')
                     ->disk('public')
                     ->optimize('webp')
-                    ->multiple()
-                    ->required(),
+                    ->multiple(),
                 Forms\Components\TextInput::make('preco')
                     ->required()
                     ->numeric(10.2)
