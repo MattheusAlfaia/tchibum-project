@@ -55,8 +55,7 @@ class ComunidadeResource extends Resource
                 Forms\Components\FileUpload::make('video')
                     ->maxSize(100000)
                     ->directory('comunidades')
-                    ->disk('public')
-                    ->required(),
+                    ->disk('public'),
             ]);
     }
 
