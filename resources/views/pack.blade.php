@@ -112,63 +112,67 @@
                       <!-- Corpo do Modal -->
                       <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
                         <form id="form">
-                           @csrf
+                            @csrf
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="estrangeiro">
-                                <label class="form-check-label" for="flexRadioDefault1" >
+                                <input class="form-check-input" type="checkbox" name="estrangeiro" id="estrangeiro">
+                                <label class="form-check-label" for="estrangeiro">
                                     {{ trans('messages.e_estrangeiro') }}
                                 </label>
-                              </div>
+                            </div>
 
                             <div class="mb-3" id="cpf-container">
-                                <label for="cpf"  class="form-label">CPF</label>
-                                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite seu CPF">
+                                <label for="cpf" class="form-label">CPF</label>
+                                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite seu CPF" required>
                             </div>
 
-                              <div class="mb-3" id="uf-container">
+                            <div class="mb-3" id="uf-container">
                                 <label for="uf" class="form-label">UF</label>
-                                <input type="text" id="uf" name="uf" class="form-control">
+                                <input type="text" id="uf" name="uf" class="form-control" maxlength="2" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
-                                <input type="text" id="endereco" name="endereco" class="form-control" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Cep</label>
-                                <input type="text" id="cep" name="cep" class="form-control" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.cidade') }}</label>
-                                <input type="text" id="cidade" name="cidade" class="form-control" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.identificacao') }}</label>
-                                <input type="text" id="identificacao" name="identificacao" class="form-control" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
-                                <input type="text" id="proficao" name="proficao" class="form-control" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.nacionalidade') }}</label>
-                                <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" >
+                                <label for="endereco" class="form-label">{{ trans('messages.endereco') }}</label>
+                                <input type="text" id="endereco" name="endereco" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.estado') }}</label>
-                                <input type="text" id="estado" name="estado" class="form-control" >
+                                <label for="cep" class="form-label">Cep</label>
+                                <input type="text" id="cep" name="cep" class="form-control" required>
                             </div>
 
-                          </form>
+                            <div class="mb-3">
+                                <label for="cidade" class="form-label">{{ trans('messages.cidade') }}</label>
+                                <input type="text" id="cidade" name="cidade" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                {{-- <label for="identificacao" class="form-label">{{ trans('messages.identificacao') }}</label> --}}
+                                <label for="identificacao" class="form-label">Identificação de Nacionalidade</label>
+                                <input type="text" id="identificacao" name="identificacao" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="profissao" class="form-label">{{ trans('messages.proficao') }}</label>
+                                <input type="text" id="profissao" name="profissao" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="nacionalidade" class="form-label">{{ trans('messages.nacionalidade') }}</label>
+                                <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="estado" class="form-label">{{ trans('messages.estado') }}</label>
+                                <input type="text" id="estado" name="estado" class="form-control" required>
+                            </div>
+                        </form>
 
                       </div>
 
                       <!-- Rodapé do Modal -->
                       <div class="modal-footer">
-                        <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">{{ trans('messages.enviar') }}</button>
-
-                      </div>
+                        <button id="enviardadoscomple" type="button" class="btn btn-success">{{ trans('messages.enviar') }}</button>
+                    </div>
 
                    </div>
                 </div>
@@ -202,144 +206,75 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
   <script>
-
-
-     let user = @json(auth()->user());
-     let pacote = @json($pacote);
-
-     console.log(user);
-
-    jQuery(document).ready(function ($) {
-      // Aplicar a máscara para o CPF
-      $('#cpf').mask('000.000.000-00', { reverse: true });
-     });
-
+    let user = @json(auth()->user());
+    let pacote = @json($pacote);
 
     $(document).ready(function() {
-        $("#loading").hide();
-        // if estrangeiro
+        $('#cpf').mask('000.000.000-00', { reverse: true });
 
-
-        $('#estrangeiro').change(function () {
-            // Se o checkbox estiver marcado (pessoa estrangeira), oculte os campos "UF" e "CPF"
-            if ($(this).prop('checked')) {
-                $('#uf, #cpf').hide();
+        $('#estrangeiro').change(function() {
+            if ($(this).is(':checked')) {
+                $('#uf-container, #cpf-container').hide();
             } else {
-                // Se o checkbox estiver desmarcado (pessoa não estrangeira), exiba os campos "UF" e "CPF"
-                $('#uf, #cpf').show();
+                $('#uf-container, #cpf-container').show();
             }
         });
 
-        //imgs
-
-        $('.product-image').click(function() {
-            let src = $(this).children('img').attr('src');
+        $(document).on('click', '.product-image', function() {
+            let src = $(this).find('img').attr('src');
             $('#imagemModal').attr('src', src);
             $('#modalImagem').modal('show');
         });
 
-        $('.thumbnail').click(function() {
+        $(document).on('click', '.thumbnail', function() {
             let newImageSrc = $(this).attr('src');
             $('.product-image img').attr('src', newImageSrc);
         });
-    });
 
-
-    $("#comprar").click(function () {
-
-
-        if(user == null){
-
-            window.location.href = '/register';
-
-        }else{
-
-            if(user.endereco == null &&
-            user.cep == null &&
-            user.cidade == null &&
-            user.proficao == null &&
-            user.nacionalidade == null &&
-            user.estado == null ){
-
+        $("#comprar").click(function () {
+            if (!user) {
+                window.location.href = '/register';
+            } else if (!user.endereco || !user.cep || !user.cidade || !user.profissao || !user.nacionalidade || !user.estado) {
                 $("#meuModal").fadeIn();
-
-            }else{
-
+            } else {
                 $("#loading").show();
-
                 $.ajax({
                     type: 'POST',
-                    url: '/solicitacaocompra/'+ pacote.id,
+                    url: '/solicitacaocompra/' + pacote.id,
                     data: { _token: '{{ csrf_token() }}' },
                     success: function (response) {
-
                         $("#loading").hide();
-                        console.log(response);
                         window.location.href = response;
-
-
                     },
                     error: function (error) {
-                        // Lógica para tratar erros (se necessário)
                         $("#loading").hide();
-                        console.log(error);
+                        console.error(error);
                     }
                 });
             }
-        }
-    });
+        });
 
-     // form
-
-     $('#enviardadoscomple').click(function () {
+        // Manipular envio do formulário
+        $('#enviardadoscomple').click(function () {
             let formData = $('#form').serialize();
-
-
             $("#meuModal").fadeIn();
-
             $.ajax({
                 type: 'POST',
-                url: '/adddadoscomple/'+ user.id,  // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
+                url: '/adddadoscomple/' + user.id,
                 data: formData,
-                success: function (response) {
-
+                success: function () {
                     location.reload();
-
-                    $.ajax({
-                    type: 'POST',
-                    url: '/solicitacaocompra/'+ pacote.id,
-                    data: { _token: '{{ csrf_token() }}' },
-                    success: function (response) {
-
-                        $("#loading").hide();
-                        console.log(response)
-                        window.location.href = response;
-
-
-                    },
-                    error: function (error) {
-                        // Lógica para tratar erros (se necessário)
-                        $("#loading").hide();
-                        console.log(error);
-                    }
-                });
-
                 },
                 error: function (error) {
-                    // Lógica para tratar erros (se necessário)
-                    console.log(error);
+                    console.error(error);
                 }
-
             });
         });
 
-    $("#fechar").click(function () {
-
-      $("#meuModal").fadeOut();
-
-   });
-
-
+        $("#fechar").click(function () {
+            $("#meuModal").fadeOut();
+        });
+    });
 </script>
 
 

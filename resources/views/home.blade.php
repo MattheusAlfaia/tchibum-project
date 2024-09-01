@@ -274,7 +274,7 @@
                                     <p class="location"><span class="fa fa-map-marker"></span>
                                         {{ $pacote->comunidade->nome }}</p>
                                     <ul>
-                                        <li><i class="fa fa-users"></i> {{ $pacote->pessoas; }}</li>
+                                        <li><i class="fa fa-users"></i> {{ $pacote->pessoas }}</li>
                                         <li><span style="color: #999999"
                                                 class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data)) }}
                                         </li>
