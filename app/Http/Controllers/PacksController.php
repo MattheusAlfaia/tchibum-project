@@ -88,7 +88,7 @@ class PacksController extends Controller
         PacotePersoUsuario::create([
             'pacoteperso_id' => $pacotePersonalizado->id,
             'user_id' => auth()->id(),
-            'data' => date("Y-m-d H:i:s"),
+            'data' => $pacotePersonalizado->data,
             'status' => 'EM ANALISE',
         ]);
 
