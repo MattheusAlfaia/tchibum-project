@@ -11,7 +11,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Cache::remember('posts_page_' . request('page', 1), 60, function () {
-            return Posts::latest()->paginate(3);
+            return Posts::orderBy('created_at', 'desc')->paginate(3);
         });
 
         return view('posts', compact('posts'));

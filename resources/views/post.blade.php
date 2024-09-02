@@ -17,8 +17,6 @@
 </section>
 
 
-
-
 <section class="ftco-section ftco-about ftco-no-pt img">
   <div class="container">
     <div class="row d-flex">
@@ -41,9 +39,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
       </div>
     </div>
