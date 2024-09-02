@@ -63,7 +63,6 @@ class PacksController extends Controller
     // /// /// /// /// /// /// /// /// /// /// /// /// /// ///
 
 
-
     public function save(Request $request)
     {
         $precoTotal = 0;
@@ -122,10 +121,6 @@ class PacksController extends Controller
         return "https://wa.me/" . $contato->whatsapp . "/?text=" . rawurlencode($mensagem);
     }
 
-
-
-
-
     public function index(){
         $pacotes = Pacote::with('comunidade')->latest()->paginate(6);
 
@@ -157,25 +152,93 @@ class PacksController extends Controller
 
 
 
-     }
+    }
+
+    public function solicitacaoCompraPkFechado(Pacote $pacote){
+
+        $pacote = $pacote::with('comunidade','opcoes')->find( $pacote->id);
+
+        $pacote_usuario = PacoteUsuario::create([
+            'pacote_id' => $pacote->id,
+            'user_id' => auth()->user()->id,
+            'data' => date("Y-m-d H:i:s"),
+        ]);
 
 
-    public function addDadosComple(Request $request, User $user){
+        // $this->enviarSolicitacao($pacote->id);
+        $contato = Contato::find(1);
 
-        $user->cpf =  $request->cpf;
-        $user->uf =  $request->uf;
-        $user->endereco =  $request->endereco;
-        $user->cep =  $request->cep;
-        $user->cidade =  $request->cidade;
-        $user->identificacao =  $request->identificacao;
-        $user->proficao =  $request->proficao;
-        $user->nacionalidade =  $request->nacionalidade;
-        $user->estado =  $request->estado;
+        $dataFormatada = date("d/m/y", strtotime($pacote->data));
+        $dataFinalFormatada = date("d/m/y", strtotime($pacote->data_final));
+        $user = auth()->user();
 
+        $mensagem = "Solicitação de Compra (Pacote Fechado) :\n\n";
+        $mensagem .= "Informações do Pacote:\n\n";
+        $mensagem .= "Identificação do Pacote: " . $pacote->id . "\n";
+        $mensagem .= "Nome do Pacote: " . $pacote->nome . "\n";
+        $mensagem .= "Preço: R$" . $pacote->preco . "\n";
+        $mensagem .= "Data: " . $dataFormatada . "\n";
+        $mensagem .= "Data Final: " . $dataFinalFormatada . "\n";
+        $mensagem .= "Nome da Comunidade: " . $pacote->comunidade->nome . "\n\n";
+        $mensagem .= "Informações das Atividades Inclusas: \n\n";
+        foreach ($pacote->opcoes as $key => $opcao) {
+            $mensagem .= "Atividade: " . $opcao->nome . ",\n\n";
+        }
+        $mensagem .= "Informações do Cliente: \n\n";
+        $mensagem .= "Nome: " . $user->name . ",\n";
+        $mensagem .= "Email: " . $user->email . "\n";
+
+           // Montar o link do WhatsApp
+        $linkWhatsApp = "https://wa.me/" . $contato->whatsapp. "/?text=" . rawurlencode($mensagem);
+
+           // Redirecionar para o link do WhatsAp
+        // return redirect()->away($linkWhatsApp);
+        return $linkWhatsApp;
+
+    }
+
+    public function addDadosComple(Request $request)
+    {
+        // Obtemos o usuário com base no ID fornecido na requisição
+        $user = User::find($request->user);
+        
+        if (!$user) {
+            return response()->json(['error' => 'Usuário não encontrado.'], 404);
+        }
+        
+        // Atualiza os atributos do usuário somente se os dados estiverem presentes
+        if (!empty($request->cpf)) {
+            $user->cpf = $request->cpf;
+        }
+        if (!empty($request->uf)) {
+            $user->uf = $request->uf;
+        }
+        if (!empty($request->endereco)) {
+            $user->endereco = $request->endereco;
+        }
+        if (!empty($request->cep)) {
+            $user->cep = $request->cep;
+        }
+        if (!empty($request->cidade)) {
+            $user->cidade = $request->cidade;
+        }
+        if (!empty($request->identificacao)) {
+            $user->identificacao = $request->identificacao;
+        }
+        if (!empty($request->proficao)) {
+            $user->proficao = $request->proficao;
+        }
+        if (!empty($request->nacionalidade)) {
+            $user->nacionalidade = $request->nacionalidade;
+        }
+        if (!empty($request->estado)) {
+            $user->estado = $request->estado;
+        }
+    
+        // Salva as alterações
         $user->save();
-
-
-       return 'Seus dados foram enviados clique em Comprar Novamente';
-
+        
+        // Retorna uma mensagem de sucesso
+        return response()->json(['message' => 'Seus dados foram enviados. Clique em Comprar Novamente']);
     }
 }
