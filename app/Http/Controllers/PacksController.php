@@ -8,6 +8,7 @@ use App\Models\Pacote;
 use App\Models\User;
 use App\Models\PacoteUsuario;
 use App\Models\PacotePersonalizado;
+use App\Models\PacotePersoUsuario;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PacoteUsuarios;
 use App\Models\Contato;
@@ -84,6 +85,15 @@ class PacksController extends Controller
             'status' => 'EM ANALISE',
         ]);
 
+        PacotePersoUsuario::create([
+            'pacoteperso_id' => $pacotePersonalizado->id,
+            'user_id' => auth()->id(),
+            'data' => date("Y-m-d H:i:s"),
+            'status' => 'EM ANALISE',
+        ]);
+
+
+
         if ($request->has('atividades')) {
             $pacotePersonalizado->opcoes()->attach($request->atividades);
         }
@@ -158,7 +168,7 @@ class PacksController extends Controller
 
         $pacote = $pacote::with('comunidade','opcoes')->find( $pacote->id);
 
-        $pacote_usuario = PacoteUsuario::create([
+        PacoteUsuario::create([
             'pacote_id' => $pacote->id,
             'user_id' => auth()->user()->id,
             'data' => date("Y-m-d H:i:s"),
@@ -201,11 +211,11 @@ class PacksController extends Controller
     {
         // Obtemos o usuário com base no ID fornecido na requisição
         $user = User::find($request->user);
-        
+
         if (!$user) {
             return response()->json(['error' => 'Usuário não encontrado.'], 404);
         }
-        
+
         // Atualiza os atributos do usuário somente se os dados estiverem presentes
         if (!empty($request->cpf)) {
             $user->cpf = $request->cpf;
@@ -234,10 +244,10 @@ class PacksController extends Controller
         if (!empty($request->estado)) {
             $user->estado = $request->estado;
         }
-    
+
         // Salva as alterações
         $user->save();
-        
+
         // Retorna uma mensagem de sucesso
         return response()->json(['message' => 'Seus dados foram enviados. Clique em Comprar Novamente']);
     }
