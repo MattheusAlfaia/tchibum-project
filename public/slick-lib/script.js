@@ -171,4 +171,13 @@ $(document).ready(function(){
       }
     ]
   });
+
+  // pack.blade.php - slick-carousel-pack
+  $('.slick-carousel-pack').slick({
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+    arrows: true,
+  });
 });
