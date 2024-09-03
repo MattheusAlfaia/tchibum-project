@@ -81,6 +81,10 @@ Route::get('/pacotes/custom', [PacksController::class, 'show'])->name('pacotes.c
 Route::post('/pacote/custom/comunidade', [PacksController::class, 'comunidadeInfo'])->name('pacoteSteps.comunidade');
 Route::post('/pacote/custom/create', [PacksController::class, 'pacoteSelect'])->name('pacoteSteps.create');
 Route::post('/pacote/custom/save', [PacksController::class, 'save'])->name('pacoteSteps.save');
+
+
+
+
 //PACOTES
 Route::get('/pacotes', [PacksController::class, 'index']);
 Route::get('/pacote-{pacote}', [PacksController::class, 'pack']);

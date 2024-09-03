@@ -40,8 +40,8 @@ class ParceiroForm extends Component
     ];
 
     protected $messages = [
-        'nome.required' => 'O campo Nome é obrigatório.',
-        'nome.min' => 'O Nome deve ter pelo menos 3 caracteres.',
+        'nome.required' => 'O campo Nome da Empresa é obrigatório.',
+        'nome.min' => 'O Nome da Empresa deve ter pelo menos 3 caracteres.',
         'email.required' => 'O campo Email é obrigatório.',
         'email.email' => 'O Email deve ser um endereço de e-mail válido.',
         'seguimento.required' => 'O campo Seguimento é obrigatório.',
