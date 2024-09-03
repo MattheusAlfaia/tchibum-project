@@ -365,9 +365,7 @@
                     .id, // Substitua '/solicitacaocompra/' pela sua rota Laravel
                     success: function(response) {
                         $("#loading").hide();
-                        console.log(response);
-                        window.location.href =
-                        response; // Redireciona para a URL recebida na resposta
+                        window.open(response, '_blank');
                     },
                     error: function(error) {
                         // Lógica para tratar erros (se necessário)
