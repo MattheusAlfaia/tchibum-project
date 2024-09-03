@@ -8,7 +8,6 @@
     <title>@yield('title')</title>
     <link rel="icon" href="{{ asset('/images/logo.jpg')}}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 

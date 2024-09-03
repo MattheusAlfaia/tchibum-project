@@ -2,9 +2,6 @@
 @section('title', 'pacote')
 @section('content')
 
-
-
-
     <section id="posts" class="ftco-section"
         style="background-image:url('{{ asset('/images/32.jpg') }}'); background-repeat: no-repeat;">
         <div class="container">
@@ -20,7 +17,6 @@
                             <img class="thumbnail" src="{{ secure_asset('/storage/' . $imagem) }}" alt="Thumbnail 1">
                         @endforeach
                     </div>
-
 
                     <div id="loading">
                         <div class="spinner-border" role="status">
@@ -208,103 +204,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-            <div class="modal" id="meuModal">
-                <div class="modal-dialog">
-                   <div class="modal-content">
-
-                      <!-- Cabeçalho do Modal -->
-                      <div class="modal-header">
-                         <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
-                         <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-
-
-                      <!-- Corpo do Modal -->
-                      <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                        <form id="form">
-                            @csrf
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="estrangeiro" id="estrangeiro">
-                                <label class="form-check-label" for="estrangeiro">
-                                    {{ trans('messages.e_estrangeiro') }}
-                                </label>
-                            </div>
-
-                            <div class="mb-3" id="cpf-container">
-                                <label for="cpf" class="form-label">CPF</label>
-                                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite seu CPF" required>
-                            </div>
-
-                            <div class="mb-3" id="uf-container">
-                                <label for="uf" class="form-label">UF</label>
-                                <input type="text" id="uf" name="uf" class="form-control" maxlength="2" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="endereco" class="form-label">{{ trans('messages.endereco') }}</label>
-                                <input type="text" id="endereco" name="endereco" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="cep" class="form-label">Cep</label>
-                                <input type="text" id="cep" name="cep" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="cidade" class="form-label">{{ trans('messages.cidade') }}</label>
-                                <input type="text" id="cidade" name="cidade" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                {{-- <label for="identificacao" class="form-label">{{ trans('messages.identificacao') }}</label> --}}
-                                <label for="identificacao" class="form-label">Identificação de Nacionalidade</label>
-                                <input type="text" id="identificacao" name="identificacao" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="profissao" class="form-label">{{ trans('messages.proficao') }}</label>
-                                <input type="text" id="profissao" name="profissao" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="nacionalidade" class="form-label">{{ trans('messages.nacionalidade') }}</label>
-                                <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="estado" class="form-label">{{ trans('messages.estado') }}</label>
-                                <input type="text" id="estado" name="estado" class="form-control" required>
-                            </div>
-                        </form>
-
-                      </div>
-
-                      <!-- Rodapé do Modal -->
-                      <div class="modal-footer">
-                        <button id="enviardadoscomple" type="button" class="btn btn-success">{{ trans('messages.enviar') }}</button>
-                    </div>
-
-                   </div>
-                </div>
-             </div>
-
-
-
-            <section>
-                <div class="modal fade" id="modalImagem" tabindex="-1" role="dialog" aria-labelledby="modalImagemLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content" style="background-color: transparent; border: none;">
-                            <div class="modal-body">
-                                <img src="" class="img-fluid" id="imagemModal" alt="Responsive image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-=======
->>>>>>> 7167ca42fea28d5527f7fec27c7c6be2f8c7483a
 
         </div>
 
@@ -314,79 +213,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-<<<<<<< HEAD
-  <script>
-    let user = @json(auth()->user());
-    let pacote = @json($pacote);
-
-    $(document).ready(function() {
-        $('#cpf').mask('000.000.000-00', { reverse: true });
-
-        $('#estrangeiro').change(function() {
-            if ($(this).is(':checked')) {
-                $('#uf-container, #cpf-container').hide();
-            } else {
-                $('#uf-container, #cpf-container').show();
-            }
-        });
-
-        $(document).on('click', '.product-image', function() {
-            let src = $(this).find('img').attr('src');
-            $('#imagemModal').attr('src', src);
-            $('#modalImagem').modal('show');
-        });
-
-        $(document).on('click', '.thumbnail', function() {
-            let newImageSrc = $(this).attr('src');
-            $('.product-image img').attr('src', newImageSrc);
-        });
-
-        $("#comprar").click(function () {
-            if (!user) {
-                window.location.href = '/register';
-            } else if (!user.endereco || !user.cep || !user.cidade || !user.profissao || !user.nacionalidade || !user.estado) {
-                $("#meuModal").fadeIn();
-            } else {
-                $("#loading").show();
-                $.ajax({
-                    type: 'POST',
-                    url: '/solicitacaocompra/' + pacote.id,
-                    data: { _token: '{{ csrf_token() }}' },
-                    success: function (response) {
-                        $("#loading").hide();
-                        window.location.href = response;
-                    },
-                    error: function (error) {
-                        $("#loading").hide();
-                        console.error(error);
-                    }
-                });
-            }
-        });
-
-        // Manipular envio do formulário
-        $('#enviardadoscomple').click(function () {
-            let formData = $('#form').serialize();
-            $("#meuModal").fadeIn();
-            $.ajax({
-                type: 'POST',
-                url: '/adddadoscomple/' + user.id,
-                data: formData,
-                success: function () {
-                    location.reload();
-                },
-                error: function (error) {
-                    console.error(error);
-                }
-            });
-        });
-
-        $("#fechar").click(function () {
-            $("#meuModal").fadeOut();
-        });
-    });
-</script>
-=======
     <script>
         let user = @json(auth()->user());
         let pacote = @json($pacote);
@@ -469,7 +295,6 @@
 
 
         $("#comprar").click(function() {
->>>>>>> 7167ca42fea28d5527f7fec27c7c6be2f8c7483a
 
 
             if (user == null) {
@@ -552,50 +377,6 @@
                 }
             });
         });
-
-        // $('#enviardadoscomple').click(function() {
-        //     let formData = $('#form').serialize();
-
-
-        //     $("#meuModal").fadeIn();
-
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: '/adddadoscomple/' + user.id, // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
-        //         data: formData,
-        //         success: function(response) {
-
-        //             location.reload();
-
-        //             $.ajax({
-        //                 type: 'POST',
-        //                 url: '/solicitacaocompra/' + pacote.id,
-        //                 data: {
-        //                     _token: '{{ csrf_token() }}'
-        //                 },
-        //                 success: function(response) {
-
-        //                     $("#loading").hide();
-        //                     console.log(response)
-        //                     window.location.href = response;
-
-
-        //                 },
-        //                 error: function(error) {
-        //                     // Lógica para tratar erros (se necessário)
-        //                     $("#loading").hide();
-        //                     console.log(error);
-        //                 }
-        //             });
-
-        //         },
-        //         error: function(error) {
-        //             // Lógica para tratar erros (se necessário)
-        //             console.log(error);
-        //         }
-
-        //     });
-        // });
 
         $("#fechar").click(function() {
 
@@ -742,35 +523,4 @@
         }
     </style>
 
-
-
 @endsection
-
-
-
-
-
-
-{{-- sessões arquivadas --}}
-
-
-
-{{--   <section class="ftco-intro ftco-section ftco-no-pt">
-   <div class="container">
-    <div class="row justify-content-center">
-     <div class="col-md-12 text-center">
-      <div class="img"  style="background-image: url(images/bg_2.jpg);">
-       <div class="overlay"></div>
-       <h2>We Are Pacific A Travel Agency</h2>
-       <p>We can manage your dream building A small river named Duden flows by their place</p>
-       <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
-     </div>
-   </div>
-  </div>
-  </div>
-  </section>
- --}}
-
-{{--  <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-<p><a href="#" class="btn btn-primary">Read more</a></p> --}}

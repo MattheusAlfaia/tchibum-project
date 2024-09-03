@@ -96,9 +96,9 @@ Route::middleware([
 
      // Pacotes Fechados
 
-    Route::post('/adddadoscomple/{user}', [PacksController::class, 'addDadosComple'])->name('adddadoscomple');
-    Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaoCompraPkFechado']);
-    Route::get('/pacote/enviarsolicitacao/{pacote}', [PacksController::class, 'enviarSolicitacao']);
+     Route::post('/adddadoscomple/{user}', [PacksController::class, 'addDadosComple'])->name('adddadoscomple');
+     Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaoCompraPkFechado']);
+     Route::get('/pacote/enviarsolicitacao/{pacote}', [PacksController::class, 'enviarSolicitacao']);
 
 
     // Pacotes Personalizados
