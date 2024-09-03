@@ -18,34 +18,4 @@ class ParceiroController extends Controller
 
         return view('parceiros', compact('parceiros_page'));
     }
-
-    public function mensagem(Request $request)
-    {
-        $data = $request->only([
-            'nome',
-            'email',
-            'seguimento',
-            'responsavel',
-            'cargo',
-            'cnpj',
-            'cadastur',
-            'endereco',
-            'cep',
-            'mensagem',
-            'accepted_terms',
-            'cidade',
-            'comunidade',
-            'numero'
-        ]);
-        if($request->accepted_terms == 'on'){
-            $data['accepted_terms'] = 1;
-        } else {
-            $data['accepted_terms'] = 0;
-        }
-
-        Parceiro::create($data);
-
-        return redirect()->back()->with('message', 'Sua mensagem foi enviada com sucesso!');
-    }
-
 }
