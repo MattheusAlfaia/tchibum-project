@@ -41,6 +41,14 @@ class ComunidadeResource extends Resource
                 Forms\Components\TextInput::make('endereço')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('mensagem')
+                    ->required()
+                    ->label('Saída do Barco')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('taxa')
+                    ->required()
+                    ->label('Taxa de transporte')
+                    ->numeric(10.2),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->maxSize(50000)
                     ->directory('comunidades')

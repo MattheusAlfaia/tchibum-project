@@ -62,7 +62,9 @@
                                     <h5 class="text" id="qtd_pessoas">Quantidade de Pessoas:</h5>
                                     <h5 class="text" id="label_data_inicial">Data Inicial:</h5>
                                     <h5 class="text" id="label_data_final">Data Final:</h5>
-                                    <h5 class="text" id="label_atividades">Atividades Incluidas:</h5>
+                                    <h5 class="text" id="label_atividades">Atividades Incluídas:</h5>
+                                    <p class="text-danger font-weight-bold">{{ $comunidade->mensagem }}</p>
+                                    <h5 class="text">Taxa de transporte: {{ number_format($comunidade->taxa, 2, ',', '.') }} BRL</h5>
                                     <h5 class="text" id="preco_final">Preço Total: </h5>
                                 </div>
                             </card>
@@ -135,11 +137,14 @@
                 for (var i = 0; i < atividades_id.length; i++) {
                     var option = $('#opcoes_atividades option[value=' + atividades_id[i] + ']');
                     atividades += option.text() + ', ';
-                    preco_total += parseFloat(option.data('preco')); // Adiciona o preço da atividade
+                    preco_total += parseFloat(option.data('preco'));
                 }
 
+                var taxa = {{ $comunidade->taxa }};
+                var preco_final = (preco_total * $('#pessoas').val()) + taxa;
+
                 $('#label_atividades').text('Atividades Incluídas: ' + atividades);
-                $('#preco_final').text('Preço Total: ' + formatarMoeda(preco_total * $('#pessoas').val()));
+                $('#preco_final').text('Preço Total: ' + formatarMoeda(preco_final));
             });
 
             $('#pessoas').change(function() {

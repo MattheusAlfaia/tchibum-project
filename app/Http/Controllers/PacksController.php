@@ -68,6 +68,7 @@ class PacksController extends Controller
     {
         $precoTotal = 0;
 
+        // Cálculo do preço total das atividades multiplicado pelo número de pessoas
         if ($request->has('atividades')) {
             $atividades = Opcoe::whereIn('id', $request->atividades)->get();
             foreach ($atividades as $atividade) {
@@ -75,6 +76,11 @@ class PacksController extends Controller
             }
         }
 
+        // Adiciona a taxa da comunidade ao preço total
+        $comunidade = Comunidade::find($request->comunidade_id);
+        $precoTotal += $comunidade->taxa;
+
+        // Criação do pacote personalizado
         $pacotePersonalizado = PacotePersonalizado::create([
             'comunidade_id' => $request->comunidade_id,
             'user_id' => auth()->id(),
@@ -92,8 +98,6 @@ class PacksController extends Controller
             'status' => 'EM ANALISE',
         ]);
 
-
-
         if ($request->has('atividades')) {
             $pacotePersonalizado->opcoes()->attach($request->atividades);
         }
@@ -102,6 +106,7 @@ class PacksController extends Controller
 
         return redirect()->away($whatsappLink);
     }
+
 
 
     private function generateWhatsAppLink(PacotePersonalizado $pacote)
@@ -113,10 +118,13 @@ class PacksController extends Controller
 
         $user = auth()->user();
 
+        $taxaTransporte = number_format($pacote->comunidade->taxa, 2, ',', '.');
+
         $mensagem = "Solicitação de Compra (Pacote Personalizado) :\n\n";
         $mensagem .= "Informações do Pacote:\n\n";
         $mensagem .= "Identificação do Pacote: " . $pacote->id . "\n";
-        $mensagem .= "Preço: R$" . number_format($pacote->preco, 2, ',', '.') . "\n";
+        $mensagem .= "Preço Total: R$" . number_format($pacote->preco, 2, ',', '.') . "\n";
+        $mensagem .= "Taxa de Transporte: R$" . $taxaTransporte . "\n";
         $mensagem .= "Data: " . $dataFormatada . "\n";
         $mensagem .= "Data Final: " . $dataFinalFormatada . "\n";
         $mensagem .= "Nome da Comunidade: " . $pacote->comunidade->nome . "\n\n";
@@ -130,6 +138,7 @@ class PacksController extends Controller
 
         return "https://wa.me/" . $contato->whatsapp . "/?text=" . rawurlencode($mensagem);
     }
+
 
     public function index(){
         $pacotes = Pacote::with('comunidade')->latest()->paginate(6);

@@ -15,7 +15,7 @@ class Comunidade extends Model
 
 
     protected $table = 'comunidades';
-    protected $fillable = ['nome','descricao','latitude','longitude','endereço','imagem_principal','imagens_secundarias','video'];
+    protected $fillable = ['nome','descricao','latitude','longitude','endereço','imagem_principal','imagens_secundarias','video', 'taxa', 'mensagem'];
 
     protected $casts = [
         'imagens_secundarias' => 'array',
@@ -30,7 +30,7 @@ class Comunidade extends Model
     {
         return LogOptions::defaults()
         ->logOnly([
-            'nome','descricao','latitude','longitude','endereço','imagem_principal','imagens_secundarias','video'
+            'nome','descricao','latitude','longitude','endereço','imagem_principal','imagens_secundarias','video', 'taxa', 'mensagem'
         ]);
     }
 
