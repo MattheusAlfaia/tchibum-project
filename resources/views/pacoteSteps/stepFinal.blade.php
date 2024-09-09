@@ -17,8 +17,7 @@
                                     <div class="mb-3">
                                         <label for="pessoas"
                                             class="form-label">{{ trans('messages.quantidade_de_pessoas') }}:</label>
-                                        <input type="number" id="pessoas" class="form-control" name="pessoas"
-                                        value="1" min="1" required>
+                                        <input type="number" id="pessoas" class="form-control" name="pessoas" min="1" required>
                                     </div>
                                 </div>
 
@@ -26,7 +25,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="data" class="form-label">{{ trans('messages.data') }}:</label>
-                                        <input type="date" class="form-control" id="data" name="data">
+                                        <input type="date" class="form-control" id="data" name="data" required>
                                     </div>
                                 </div>
 
@@ -35,7 +34,7 @@
                                     <div class="mb-3">
                                         <label for="data_final"
                                             class="form-label">{{ trans('messages.data_final') }}:</label>
-                                        <input type="date" class="form-control" id="data_final" name="data_final">
+                                        <input type="date" class="form-control" id="data_final" name="data_final" required>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +43,7 @@
                             <h3 class="text-white"> Selecionar Atividades </h3>
                             <div class="mb-3">
                                 <select class="js-select2 select-dd" id="opcoes_atividades" name="atividades[]"
-                                    multiple="multiple">
+                                    multiple="multiple" required>
                                     @foreach ($atividades as $atividade)
                                         <option value="{{ $atividade->id }}" data-preco="{{ $atividade->preco }}">
                                             {{ $atividade->nome }}</option>

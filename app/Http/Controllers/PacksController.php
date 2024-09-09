@@ -63,11 +63,10 @@ class PacksController extends Controller
 
     // /// /// /// /// /// /// /// /// /// /// /// /// /// ///
 
-
     public function save(Request $request)
     {
         $precoTotal = 0;
-
+        
         // Cálculo do preço total das atividades multiplicado pelo número de pessoas
         if ($request->has('atividades')) {
             $atividades = Opcoe::whereIn('id', $request->atividades)->get();
@@ -75,11 +74,11 @@ class PacksController extends Controller
                 $precoTotal += $atividade->preco * $request->pessoas;
             }
         }
-
+        
         // Adiciona a taxa da comunidade ao preço total
         $comunidade = Comunidade::find($request->comunidade_id);
         $precoTotal += $comunidade->taxa;
-
+        
         // Criação do pacote personalizado
         $pacotePersonalizado = PacotePersonalizado::create([
             'comunidade_id' => $request->comunidade_id,
@@ -90,24 +89,22 @@ class PacksController extends Controller
             'pessoas' => $request->pessoas,
             'status' => 'EM ANALISE',
         ]);
-
+        
         PacotePersoUsuario::create([
             'pacoteperso_id' => $pacotePersonalizado->id,
             'user_id' => auth()->id(),
             'data' => $pacotePersonalizado->data,
             'status' => 'EM ANALISE',
         ]);
-
+        
         if ($request->has('atividades')) {
             $pacotePersonalizado->opcoes()->attach($request->atividades);
         }
-
+        
         $whatsappLink = $this->generateWhatsAppLink($pacotePersonalizado);
 
         return redirect()->away($whatsappLink);
     }
-
-
 
     private function generateWhatsAppLink(PacotePersonalizado $pacote)
     {
