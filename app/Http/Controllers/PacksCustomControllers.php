@@ -188,11 +188,9 @@ class PacksCustomControllers extends Controller
         $mes_final = (int)$mes_final;
         $dia_final = (int)$dia_final;
 
-        // Data inicial
         $dataInicial = Carbon::create($ano, $mes, $dia);
 
 
-        // Data Final
 
         $dataFinal = Carbon::create($ano_final, $mes_final, $dia_final);
 
@@ -208,7 +206,6 @@ class PacksCustomControllers extends Controller
 
 
 
-        // $this->enviarSolicitacao($pacotepersonalizado->id);
 
 
         $contato = Contato::find(1);
@@ -230,10 +227,8 @@ class PacksCustomControllers extends Controller
         $mensagem .= "Nome: " . $user->name . "\n";
         $mensagem .= "Email: " . $user->email . "\n";
 
-           // Montar o link do WhatsApp
         $linkWhatsApp = "https://wa.me/" . $contato->whatsapp. "/?text=" . rawurlencode($mensagem);
 
-           // Redirecionar para o link do WhatsApp
         return $linkWhatsApp;
 
     }

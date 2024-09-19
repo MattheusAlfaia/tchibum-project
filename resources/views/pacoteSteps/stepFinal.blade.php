@@ -42,15 +42,14 @@
 
                             <h3 class="text-white"> Selecionar Atividades </h3>
                             <div class="mb-3">
-                                <select class="js-select2 select-dd" id="opcoes_atividades" name="atividades[]"
-                                    multiple="multiple" required>
+                                <select class="js-select2 select-dd" id="opcoes_atividades" name="atividades[]" multiple="multiple" required>
                                     @foreach ($atividades as $atividade)
                                         <option value="{{ $atividade->id }}" data-preco="{{ $atividade->preco }}">
-                                            {{ $atividade->nome }}</option>
+                                            {{ $atividade->nome }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
-
 
                             <h3 class="text-white">Detalhes:</h3>
                             <card
@@ -68,11 +67,6 @@
                                 </div>
                             </card>
 
-                            {{-- <button type="button"
-                                class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button> --}}
-                            {{-- <button type="button" id="enviarDados"
-                                class="btn btn-success">Finalizar Compra!
-                            </button> --}}
                             <button type="submit" class="btn btn-success" id="enviarDados">
                                 Finalizar Compra!
                             </button>
@@ -86,84 +80,105 @@
     <script>
         $(document).ready(function() {
 
-            function obterDataAtual() {
-                var hoje = new Date();
-                var ano = hoje.getFullYear();
-                var mes = String(hoje.getMonth() + 1).padStart(2, '0');
-                var dia = String(hoje.getDate()).padStart(2, '0');
-                return ano + '-' + mes + '-' + dia;
-            }
+function obterDataAtual() {
+    var hoje = new Date();
+    var ano = hoje.getFullYear();
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    var dia = String(hoje.getDate()).padStart(2, '0');
+    return ano + '-' + mes + '-' + dia;
+}
 
-            $('#data').attr('min', obterDataAtual());
-            $('#data_final').attr('min', obterDataAtual());
+$('#data').attr('min', obterDataAtual());
+$('#data_final').attr('min', obterDataAtual());
 
-            $('#enviarDados').click(function() {
-                var pessoas = $('#pessoas').val();
-                var data = $('#data').val();
-                var data_final = $('#data_final').val();
-                var atividades = $('#opcoes_atividades').val();
+$('#enviarDados').click(function() {
+    var pessoas = $('#pessoas').val();
+    var data = $('#data').val();
+    var data_final = $('#data_final').val();
+    var atividades = $('#opcoes_atividades').val();
 
-                if (pessoas === '' || data === '' || data_final === '' || atividades.length === 0) {
-                    alert('Preencha todos os campos');
-                    return;
-                }
-            });
+    if (pessoas === '' || data === '' || data_final === '' || atividades.length === 0) {
+        alert('Preencha todos os campos');
+        return;
+    }
+});
 
-            $('#pessoas').on('input', function() {
-                var pessoas = $(this).val();
-                if (pessoas < 1) {
-                    pessoas = 1;
-                    $(this).val(1);
-                }
-                $('#qtd_pessoas').text('Quantidade de Pessoas: ' + pessoas);
-            });
+$('#pessoas').on('input', function() {
+    var pessoas = $(this).val();
+    if (pessoas < 1) {
+        pessoas = 1;
+        $(this).val(1);
+    }
+    $('#qtd_pessoas').text('Quantidade de Pessoas: ' + pessoas);
+});
 
-            $('#data').change(function() {
-                var data = $(this).val();
-                $('#label_data_inicial').text('Data Inicial: ' + formatarData(data));
-            });
+$('#data').change(function() {
+    var data = $(this).val();
+    $('#label_data_inicial').text('Data Inicial: ' + formatarData(data));
+});
 
-            $('#data_final').change(function() {
-                var data_final = $(this).val();
-                $('#label_data_final').text('Data Final: ' + formatarData(data_final));
-            });
+$('#data_final').change(function() {
+    var data_final = $(this).val();
+    $('#label_data_final').text('Data Final: ' + formatarData(data_final));
+});
 
-            $('#opcoes_atividades').change(function() {
-                var atividades_id = $(this).val();
-                var atividades = '';
-                var preco_total = 0;
+$('#opcoes_atividades').change(function() {
+    var atividades_id = $(this).val();
+    var atividades = '';
+    var preco_total = 0;
 
-                for (var i = 0; i < atividades_id.length; i++) {
-                    var option = $('#opcoes_atividades option[value=' + atividades_id[i] + ']');
-                    atividades += option.text() + ', ';
-                    preco_total += parseFloat(option.data('preco'));
-                }
+    $('#atividades_selecionadas').empty();
 
-                var taxa = {{ $comunidade->taxa }};
-                var preco_final = (preco_total * $('#pessoas').val()) + taxa;
+    for (var i = 0; i < atividades_id.length; i++) {
+        var option = $('#opcoes_atividades option[value=' + atividades_id[i] + ']');
+        var nomeAtividade = option.text();
+        var precoAtividade = parseFloat(option.data('preco'));
 
-                $('#label_atividades').text('Atividades Incluídas: ' + atividades);
-                $('#preco_final').text('Preço Total: ' + formatarMoeda(preco_final));
-            });
+        atividades += '<span style="margin-right: 15px;">' + nomeAtividade +
+                      ' <span class="preco-caixinha">R$ ' + precoAtividade.toFixed(2).replace('.', ',') + '</span></span>';
 
-            $('#pessoas').change(function() {
-                $('#opcoes_atividades').trigger('change');
-            });
+        preco_total += precoAtividade;
+    }
 
-            function formatarMoeda(valor) {
-                return valor.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL'
-                });
-            }
+    var taxa = {{ $comunidade->taxa }};
+    var preco_final = (preco_total * $('#pessoas').val()) + taxa;
 
-            function formatarData(data) {
-                var dataObj = new Date(data);
-                var dia = String(dataObj.getUTCDate()).padStart(2, '0');
-                var mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0');
-                var ano = dataObj.getUTCFullYear();
-                return dia + '/' + mes + '/' + ano;
-            }
-        });
+
+    $('#label_atividades').html(atividades);
+    $('#preco_final').text('Preço Total: ' + formatarMoeda(preco_final));
+});
+
+$('#pessoas').change(function() {
+    $('#opcoes_atividades').trigger('change');
+});
+
+function formatarMoeda(valor) {
+    return valor.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+}
+
+function formatarData(data) {
+    var dataObj = new Date(data);
+    var dia = String(dataObj.getUTCDate()).padStart(2, '0');
+    var mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0');
+    var ano = dataObj.getUTCFullYear();
+    return dia + '/' + mes + '/' + ano;
+}
+});
+
     </script>
+    <style>
+        .preco-caixinha {
+            background-color: #e0f3e7;
+            color: #2d6a4f;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: normal;
+            font-size: 0.9rem;
+            margin-left: 8px;
+            display: inline-block;
+        }
+    </style>
 @endsection
