@@ -17,7 +17,7 @@
                                     <div class="mb-3">
                                         <label for="pessoas"
                                             class="form-label">{{ trans('messages.quantidade_de_pessoas') }}:</label>
-                                        <input type="number" id="pessoas" class="form-control" name="pessoas" min="1" required>
+                                        <input type="text" id="pessoas" class="form-control" name="pessoas"  required>
                                     </div>
                                 </div>
 
@@ -62,7 +62,7 @@
                                     <h5 class="text" id="label_data_final">Data Final:</h5>
                                     <h5 class="text" id="label_atividades">Atividades Incluídas:</h5>
                                     <p class="text-danger font-weight-bold">{{ $comunidade->mensagem }}</p>
-                                    <h5 class="text">Taxa de transporte: {{ number_format($comunidade->taxa, 2, ',', '.') }} BRL</h5>
+                                    <h5 class="text">Taxa de transporte: R$ {{ number_format($comunidade->taxa, 2, ',', '.') }}</h5>
                                     <h5 class="text" id="preco_final">Preço Total: </h5>
                                 </div>
                             </card>
@@ -105,7 +105,7 @@ $('#enviarDados').click(function() {
 
 $('#pessoas').on('input', function() {
     var pessoas = $(this).val();
-    if (pessoas < 1) {
+    if (pessoas < 0) {
         pessoas = 1;
         $(this).val(1);
     }
