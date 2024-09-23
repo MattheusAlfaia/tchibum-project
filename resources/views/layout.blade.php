@@ -234,7 +234,6 @@
                             <li><a href="#" class="py-2 d-block">{{ trans('messages.regulamento_geral') }}</a></li>
                             <li><a href="#" class="py-2 d-block">{{ trans('messages.condicoes_de_reserva') }}</a></li>
                             <li><a href="#" class="py-2 d-block">{{ trans('messages.politica_de_privacidade') }}</a></li>
-                            <li><a href="#" class="py-2 d-block">{{ trans('messages.politica_de_reembolso') }}</a></li>
                         </ul>
                     </div>
                 </div>
