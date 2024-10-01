@@ -350,7 +350,7 @@
                 <div class="row col-12" style="margin-top: 10px;">
                     <div class="col-md-6 mx-auto">
                         <a class="block-30 d-flex align-items-center justify-content-center"
-                            style="background-image: url('{{ asset('/storage/' . $comunidade->imagem_principal) }}'); height: 300px; width:100% ; margin-top:10px; border-radius: 50px;">
+                            style="background-image: url('{{ asset('/storage/' . $comunidade->imagem_principal) }}'); height: 300px; width:100% ; margin-top:10px; border-radius: 16px;">
                         </a>
                     </div>
                     <div class="col-md-6 mx-auto">
@@ -413,27 +413,25 @@
 
     {{-- Galeria --}}
     <section class="ftco-section">
-            <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 heading-section text-center ftco-animate">
-                <span class="subheading">Momentos</span>
-                <h2 class="mb-4">Galeria</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 heading-section text-center ftco-animate">
+                    <span class="subheading">Momentos</span>
+                    <h2 class="mb-4">Galeria</h2>
+                </div>
             </div>
-        </div>
-        <div class="row" id="imagem-galeria">
             <div class="slick-carousel-galeria" >
-                @foreach ($imagens as $imagem)
-                    <div class="col-md-4 col-md-6">
-                        <div class="project-wrap">
-                            <div class="img"
-                                style="background-image: url('{{ asset('/storage/' . $imagem->imagem) }}')">
+                    @foreach ($imagens as $imagem)
+                        <div class="col-md-4">
+                            <div class="project-wrap">
+                                <div class="img"
+                                    style="background-image: url('{{ asset('/storage/' . $imagem->imagem) }}')">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
             </div>
         </div>
-            </div>
     </section>
 
     <section>
