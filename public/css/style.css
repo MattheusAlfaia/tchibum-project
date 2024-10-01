@@ -9612,8 +9612,8 @@ textarea.form-control {
   -ms-border-radius: 5px;
   border-radius: 5px; }
   .testimony-wrap .user-img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: relative;
     border-radius: 0 50% 50% 50%; }
   .testimony-wrap .name {
