@@ -5,42 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO Meta Tags -->
     <title>Tchibum na Amazônia - Turismo de Base Comunitária</title>
-    <link rel="icon" href="{{ asset('/images/logo.jpg')}}"/>
+    <meta name="description" content="Explore a Amazônia com o Tchibum na Amazônia - Turismo de Base Comunitária, promovendo a sustentabilidade, a preservação ambiental e a cultura local.">
+    <meta name="keywords" content="Turismo, Amazônia, Turismo de Base Comunitária, Sustentabilidade, Cultura Local, Preservação Ambiental, Viagens">
+    <meta name="author" content="Tchibum na Amazônia">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('/images/logo.jpg') }}"/>
+
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 
+    <!-- Icons -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-cTf9aImi42Xrq1zL5IU3yERgF/ZGJ8jFf0Y5SGgkPl5FtM2j4af0/TzX5lX0L/wJSsZ8trHfjW9CZGmH8ekyeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('/css/animate.css')}}">
-
-    <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('/css/magnific-popup.css')}}">
-
+    <!-- Bootstrap & Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/jquery.timepicker.css') }}">
-
-
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('/multiselect-05/css/style.css') }}">
-
-
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Yield for Additional Styles -->
     @yield('styles')
 </head>
+
 
 <body>
     @yield('content')
