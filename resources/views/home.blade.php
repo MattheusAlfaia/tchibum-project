@@ -261,14 +261,14 @@
             @endif
             <div class="slick-carousel">
                 @foreach ($pacotes as $pacote)
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="width: 300px;">
                         <a href="/pacote-{{ $pacote->id }}">
                             <div class="project-wrap">
                                 <div class="img"
                                     style="background-image: url('{{ asset('/storage/' . $pacote->imagem_principal) }}')">
                                     <span class="price">R$ {{ number_format($pacote->preco, 2, ',', '.') }} </span>
                                 </div>
-                                <div class="text p-4">
+                                <div class="text p-4" style="height: 20rem">
                                     <span class="days">{{ $pacote->dias }} Dias de Tour</span>
                                     <h3>{{ $pacote->nome }}</h3>
                                     <p class="location"><span class="fa fa-map-marker"></span>
