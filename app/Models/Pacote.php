@@ -16,7 +16,7 @@ class Pacote extends Model
     use HasFactory;
     use LogsActivity;
     protected $table = 'pacotes';
-    protected $fillable = ['nome','titulo','descricao','imagem_principal','imagens_secundarias','preco','data','infos','video','comunidade_id'];
+    protected $fillable = ['nome','titulo','descricao','imagem_principal','imagens_secundarias','preco','data', 'data_final','infos','video','comunidade_id'];
 
     protected $casts = [
         'imagens_secundarias' => 'array',

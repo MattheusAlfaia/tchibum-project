@@ -65,7 +65,7 @@ $(document).ready(function(){
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,
-    dots: true,
+    dots: false,
     arrows: true,
     responsive: [
       {

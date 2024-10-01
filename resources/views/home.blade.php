@@ -276,7 +276,10 @@
                                     <ul>
                                         <li><i class="fa fa-users"></i> {{ $pacote->pessoas }}</li>
                                         <li><span style="color: #999999"
-                                                class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data)) }}
+                                                class="fa fa-calendar"></span>
+                                                {{ date('d/m/y', strtotime($pacote->data)) }} -
+                                                <span style="color: #999999"></span>
+                                                {{ date('d/m/y', strtotime($pacote->data_final)) }}
                                         </li>
                                     </ul>
                                 </div>
@@ -407,7 +410,7 @@
             </div>
         </div>
     </section>
-    
+
     {{-- Galeria --}}
     <section class="ftco-section">
             <div class="container">
