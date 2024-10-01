@@ -314,7 +314,7 @@
                             <div class="img"
                                 style="background-image: url('{{ asset('/storage/' . $post->imagem_principal) }}')">
                             </div>
-                            <div class="text p-4">
+                            <div class="text p-4" style="height: 20rem">
                                 <h3>{{ $post->titulo }}</h3>
                                 <p class="location"><span class="fa fa-calendar"></span>
                                     {{ date('d/m/y', strtotime($post->created_at)) }}</p>
@@ -392,7 +392,7 @@
                                 <div class="img"
                                     style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}')">
                                 </div>
-                                <div class="text p-4">
+                                <div class="text p-4" style="height: 20rem">
                                     <h3>{{ $opcoe->nome }}</h3>
                                     <p class="location"><span class="fa fa-map-marker"></span>
                                         {{ $opcoe->comunidade->nome }}</p>
