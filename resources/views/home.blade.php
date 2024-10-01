@@ -371,7 +371,7 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
-                    <span class="subheading">O que oferecemos de melhor</span>
+                    <span class="subtitletch">O que oferecemos de melhor</span>
                     <h2 class="mb-4">Nossas Atividades</h2>
                 </div>
             </div>
@@ -416,7 +416,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 heading-section text-center ftco-animate">
-                    <span class="subheading">Momentos</span>
+                    <span class="subtitletch">Momentos</span>
                     <h2 class="mb-4">Galeria</h2>
                 </div>
             </div>
