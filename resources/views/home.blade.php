@@ -392,7 +392,7 @@
                                 <div class="img"
                                     style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}')">
                                 </div>
-                                <div class="text p-4" style="height: 20rem">
+                                <div class="text p-4" style="height: 16rem">
                                     <h3>{{ $opcoe->nome }}</h3>
                                     <p class="location"><span class="fa fa-map-marker"></span>
                                         {{ $opcoe->comunidade->nome }}</p>
