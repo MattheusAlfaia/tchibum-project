@@ -608,7 +608,7 @@
             height: 50px;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 1015px) {
             #container-pacotes {
                 flex-direction: column;
                 text-align: center;
@@ -624,7 +624,7 @@
             border: 5px solid #226315;
             display: flex;
             flex-wrap: wrap;
-            flex-direction: row;
+            /* flex-direction: row; */
         }
 
         #pacotes {
