@@ -407,30 +407,30 @@
             </div>
         </div>
     </section>
-
-    <div class="container">
-        <div class="row justify-content-center pb-4">
+    
+    {{-- Galeria --}}
+    <section class="ftco-section">
+            <div class="container">
+        <div class="row justify-content-center">
             <div class="col-md-6 heading-section text-center ftco-animate">
-                {{-- <span class="subheading">{{ trans('messages.momentos') }}</span> --}}
                 <span class="subheading">Momentos</span>
-                {{-- <h2 class="mb-4">{{ trans('messages.galeria') }}</h2> --}}
                 <h2 class="mb-4">Galeria</h2>
             </div>
         </div>
-    </div>
-    <section id="portfolio" class="portfolio">
-        <div class="container" data-aos="fade-up">
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
+        <div class="row" id="imagem-galeria">
+            <div class="slick-carousel-galeria" >
                 @foreach ($imagens as $imagem)
-                    <div class="col-lg-4 col-md-6 galeria-item">
-                        <div class="portfolio-img"><img src="{{ asset('/storage/' . $imagem->imagem) }}"
-                                class="img-fluid" alt="{{ $imagem->imagem }}"></div>
+                    <div class="col-md-4 col-md-6">
+                        <div class="project-wrap">
+                            <div class="img"
+                                style="background-image: url('{{ asset('/storage/' . $imagem->imagem) }}')">
+                            </div>
+                        </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
+            </div>
     </section>
 
     <section>
