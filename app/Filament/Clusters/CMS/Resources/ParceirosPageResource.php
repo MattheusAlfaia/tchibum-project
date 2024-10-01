@@ -33,9 +33,9 @@ class ParceirosPageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('imagem_principal')
-                    ->optimize('webp')
                     ->directory('parceiros_page')
                     ->disk('public')
+                    ->optimize('webp')
                     ->required(),
             ]);
     }

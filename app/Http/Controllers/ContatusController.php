@@ -12,7 +12,7 @@ class ContatusController extends Controller
     public function index()
     {
         $contato = Cache::remember('contato', 60, function () {
-            return Contato::find(1);
+            return Contato::first();
         });
 
         return view('contatus', compact('contato'));

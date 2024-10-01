@@ -13,7 +13,7 @@ class ParceiroController extends Controller
     public function index()
     {
         $parceiros_page = Cache::remember('parceiros_page', 60, function () {
-            return ParceirosPage::find(1);
+            return ParceirosPage::first();
         });
 
         return view('parceiros', compact('parceiros_page'));
