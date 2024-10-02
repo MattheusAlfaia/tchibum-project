@@ -249,10 +249,10 @@
                         <h2 class="ftco-heading-2">{{ trans('messages.experiencia') }}</h2>
                         <ul class="list-unstyled">
                             <li><a class="py-2 d-block">{{ trans('messages.aventura') }}</a></li>
-                            <li><a class="py-2 d-block">{{ trans('messages.hotel_e_restaurantes') }}</a></li>
-                            <li><a class="py-2 d-block">{{ trans('messages.praias') }}</a></li>
-                            <li><a class="py-2 d-block">{{ trans('messages.natureza') }}</a></li>
-                            <li><a class="py-2 d-block">{{ trans('messages.acampamentos') }}</a></li>
+                            <li><a class="py-2 d-block">{{ trans('messages.intercambio') }}</a></li>
+                            <li><a class="py-2 d-block">{{ trans('messages.projetos') }}</a></li>
+                            <li><a class="py-2 d-block">{{ trans('messages.imersoes') }}</a></li>
+                            <li><a class="py-2 d-block">{{ trans('messages.day_use') }}</a></li>
                             <li><a class="py-2 d-block">{{ trans('messages.festas_regionais') }}</a></li>
                         </ul>
                     </div>
