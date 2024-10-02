@@ -242,6 +242,9 @@ class PacksController extends Controller
         if (!empty($request->cpf)) {
             $user->cpf = $request->cpf;
         }
+        if (!empty($request->telefone)) {
+            $user->telefone = $request->telefone;
+        }
         if (!empty($request->uf)) {
             $user->uf = $request->uf;
         }

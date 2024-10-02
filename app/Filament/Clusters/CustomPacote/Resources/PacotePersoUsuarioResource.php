@@ -65,6 +65,10 @@ class PacotePersoUsuarioResource extends Resource
                     ->label('Cliente')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('user.telefone')
+                    ->label('Telefone')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('data')
                     ->date('d/m/Y H:i:s')
                     ->sortable(),

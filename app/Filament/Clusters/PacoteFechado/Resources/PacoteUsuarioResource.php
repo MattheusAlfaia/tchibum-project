@@ -44,6 +44,11 @@ class PacoteUsuarioResource extends Resource
                     ->options(User::all()->pluck('name', 'id'))
                     ->searchable()
                     ->required(),
+                Forms\Components\Select::make('user_id')
+                    ->label('Telefone')
+                    ->options(User::all()->pluck('telefone', 'id'))
+                    ->searchable()
+                    ->required(),
                 Forms\Components\DateTimePicker::make('data')
                     ->required(),
                 Forms\Components\Select::make('status')
@@ -64,6 +69,10 @@ class PacoteUsuarioResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('user.email')
                    ->label('Cliente')
+                   ->searchable()
+                   ->sortable(),
+                Tables\Columns\TextColumn::make('user.telefone')
+                   ->label('Telefone')
                    ->searchable()
                    ->sortable(),
                 Tables\Columns\TextColumn::make('data')

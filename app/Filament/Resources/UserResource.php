@@ -46,6 +46,8 @@ class UserResource extends Resource
                     ->label('Foto de perfil'),
                 Forms\Components\TextInput::make('cpf')
                     ->label('CPF'),
+                Forms\Components\TextInput::make('telefone')
+                    ->label('Telefone'),
                 Forms\Components\TextInput::make('uf')
                     ->label('UF')
                     ->maxLength(255),
@@ -82,6 +84,8 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->label('Nome Completo'),
+                Tables\Columns\TextColumn::make('telefone')
+                        ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('role')

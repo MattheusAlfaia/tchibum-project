@@ -114,6 +114,11 @@
                             <input type="text" id="cpf" name="cpf" class="form-control">
                         </div>
 
+                        <div class="mb-3" id="teefone-container">
+                            <label for="telefone" class="form-label">Telefone(Whatsapp)</label>
+                            <input type="text" id="telefone" name="telefone" class="form-control">
+                        </div>
+
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
                             <input type="text" id="endereco" name="endereco" class="form-control" required>
@@ -691,6 +696,7 @@
             $('#cpf').mask('000.000.000-00', {
                 reverse: true
             });
+            $('#telefone').mask('(00) 00000-0000');
         });
 
 

@@ -79,6 +79,10 @@ class PacotePersonalizadoResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Solicitante')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('user.telefone')
+                    ->label('Telefone')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('preco')
                     ->label('Preço')
                     ->numeric()
