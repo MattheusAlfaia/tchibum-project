@@ -15,10 +15,22 @@ class Opcoe extends Model
     use HasFactory;
     use LogsActivity;
     protected $table = 'opcoes';
-    protected $fillable = ['nome','titulo','descricao','imagem','preco','comunidade_id'];
+
+    protected $fillable = [
+        'nome',
+        'titulo',
+        'descricao',
+        'imagem',
+        'preco',
+        'comunidade_id',
+        'por_pessoa',
+        'por_grupo',
+        'tamanho_grupo'
+    ];
 
     protected $casts = [
         'por_pessoa' => 'boolean',
+        'por_grupo' => 'boolean',
     ];
 
     public function comunidade()
@@ -40,7 +52,7 @@ class Opcoe extends Model
     {
         return LogOptions::defaults()
         ->logOnly([
-            'nome','titulo','descricao','imagem','preco','comunidade_id'
+            'nome','titulo','descricao','imagem','preco','comunidade_id', 'por_pessoa', 'por_grupo', 'tamanho_grupo'
         ]);
     }
 

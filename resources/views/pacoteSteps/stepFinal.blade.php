@@ -39,12 +39,15 @@
                                 </div>
                             </div>
 
-
                             <h3 class="text-white"> Selecionar Atividades </h3>
                             <div class="mb-3">
                                 <select class="js-select2 select-dd" id="opcoes_atividades" name="atividades[]" multiple="multiple" required>
                                     @foreach ($atividades as $atividade)
-                                        <option value="{{ $atividade->id }}" data-preco="{{ $atividade->preco }}">
+                                        <option
+                                            value="{{ $atividade->id }}"
+                                            data-preco="{{ $atividade->preco }}"
+                                            data-por-grupo="{{ $atividade->por_grupo }}"
+                                            data-tamanho-grupo="{{ $atividade->tamanho_grupo }}">
                                             {{ $atividade->nome }}
                                         </option>
                                     @endforeach
@@ -80,93 +83,103 @@
     <script>
         $(document).ready(function() {
 
-function obterDataAtual() {
-    var hoje = new Date();
-    var ano = hoje.getFullYear();
-    var mes = String(hoje.getMonth() + 1).padStart(2, '0');
-    var dia = String(hoje.getDate()).padStart(2, '0');
-    return ano + '-' + mes + '-' + dia;
-}
+            function obterDataAtual() {
+                var hoje = new Date();
+                var ano = hoje.getFullYear();
+                var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+                var dia = String(hoje.getDate()).padStart(2, '0');
+                return ano + '-' + mes + '-' + dia;
+            }
 
-$('#data').attr('min', obterDataAtual());
-$('#data_final').attr('min', obterDataAtual());
+            $('#data').attr('min', obterDataAtual());
+            $('#data_final').attr('min', obterDataAtual());
 
-$('#enviarDados').click(function() {
-    var pessoas = $('#pessoas').val();
-    var data = $('#data').val();
-    var data_final = $('#data_final').val();
-    var atividades = $('#opcoes_atividades').val();
+            $('#enviarDados').click(function() {
+                var pessoas = $('#pessoas').val();
+                var data = $('#data').val();
+                var data_final = $('#data_final').val();
+                var atividades = $('#opcoes_atividades').val();
 
-    if (pessoas === '' || data === '' || data_final === '' || atividades.length === 0) {
-        alert('Preencha todos os campos');
-        return;
-    }
-});
+                if (pessoas === '' || data === '' || data_final === '' || atividades.length === 0) {
+                    alert('Preencha todos os campos');
+                    return;
+                }
+            });
 
-$('#pessoas').on('input', function() {
-    var pessoas = $(this).val();
-    if (pessoas < 0) {
-        pessoas = 1;
-        $(this).val(1);
-    }
-    $('#qtd_pessoas').text('Quantidade de Pessoas: ' + pessoas);
-});
+            $('#pessoas').on('input', function() {
+                var pessoas = $(this).val();
+                if (pessoas < 0) {
+                    pessoas = 1;
+                    $(this).val(1);
+                }
+                $('#qtd_pessoas').text('Quantidade de Pessoas: ' + pessoas);
+            });
 
-$('#data').change(function() {
-    var data = $(this).val();
-    $('#label_data_inicial').text('Data Inicial: ' + formatarData(data));
-});
+            $('#data').change(function() {
+                var data = $(this).val();
+                $('#label_data_inicial').text('Data Inicial: ' + formatarData(data));
+            });
 
-$('#data_final').change(function() {
-    var data_final = $(this).val();
-    $('#label_data_final').text('Data Final: ' + formatarData(data_final));
-});
+            $('#data_final').change(function() {
+                var data_final = $(this).val();
+                $('#label_data_final').text('Data Final: ' + formatarData(data_final));
+            });
 
-$('#opcoes_atividades').change(function() {
-    var atividades_id = $(this).val();
-    var atividades = '';
-    var preco_total = 0;
+            $('#opcoes_atividades').change(function() {
+                var atividades_id = $(this).val();
+                var atividades = '';
+                var preco_total = 0;
+                var pessoas = parseInt($('#pessoas').val());
 
-    $('#atividades_selecionadas').empty();
+                $('#atividades_selecionadas').empty();
 
-    for (var i = 0; i < atividades_id.length; i++) {
-        var option = $('#opcoes_atividades option[value=' + atividades_id[i] + ']');
-        var nomeAtividade = option.text();
-        var precoAtividade = parseFloat(option.data('preco'));
+                for (var i = 0; i < atividades_id.length; i++) {
+                    var option = $('#opcoes_atividades option[value=' + atividades_id[i] + ']');
+                    var nomeAtividade = option.text();
+                    var precoAtividade = parseFloat(option.data('preco'));
+                    var porGrupo = option.data('por-grupo');
+                    var tamanhoGrupo = parseInt(option.data('tamanho-grupo'));
 
-        atividades += '<span style="margin-right: 15px;">' + nomeAtividade +
-                      ' <span class="preco-caixinha">R$ ' + precoAtividade.toFixed(2).replace('.', ',') + '</span></span>';
+                    // Verifica se a atividade é cobrada por grupo
+                    if (porGrupo && !isNaN(tamanhoGrupo) && tamanhoGrupo > 0) {
+                        var numeroGrupos = Math.ceil(pessoas / tamanhoGrupo); // Calcula o número de grupos
+                        precoAtividade *= numeroGrupos;
+                    } else {
+                        precoAtividade *= pessoas; // Cobrança por pessoa
+                    }
 
-        preco_total += precoAtividade;
-    }
+                    atividades += '<span style="margin-right: 15px;">' + nomeAtividade +
+                                  ' <span class="preco-caixinha">R$ ' + precoAtividade.toFixed(2).replace('.', ',') + '</span></span>';
 
-    var taxa = {{ $comunidade->taxa }};
-    var preco_final = (preco_total * $('#pessoas').val()) + taxa;
+                    preco_total += precoAtividade;
+                }
 
+                var taxa = {{ $comunidade->taxa }};
+                var preco_final = preco_total + taxa;
 
-    $('#label_atividades').html(atividades);
-    $('#preco_final').text('Preço Total: ' + formatarMoeda(preco_final));
-});
+                $('#label_atividades').html(atividades);
+                $('#preco_final').text('Preço Total: ' + formatarMoeda(preco_final));
+            });
 
-$('#pessoas').change(function() {
-    $('#opcoes_atividades').trigger('change');
-});
+            $('#pessoas').change(function() {
+                $('#opcoes_atividades').trigger('change');
+            });
 
-function formatarMoeda(valor) {
-    return valor.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
-}
+            function formatarMoeda(valor) {
+                return valor.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                });
+            }
 
-function formatarData(data) {
-    var dataObj = new Date(data);
-    var dia = String(dataObj.getUTCDate()).padStart(2, '0');
-    var mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0');
-    var ano = dataObj.getUTCFullYear();
-    return dia + '/' + mes + '/' + ano;
-}
-});
+            function formatarData(data) {
+                var dataObj = new Date(data);
+                var dia = String(dataObj.getUTCDate()).padStart(2, '0');
+                var mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0');
+                var ano = dataObj.getUTCFullYear();
+                return dia + '/' + mes + '/' + ano;
+            }
+        });
 
     </script>
     <style>

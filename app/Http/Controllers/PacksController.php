@@ -64,47 +64,63 @@ class PacksController extends Controller
     // /// /// /// /// /// /// /// /// /// /// /// /// /// ///
 
     public function save(Request $request)
-    {
-        $precoTotal = 0;
-        
-        // Cálculo do preço total das atividades multiplicado pelo número de pessoas
-        if ($request->has('atividades')) {
-            $atividades = Opcoe::whereIn('id', $request->atividades)->get();
-            foreach ($atividades as $atividade) {
+{
+    $precoTotal = 0;
+    $tamanhoGrupo = $request->pessoas; // Por padrão, tamanho do grupo será o número total de pessoas
+
+    // Cálculo do preço total das atividades, considerando se é por pessoa ou por grupo
+    if ($request->has('atividades')) {
+        $atividades = Opcoe::whereIn('id', $request->atividades)->get();
+        foreach ($atividades as $atividade) {
+            if ($atividade->por_pessoa) {
+                // Cobrança por pessoa
                 $precoTotal += $atividade->preco * $request->pessoas;
+            } elseif ($atividade->por_grupo) {
+                // Cobrança por grupo
+                $numeroGrupos = ceil($request->pessoas / $atividade->tamanho_grupo);
+                $precoTotal += $atividade->preco * $numeroGrupos;
+
+                // Atualiza o tamanho do grupo com o valor correto se for por grupo
+                $tamanhoGrupo = $atividade->tamanho_grupo;
+            } else {
+                // Cobrança sem regra (talvez um valor fixo)
+                $precoTotal += $atividade->preco;
             }
         }
-        
-        // Adiciona a taxa da comunidade ao preço total
-        $comunidade = Comunidade::find($request->comunidade_id);
-        $precoTotal += $comunidade->taxa;
-        
-        // Criação do pacote personalizado
-        $pacotePersonalizado = PacotePersonalizado::create([
-            'comunidade_id' => $request->comunidade_id,
-            'user_id' => auth()->id(),
-            'preco' => $precoTotal,
-            'data' => $request->data,
-            'data_final' => $request->data_final,
-            'pessoas' => $request->pessoas,
-            'status' => 'EM ANALISE',
-        ]);
-        
-        PacotePersoUsuario::create([
-            'pacoteperso_id' => $pacotePersonalizado->id,
-            'user_id' => auth()->id(),
-            'data' => $pacotePersonalizado->data,
-            'status' => 'EM ANALISE',
-        ]);
-        
-        if ($request->has('atividades')) {
-            $pacotePersonalizado->opcoes()->attach($request->atividades);
-        }
-        
-        $whatsappLink = $this->generateWhatsAppLink($pacotePersonalizado);
-
-        return redirect()->away($whatsappLink);
     }
+
+    // Adiciona a taxa da comunidade ao preço total
+    $comunidade = Comunidade::find($request->comunidade_id);
+    $precoTotal += $comunidade->taxa;
+
+    // Criação do pacote personalizado com o tamanho do grupo ou número de pessoas
+    $pacotePersonalizado = PacotePersonalizado::create([
+        'comunidade_id' => $request->comunidade_id,
+        'user_id' => auth()->id(),
+        'preco' => $precoTotal,
+        'data' => $request->data,
+        'data_final' => $request->data_final,
+        'pessoas' => $tamanhoGrupo,  // Aqui salva o tamanho do grupo, se existir
+        'status' => 'EM ANALISE',
+    ]);
+
+    PacotePersoUsuario::create([
+        'pacoteperso_id' => $pacotePersonalizado->id,
+        'user_id' => auth()->id(),
+        'data' => $pacotePersonalizado->data,
+        'status' => 'EM ANALISE',
+    ]);
+
+    if ($request->has('atividades')) {
+        $pacotePersonalizado->opcoes()->attach($request->atividades);
+    }
+
+    $whatsappLink = $this->generateWhatsAppLink($pacotePersonalizado);
+
+    return redirect()->away($whatsappLink);
+}
+
+
 
     private function generateWhatsAppLink(PacotePersonalizado $pacote)
     {

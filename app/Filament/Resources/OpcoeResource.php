@@ -48,8 +48,14 @@ class OpcoeResource extends Resource
             Forms\Components\TextInput::make('preco')
                 ->required()
                 ->numeric(10.2),
+            Forms\Components\TextInput::make('tamanho_grupo')
+                ->label('Tamanho do Grupo')
+                ->numeric(),
             Forms\Components\Toggle::make('por_pessoa')
-                ->required(),
+                ->label('Valor por Pessoa'),
+            Forms\Components\Toggle::make('por_grupo')
+                ->default(false)
+                ->label('Valor por Grupo'),
             Forms\Components\Select::make('comunidade_id')
                 ->label('Comunidade')
                 ->options(Comunidade::all()->pluck('nome', 'id'))
