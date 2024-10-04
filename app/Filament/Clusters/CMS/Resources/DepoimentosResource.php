@@ -13,8 +13,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use IbrahimBougaoua\FilamentRatingStar\Actions\RatingStar;
-use IbrahimBougaoua\FilamentRatingStar\Columns\RatingStarColumn;
+use IbrahimBougaoua\FilamentRatingStar\Forms\Components\RatingStar;
+use IbrahimBougaoua\FilamentRatingStar\Columns\Components\RatingStarColumns;
 
 class DepoimentosResource extends Resource
 {
@@ -61,7 +61,7 @@ class DepoimentosResource extends Resource
                     ->circular(),
                 Tables\Columns\TextColumn::make('nome')
                     ->searchable(),
-                RatingStarColumn::make('avaliação')
+                RatingStarColumns::make('avaliação')
                     ->size('sm'),
                 Tables\Columns\TextColumn::make('ocupação')
                     ->searchable(),
