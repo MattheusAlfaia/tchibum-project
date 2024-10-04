@@ -18,6 +18,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @php
+    // Função auxiliar para carregar arquivos do Vite a partir do manifest.json
+        function vite_asset($path) {
+            $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+            return asset('build/' . $manifest[$path]['file']);
+        }
+    @endphp
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
