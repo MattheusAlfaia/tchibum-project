@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('titulo',100);
             $table->string('descricao',1200);
             $table->string('imagem',255);
-            $table->float('preco',10,2);
+            $table->float('preco',10.2);
             // $table->boolean('por_pessoa')->default(false);
 
             $table->unsignedBigInteger('comunidade_id')->unsigned();

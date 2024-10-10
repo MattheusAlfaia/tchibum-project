@@ -31,14 +31,11 @@ class OpcoeResource extends Resource
         return $form
             ->schema([
             Forms\Components\TextInput::make('nome')
-                ->required()
-                ->maxLength(35),
-            Forms\Components\TextInput::make('titulo')
-                ->required()
-                ->maxLength(100),
+                ->required(),
+            Forms\Components\Textarea::make('titulo')
+                ->required(),
             Forms\Components\MarkdownEditor::make('descricao')
-                ->required()
-                ->maxLength(1200),
+                ->required(),
             Forms\Components\FileUpload::make('imagem')
                 ->maxSize(50000)
                 ->imageEditor()
@@ -116,8 +113,8 @@ class OpcoeResource extends Resource
     {
         return [
             'index' => Pages\ListOpcoes::route('/'),
-            //'create' => Pages\CreateOpcoe::route('/create'),
-            //'edit' => Pages\EditOpcoe::route('/{record}/edit'),
+            'create' => Pages\CreateOpcoe::route('/create'),
+            'edit' => Pages\EditOpcoe::route('/{record}/edit'),
         ];
     }
 }

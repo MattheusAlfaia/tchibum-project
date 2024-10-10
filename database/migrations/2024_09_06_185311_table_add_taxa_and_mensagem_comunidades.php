@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('comunidades', function (Blueprint $table) {
             // $table->double('taxa')->nullable();
-            $table->float('taxa',10,2);
+            $table->float('taxa',10.2);
             $table->string('mensagem', 255)->nullable();
         });
     }
