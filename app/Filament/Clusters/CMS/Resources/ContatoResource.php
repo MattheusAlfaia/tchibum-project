@@ -33,6 +33,13 @@ class ContatoResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->directory('contato')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->disk('public')
                     ->optimize('webp')
                     ->required(),

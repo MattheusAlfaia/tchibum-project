@@ -41,6 +41,13 @@ class OpcoeResource extends Resource
                 ->maxLength(1200),
             Forms\Components\FileUpload::make('imagem')
                 ->maxSize(50000)
+                ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                 ->directory('opcoes')
                 ->optimize('webp')
                 ->disk('public')

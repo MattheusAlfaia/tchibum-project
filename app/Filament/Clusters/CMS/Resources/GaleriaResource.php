@@ -34,6 +34,13 @@ class GaleriaResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('imagem')
                     ->optimize('webp')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->directory('galeria')
                     ->disk('public')
                     ->required(),

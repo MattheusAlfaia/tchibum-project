@@ -41,6 +41,13 @@ class PostsResource extends Resource
                     ->maxLength(5000),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->directory('post')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->optimize('webp')
                     ->disk('public')
                     ->required(),

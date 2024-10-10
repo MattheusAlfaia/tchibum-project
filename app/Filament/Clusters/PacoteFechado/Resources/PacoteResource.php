@@ -49,12 +49,26 @@ class PacoteResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->label('Imagem Principal')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->directory('pacote')
                     ->optimize('webp')
                     ->disk('public')
                     ->required(),
                 Forms\Components\FileUpload::make('imagens_secundarias')
                     ->label('Imagens Secundarias')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->directory('pacote')
                     ->disk('public')
                     ->optimize('webp')

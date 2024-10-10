@@ -64,6 +64,13 @@ class HomeResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade1')
                     ->label('Imagem Atividade/Comunidade 1')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->optimize('webp')
                     ->directory('home')
                     ->disk('public')
@@ -74,6 +81,13 @@ class HomeResource extends Resource
                     ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade2')
                     ->label('Imagem Atividade/Comunidade 2')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->optimize('webp')
                     ->directory('home')
                     ->disk('public')
@@ -84,6 +98,13 @@ class HomeResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade3')
                     ->label('Imagem Atividade/Comunidade 3')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->optimize('webp')
                     ->directory('home')
                     ->disk('public')
@@ -94,6 +115,13 @@ class HomeResource extends Resource
                     ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade4')
                     ->label('Imagem Atividade/Comunidade 4')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->optimize('webp')
                     ->directory('home')
                     ->disk('public')

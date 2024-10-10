@@ -51,6 +51,14 @@ class ComunidadeResource extends Resource
                     ->numeric(10.2),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->maxSize(50000)
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
+                    ->optimize('webp')
                     ->directory('comunidades')
                     ->disk('public')
                     ->required(),
@@ -58,6 +66,14 @@ class ComunidadeResource extends Resource
                     ->maxSize(50000)
                     ->directory('comunidades')
                     ->disk('public')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
+                    ->optimize('webp')
                     ->multiple()
                     ->required(),
                 Forms\Components\FileUpload::make('video')
