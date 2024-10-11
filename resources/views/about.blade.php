@@ -26,7 +26,7 @@
      <div class="row d-flex">
        <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
         <div class="w-100">
-         <span class="subheading">{{ trans('messages.sobre_titulo') }}</span>
+         <span class="subtitletch">{{ trans('messages.sobre_titulo') }}</span>
          <h2 class="mb-4">{{ trans('messages.sobre') }}</h2>
          {{-- <p class="paragrafo"> {!! nl2br(e(trans('messages.sobre_texto'))) !!}</p> --}}
          <p class="paragrafo"> {!! markdown(($sobre->sobre)) !!}</p>
@@ -98,14 +98,7 @@
 </section>
 
 
-<script>
-  $(document).ready(function() {
-         // Rolar a tela para baixo até 500 pixels ao carregar a página
-         $('html, body').animate({
-             scrollTop: 700
-         }, 2000); // 1000 é a duração da animação em milissegundos
-     });
-</script>
+
 
 
  @endsection

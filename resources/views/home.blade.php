@@ -497,7 +497,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center pb-4">
                     <div class="col-md-6 heading-section text-center ftco-animate">
-                        <span class="subheading">Nossos Parceiros</span>
+                        <span class="subtitletch">Nossos Parceiros</span>
                     </div>
                 </div>
                 <div class="slick-carousel-parceiros">
