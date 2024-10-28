@@ -4,18 +4,18 @@
 
 <!-- Hero Section -->
 <section class="hero-wrap hero-wrap-1 js-fullheight" style="background-image: url('{{ asset('/images/13.jpg') }}');">
-    <div class="overlay" style="background-color: rgba(0, 0, 0, 0.4);"></div> <!-- Leve sobreposição para melhorar a legibilidade -->
+    <div class="overlay" style="background-color: rgba(0, 0, 0, 0.4);"></div> <!-- Leve sobreposição para legibilidade -->
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate pb-10 text-center">
                 <p class="breadcrumbs">
                     <span class="mr-2">
-                        <a href="/">Home <i class="fa fa-chevron-right"></i></a>
+                        <a href="/" aria-label="Voltar para a página inicial">Home <i class="fa fa-chevron-right"></i></a>
                     </span>
                     <span>Post <i class="fa fa-chevron-right"></i></span>
                 </p>
                 <h1 class="mb-0 bread">{{ $post->titulo }}</h1>
-                <a href="#posts">
+                <a href="#posts" aria-label="Ir para o conteúdo do post">
                     <i class="fa fa-angle-double-down fa-lg" style="color: white;" aria-hidden="true"></i>
                 </a>
             </div>
@@ -30,9 +30,12 @@
             <!-- Imagem Principal (5 colunas no desktop) -->
             <div class="col-lg-11 col-md-12 d-flex">
                 <div id="img-post" class="col-md-12 d-flex align-items-stretch">
-                    <div class="img w-100 align-items-center justify-content-center"
-                        style="background-image:url('{{ asset('/storage/' . $post->imagem_principal) }}');">
-                    </div>
+                    @if($post->imagem_principal)
+                        <div class="img w-100 align-items-center justify-content-center"
+                            style="background-image:url('{{ asset('/storage/' . $post->imagem_principal) }}');"
+                            aria-label="Imagem principal do post">
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -64,8 +67,8 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: 550px; /* Altura fixa para imagem no desktop */
-        border-radius: 8px; /* Opcional: Borda arredondada para destacar a imagem */
+        height: 550px;
+        border-radius: 8px;
     }
 
     /* Conteúdo adicional no desktop */
@@ -73,33 +76,46 @@
         margin-bottom: -20px;
     }
 
-    /* No mobile, o conteúdo precisa se ajustar abaixo da imagem */
+    /* Ajustes no mobile */
     @media (max-width: 759px) {
         #conteudo {
             margin-top: 0;
         }
 
         #img-post {
-            height: 350px; /* Reduzindo a altura da imagem no mobile */
+            height: 350px;
         }
 
-        /* A imagem de fundo não deve ocupar 100% da altura no mobile */
         .hero-wrap {
             height: auto;
         }
 
-        /* Ajusta o texto no mobile para não sobrepor a imagem */
         .paragrafo {
             font-size: 16px;
         }
     }
 
-    /* Responsividade para telas maiores */
+    /* Ajustes para telas grandes */
     @media (min-width: 1200px) {
         #img-post {
-            height: 650px; /* Ajuste de altura para telas grandes */
+            height: 650px;
         }
     }
 </style>
+
+<!-- Smooth Scroll -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const link = document.querySelector('a[href="#posts"]');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#posts').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        }
+    });
+</script>
 
 @endsection
