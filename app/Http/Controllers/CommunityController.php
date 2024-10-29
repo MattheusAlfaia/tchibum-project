@@ -26,9 +26,6 @@ class CommunityController extends Controller
         $image4 = isset($comunidade->imagens_secundarias[3]) ? $comunidade->imagens_secundarias[3] : NULL;
         $image5 = isset($comunidade->imagens_secundarias[4]) ? $comunidade->imagens_secundarias[4] : NULL;
 
-         // Carrega as atividades relacionadas à comunidade
-         $comunidade->load('opcoes');
-         
         return view('community',compact('comunidade','image1','image2','image3','image4','image5'));
 
     }

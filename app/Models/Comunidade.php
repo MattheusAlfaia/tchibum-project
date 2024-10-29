@@ -26,11 +26,6 @@ class Comunidade extends Model
         return $this->hasMany(Pacote::class);
     }
 
-    public function opcoes()
-    {
-        return $this->hasMany(Opcoe::class, 'comunidade_id');
-    }
-
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
